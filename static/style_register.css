@@ -1,0 +1,268 @@
+/* <-- Start Global Styles --> */
+* {
+    font-family: "Kanit", sans-serif;
+    font-style: normal;
+}
+
+body {
+    background-color: grey;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* <End Global Styles> */
+
+/* <-- Start Navbar Section --> */
+.custom-navbar {
+    background: rgb(3, 3, 73) !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.custom-navbar .navbar-brand {
+    font-size: 20px;
+    font-weight: 550;
+    color: rgb(245, 245, 245) !important;
+}
+
+.custom-navbar .navbar-brand > span {
+    opacity: 0.4;
+}
+
+.custom-navbar .navbar-brand .brand-highlight {
+    color: rgb(220, 20, 60) !important;
+}
+
+.custom-navbar .navbar-brand .brand-dot {
+    color: rgb(245, 245, 245) !important;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: transparent;
+}
+
+.custom-navbar .navbar-toggler:active,
+.custom-navbar .navbar-toggler:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.custom-navbar .custom-navbar-nav li a {
+    font-weight: 500;
+    color: rgb(245, 245, 245) !important;
+    opacity: 0.8;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.custom-navbar .custom-navbar-nav li a:before {
+    display: none;
+}
+
+.custom-navbar .custom-navbar-nav li a:hover,
+.custom-navbar .custom-navbar-nav li a.active {
+    opacity: 1;
+}
+
+.custom-navbar .custom-navbar-nav li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: rgb(195, 211, 11);
+    transition: width 0.3s ease;
+}
+
+.custom-navbar .custom-navbar-nav li a:hover::after,
+.custom-navbar .custom-navbar-nav li a.active::after {
+    width: 100%;
+}
+
+.custom-navbar .collapse .custom-navbar-nav {
+    text-align: left;
+}
+
+.custom-navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar .container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.custom-navbar .navbar-toggler {
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+.custom-navbar .navbar-brand {
+    margin-right: auto;
+    font-size: 24px;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar .navbar-toggler {
+        font-size: 1.2rem;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .custom-navbar .navbar-brand {
+        font-size: 28px;
+    }
+
+    .custom-navbar .navbar-toggler {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .custom-navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 16px;
+    }
+
+    .custom-navbar .custom-navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-navbar .custom-navbar-nav li {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .custom-navbar .custom-navbar-nav li a {
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .custom-navbar .navbar-brand {
+        font-size: 18px;
+    }
+
+    .custom-navbar .custom-navbar-nav li a {
+        font-size: 16px;
+    }
+
+    .custom-navbar .collapse .custom-navbar-nav {
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .custom-navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 20px;
+    }
+
+    .custom-navbar .custom-navbar-nav li a {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 24px;
+    }
+
+    .custom-navbar .collapse .custom-navbar-nav {
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1200px) {
+    .custom-navbar .navbar-brand {
+        font-size: 28px;
+    }
+}
+/* <End Navbar Section> */
+
+/* Start Banner Section */
+.container-banner {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/static/images/furni_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.inner-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.inner-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.inner-container label {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .inner-container {
+        padding: 20px;
+    }
+
+    .inner-container h1 {
+        font-size: 1.5rem;
+    }
+}
+/* End Banner Section */
