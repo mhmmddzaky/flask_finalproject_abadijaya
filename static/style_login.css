@@ -74,7 +74,7 @@ body {
     left: 0;
     width: 0;
     height: 4px;
-    background-color: rgb(195, 211, 11);
+    background-color: #f8bf28;
     transition: width 0.3s ease;
 }
 

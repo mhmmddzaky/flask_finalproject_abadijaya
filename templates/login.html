@@ -24,7 +24,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_login.css">
 
-    <title>Halaman Login</title>
+    <title>Login</title>
 
     <script>
         function to_homepage() {
@@ -52,7 +52,6 @@
                 <strong style="color: rgb(220, 20, 60);">Abadi Jaya</strong>
                 <span class="brand-dot">.</span>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsToko"
                 aria-controls="navbarsToko" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -60,13 +59,14 @@
             <div class="collapse navbar-collapse" id="navbarsToko">
                 <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" onclick="to_homepage()">Home</a>
+                        <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
                     </li>
-                    <li><a class="nav-link" href="#" onclick="to_aboutpage()">About</a></li>
-                    <li><a class="nav-link" href="#">Contact</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_registerpage()">Register</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_loginpage()">Login</a></li>
+                    <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
+                    <li><a class="nav-link" href="#">Kontak</a></li>
+                    <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
+                    <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -82,21 +82,17 @@
                     <input type="text" id="username" class="form-control form-control-lg" placeholder="Username"
                         required />
                 </div>
-
                 <!-- Password -->
                 <div class="form-outline mb-4">
                     <input type="password" id="password" class="form-control form-control-lg" placeholder="Password"
                         required />
                 </div>
-
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-light btn-lg btn-block w-100">Login</button>
+                <button type="submit" class="btn btn-light btn-lg btn-block w-100">Masuk</button>
             </form>
-
             <p class="mt-4" style="color: white;">Belum punya akun?
                 <a href="#" style="color: #ffd700;" onclick="to_registerpage()">Daftar di sini</a>
             </p>
-
         </div>
     </div>
 </body>
