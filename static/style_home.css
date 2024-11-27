@@ -336,6 +336,96 @@ body {
 }
 /* End Banner Section */
 
+/* Start Products Type Card */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-radius: 5px; /* Slight border-radius for card */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #555;
+    text-align: center; /* Center title */
+}
+
+.card-text {
+    font-size: 16px;
+    color: #555;
+    text-align: justify; /* Justify product description */
+}
+
+#container-type-products h1 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+}
+
+/* Updated container for cards with blur and border radius */
+.container-cards {
+    border: 1px solid #ddd; /* Outline or border around the cards container */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; /* Align cards to the start */
+    align-items: flex-start; /* Align the cards to the top */
+    flex-wrap: wrap; /* Allow the cards to wrap into new lines */
+    width: 100%; /* Make sure the container takes full width */
+    border-radius: 15px; /* Apply border-radius to the container */
+    margin-top: 40px;
+    position: relative; /* Necessary for the backdrop to work */
+    overflow: hidden; /* Hide any overflow from the blur effect */
+    background-color: rgba(255, 255, 255, 0.2); /* Optional: slightly transparent background */
+    backdrop-filter: blur(10px); /* Apply white blur effect */
+}
+
+/* Remove outline on focus, if any */
+.container-cards:focus {
+    outline: none; /* Prevent the outline from appearing when focused */
+}
+
+/* Row styling */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Reduced gap even more between cards */
+    justify-content: flex-start; /* Align the cards inside the row */
+}
+
+/* Update for card columns */
+.col-md-3, .col-sm-6 {
+    flex: 1 1 23%; /* Default: 4 cards per row for medium screens */
+    display: flex;
+    justify-content: center; /* Ensure card is centered in its column */
+}
+
+/* Allow cards to shrink and grow */
+@media (max-width: 1200px) {
+    .col-md-3 {
+        flex: 1 1 45%; /* 2 cards per row on medium-sized screens (below 1200px) */
+    }
+}
+
+@media (max-width: 768px) {
+    .col-md-3 {
+        flex: 1 1 100%; /* 1 card per row on small screens (below 768px) */
+    }
+}
+
+/* End Products Type Card */
+
+
+
+
 
 
 

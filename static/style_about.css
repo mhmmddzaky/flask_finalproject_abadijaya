@@ -338,32 +338,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
-#about {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#owner {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#team {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 #about h2,
 #owner h2,
 #team h2 {
     padding-bottom: 1.5rem; /* Tambahkan jarak padding bawah */
 }
+
