@@ -5,10 +5,26 @@
 }
 
 body {
-    background-color: #d6d6d6;
+    background: url("/static/images/plaster_wall.jpg") no-repeat center center;
+    background-size: cover;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%; /* Lebih besar dari 100% untuk memastikan seluruh gambar terblur */
+    height: 120%;
+    background: url("/static/images/plaster_wall.jpg") no-repeat center center;
+    background-size: cover;
+    filter: blur(6px);
+    z-index: -1;
+    pointer-events: none;
 }
 /* <End Global Styles> */
 
