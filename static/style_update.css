@@ -5,26 +5,11 @@
 }
 
 body {
-    background: url("/static/images/plaster_wall.jpg") no-repeat center center;
-    background-size: cover;
+    background-color: grey;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 120%; /* Lebih besar dari 100% untuk memastikan seluruh gambar terblur */
-    height: 120%;
-    background: url("/static/images/plaster_wall.jpg") no-repeat center center;
-    background-size: cover;
-    filter: blur(6px);
-    z-index: -1;
-    pointer-events: none;
+    padding-top: 80px;
 }
 /* <End Global Styles> */
 
@@ -329,120 +314,80 @@ body::before {
         font-size: 28px;
     }
 }
-/* <End Navbar Section> */
 
-.banner {
-    position: relative;
-    background: url('/static/images/furni_background.jpg') no-repeat center center/cover;
-    height: 76vh;
+/*Update Style*/
+.edit-profile-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px; 
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.profile-image {
+    position: relative; 
+    width: 150px; 
+    height: 150px; 
+    margin: 0 auto; 
+}
+
+.profile-image img {
+    width: 140px;
+    height: 140px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px; 
+}
+
+.edit-icon {
+    position: absolute; 
+    bottom: 25px;
+    right: 10px; 
+    background-color: #f6faf5; 
+    border: 2px ; 
+    border-radius: 50%; 
+    width: 25px; 
+    height: 25px; 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
-    z-index: 1;
-}
-
-.banner h1, .banner p {
-    z-index: 1;  
-    color: #fff; 
+    font-size: 16px; 
     font-weight: bold;
-    position: relative;
+   
 }
 
-.product-cta {
-    background-color: rgb(3, 3, 73); 
-    padding: 50px;
+form {
+    margin-top: 20px; 
 }
 
-.product-cta h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    font-weight: bold;
+.input-group .password-icon {
+    width: 20px;
+    cursor: pointer;
 }
-
-.product-cta button {
+.button-container{
+    text-align: center;
+ }
+.update-profile-btn {
     font-size: 18px;
     padding: 10px 25px;
-    background-color:  #f8bf28; 
+    background-color: #f8bf28;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-decoration: none; 
+    
 }
 
-.product-cta button:hover {
-    background-color: rgb(195, 211, 11); 
+.update-profile-btn:hover {
+    background-color: rgb(195, 211, 11);
 }
-
-.card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-.card-title{
-    font-size: 24px;
-    color: #555;
-}
-.card-text{
-    font-size: 18px;
-    color: #555;
-}
-
-.lead {
-    font-size: 18px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.abt {
-    text-align: justify;
-    font-size: 18px;
-    color: #555;
-}
-
-#owner img {
-    border-radius: 50%;
-}
-
-#owner h3 {
-    font-size: 28px;
-    font-weight: bold;
-    color:rgb(3, 3, 73) !important;;
-}
-
-#owner p {
-    font-size: 18px;
-    text-align: justify;
-    color: #555;
-}
-
+/* End Update Style*/
 footer {
     background-color: rgb(3, 3, 73) !important;
     color: #f5f5f5; 
@@ -460,10 +405,3 @@ footer a:hover {
     color: #c3d30b; 
     text-decoration: underline;
 }
-
-#about h2,
-#owner h2,
-#team h2 {
-    padding-bottom: 1.5rem;
-}
-
