@@ -108,6 +108,113 @@ body {
     font-size: 24px;
 }
 
+.user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 300px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: rgb(3, 3, 73) !important;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info h3 {
+    font-weight: 500;
+    color: #f9f7f7;
+    margin: 0;
+}
+
+.user-info img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:#f9f7f7;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sub-menu-link img {
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link p {
+    flex: 1;
+    margin: 0;
+    font-weight: 500;
+}
+
+.sub-menu-link span {
+    font-size: 18px;
+    transition: transform 0.3s;
+    color: #f9f7f7;
+}
+
+.sub-menu-link:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+    color: #555;
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+
 @media (max-width: 991px) {
     .custom-navbar .navbar-toggler {
         font-size: 1.2rem;
@@ -249,7 +356,7 @@ body {
 .product-cta button {
     font-size: 18px;
     padding: 10px 25px;
-    background-color: rgb(195, 211, 11); 
+    background-color:  #f8bf28; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -258,7 +365,7 @@ body {
 }
 
 .product-cta button:hover {
-    background-color: rgb(220, 20, 60); 
+    background-color: rgb(195, 211, 11); 
 }
 
 .card {

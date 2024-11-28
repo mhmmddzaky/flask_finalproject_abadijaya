@@ -42,7 +42,15 @@
         function to_contactpage() {
             window.location.href = "/contact";
         }
+
+        function toggleMenu() {
+            const subMenu = document.getElementById("subMenu");
+            if (subMenu) {
+                subMenu.classList.toggle("open-menu");
+            }
+        }
     </script>
+</head>
 
 <body>
     <!-- Start Navbar Section -->
@@ -68,7 +76,25 @@
                     <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
                     <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
                 </ul>
-
+            </div>
+            <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="static/images/user.png" alt="User Profile">
+                        <h3>User Profile</h3>
+                    </div>
+                    <a href="#" class="sub-menu-link">
+                        <img src="static/images/profile.png" alt="Profile Icon">
+                        <p>Profile</p>
+                        <span>&gt;</span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="static/images/logout.png" alt="Logout Icon">
+                        <p>Keluar</p>
+                        <span>&gt;</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
