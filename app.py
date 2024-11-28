@@ -34,5 +34,13 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+@app.route('/update')
+def update_profile():
+    return render_template('update.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)

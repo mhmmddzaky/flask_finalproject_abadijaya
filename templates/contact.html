@@ -42,6 +42,10 @@
         function to_contactpage() {
             window.location.href = "/contact";
         }
+        function to_profilepage() {
+          window.location.href = "/profile";
+      }
+
         function toggleMenu() {
           const subMenu = document.getElementById("subMenu");
           if (subMenu) {
@@ -83,9 +87,9 @@
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="static/images/user.png" alt="User Profile">
-                        <h3>User Profile</h3>
+                        <h3>Nama User</h3>
                     </div>
-                    <a href="#" class="sub-menu-link">
+                    <a class="sub-menu-link"onclick="to_profilepage()">
                         <img src="static/images/profile.png" alt="Profile Icon">
                         <p>Profile</p>
                         <span>&gt;</span>
