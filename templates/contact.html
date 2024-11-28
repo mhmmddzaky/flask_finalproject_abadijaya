@@ -2,230 +2,238 @@
 <html lang="en">
 
 <head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Import Bootstrap dan JQuery -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <!-- Import Bootstrap dan JQuery -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
 
-    <!-- Import Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Import Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- Import Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Import Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Import CSS -->
-    <link rel="stylesheet" href="static/style_contact.css">
+  <!-- Import CSS -->
+  <link rel="stylesheet" href="static/style_contact.css">
 
-    <title>Toko Perabot Abadi Jaya</title>
+  <title>Toko Perabot Abadi Jaya</title>
 
-    <script>
-        function to_homepage() {
-            window.location.href = "/";
-        }
-        function to_loginpage() {
-            window.location.href = "/login";
-        }
-        function to_registerpage() {
-            window.location.href = "/register";
-        }
-        function to_aboutpage() {
-            window.location.href = "/about";
-        }
-        function to_contactpage() {
-            window.location.href = "/contact";
-        }
-        function to_profilepage() {
-          window.location.href = "/profile";
+  <script>
+    function to_homepage() {
+      window.location.href = "/";
+    }
+    function to_loginpage() {
+      window.location.href = "/login";
+    }
+    function to_registerpage() {
+      window.location.href = "/register";
+    }
+    function to_aboutpage() {
+      window.location.href = "/about";
+    }
+    function to_contactpage() {
+      window.location.href = "/contact";
+    }
+    function to_profilepage() {
+      window.location.href = "/profile";
+    }
+
+    function toggleMenu() {
+      const subMenu = document.getElementById("subMenu");
+      if (subMenu) {
+        subMenu.classList.toggle("open-menu");
       }
-
-        function toggleMenu() {
-          const subMenu = document.getElementById("subMenu");
-          if (subMenu) {
-              subMenu.classList.toggle("open-menu");
-          }
-      }
-    </script>
+    }
+  </script>
 
 </head>
 
 <body>
-    <!-- Start Navbar Section -->
-    <nav class="custom-navbar navbar navbar-expand-md navbar-light bg-white fixed-top"
-        aria-label="Toko Abadi Jaya navigation bar">
-        <div class="container">
-            <a class="navbar-brand" href="#" onclick="to_homepage()">
-                Toko Perabot
-                <strong style="color: rgb(220, 20, 60);">Abadi Jaya</strong>
-                <span class="brand-dot">.</span>
-            </a>
+  <!-- Start Navbar Section -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-light bg-white fixed-top"
+    aria-label="Toko Abadi Jaya navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="#" onclick="to_homepage()">
+        Toko Perabot
+        <strong style="color: rgb(220, 20, 60);">Abadi Jaya</strong>
+        <span class="brand-dot">.</span>
+      </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsToko"
-                aria-controls="navbarsToko" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarsToko">
-                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
-                    </li>
-                    <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
-                </ul>
-            </div>
-            <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
-            <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="static/images/user.png" alt="User Profile">
-                        <h3>Nama</h3>
-                    </div>
-                    <a class="sub-menu-link"onclick="to_profilepage()">
-                        <img src="static/images/profile.png" alt="Profile Icon">
-                        <p>Profile</p>
-                        <span>&gt;</span>
-                    </a>
-                    <a href="#" class="sub-menu-link">
-                        <img src="static/images/logout.png" alt="Logout Icon">
-                        <p>Keluar</p>
-                        <span>&gt;</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- End Navbar Section -->
-
-    <!-- Start Banner Section -->
-    <div class="container-banner d-flex align-items-center">
-        <div class="container position-relative z-index-2">
-            <div class="row align-items-center">
-                <!-- Intro Section -->
-                <div class="col-12 text-white text-center text-md-start">
-                    <div class="intro-excerpt">
-                        <h1>Contact</h1>
-                        <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Voluptas, <span class="d-block">officia! Optio labore expedita aperiam quo beatae voluptas, necessitatibus adipisci incidunt!.</span></p>
-                        <p>
-                            <a href="#" class="btn btn-secondary me-2">Explore</a>
-                            <a href="#" class="btn btn-white-outline">Produk Kami</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Banner Section -->
-
-    <!-- Start Contact Form -->
-    <div class="untree_co-section">
-      <div class="container position-relative z-index-2">
-        <div class="block d-flex flex-wrap">
-          <!-- Bagian Kiri: Formulir dan Ikon -->
-          <div class="content-left">
-            <div class="row mb-5 d-flex justify-content-start">
-              <div class="col-12">
-                <div class="service d-flex align-items-center mb-4">
-                  <div class="service-icon color-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                    </svg>
-                  </div>
-                  <div class="service-contents" style="font-size: 18px;">
-                    <p>43GG+36 Sorek Satu, Kabupaten Pelalawan, Riau</p>
-                  </div>
-                </div>
-    
-                <div class="service d-flex align-items-center mb-4">
-                  <div class="service-icon color-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                      <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-                    </svg>
-                  </div>
-                  <div class="service-contents" style="font-size: 18px;">
-                    <p>Abadijayaperabot@gmail.com</p>
-                  </div>
-                </div>
-    
-                <div class="service d-flex align-items-center mb-4">
-                  <div class="service-icon color-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                    </svg>
-                  </div>
-                  <div class="service-contents" style="font-size: 18px;">
-                    <p>+1 294 3925 39394</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <form>
-              <div class="row">
-                <div class="col-6 mb-2">
-                  <div class="form-group">
-                    <label class="text-black" style="font-size: 18px;" for="fname">First name</label>
-                    <input type="text" class="form-control" id="fname">
-                  </div>
-                </div>
-                <div class="col-6 mb-2">
-                  <div class="form-group">
-                    <label class="text-black" style="font-size: 18px;" for="lname">Last name</label>
-                    <input type="text" class="form-control" id="lname">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group mb-2">
-                <label class="text-black" style="font-size: 18px;" for="email">Email address</label>
-                <input type="email" class="form-control" id="email">
-              </div>
-    
-              <div class="form-group mb-5">
-                <label class="text-black" style="font-size: 18px;" for="message">Message</label>
-                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
-              </div>
-    
-              <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
-            </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsToko"
+        aria-controls="navbarsToko" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsToko">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
+          </li>
+          <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
+          <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
+          <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
+          <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
+        </ul>
+      </div>
+      <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="static/images/user.png" alt="User Profile">
+            <h3>Nama</h3>
           </div>
-    
-          <!-- Bagian Kanan: Google Maps -->
-          <div class="content-right" style="flex: 1;  padding-left: 20px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.235169545245!2d102.0754308596156!3d0.125216352014015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a9f43208a7a9%3A0xdaa2f5f6cc41710b!2sAbadi%20Jaya%202!5e0!3m2!1sid!2sid!4v1732760302753!5m2!1sid!2sid" 
-              width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="sub-menu-link" onclick="to_profilepage()">
+            <img src="static/images/profile.png" alt="Profile Icon">
+            <p>Profile</p>
+            <span>&gt;</span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <img src="static/images/logout.png" alt="Logout Icon">
+            <p>Keluar</p>
+            <span>&gt;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar Section -->
+
+  <!-- Start Banner Section -->
+  <div class="container-banner d-flex align-items-center">
+    <div class="container position-relative z-index-2">
+      <div class="row align-items-center">
+        <!-- Intro Section -->
+        <div class="col-12 text-white text-center text-md-start">
+          <div class="intro-excerpt">
+            <h1>Contact</h1>
+            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptas, <span class="d-block">officia! Optio labore expedita aperiam quo beatae voluptas, necessitatibus
+                adipisci incidunt!.</span></p>
+            <p>
+              <a href="#" class="btn btn-secondary me-2">Eksplor</a>
+              <a href="#" class="btn btn-white-outline">Produk Kami</a>
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <!-- End Banner Section -->
 
-    <!-- Call to Action Section -->
-    <section id="products" class="product-cta text-white text-center py-5">
-      <h2>Explore Our Products!</h2>
-      <button class="btn btn-lg" onclick="window.location.href='#products'">View Products</button>
-    </section>
-    
-    <!-- Footer Section -->
-    <footer>
-      <div class="container">
-          <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
-          <ul class="list-unstyled d-flex justify-content-center gap-3">
-              <li><a href="#" class="text-white">Privacy Policy</a></li>
-              <li><a href="#" class="text-white">Terms of Service</a></li>
-              <li><a href="#contact" class="text-white">Contact Us</a></li>
-          </ul>
+  <!-- Start Contact Form -->
+  <div class="untree_co-section">
+    <div class="container position-relative z-index-2">
+      <div class="block d-flex flex-wrap">
+        <!-- Bagian Kiri: Formulir dan Ikon -->
+        <div class="content-left">
+          <div class="row mb-5 d-flex justify-content-start">
+            <div class="col-12">
+              <div class="service d-flex align-items-center mb-4">
+                <div class="service-icon color-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                  </svg>
+                </div>
+                <div class="service-contents" style="font-size: 18px;">
+                  <p>43GG+36 Sorek Satu, Kabupaten Pelalawan, Riau</p>
+                </div>
+              </div>
+
+              <div class="service d-flex align-items-center mb-4">
+                <div class="service-icon color-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                  </svg>
+                </div>
+                <div class="service-contents" style="font-size: 18px;">
+                  <p>Abadijayaperabot@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="service d-flex align-items-center mb-4">
+                <div class="service-icon color-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                  </svg>
+                </div>
+                <div class="service-contents" style="font-size: 18px;">
+                  <p>+1 294 3925 39394</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form>
+            <div class="row">
+              <div class="col-6 mb-2">
+                <div class="form-group">
+                  <label class="text-black" style="font-size: 18px;" for="fname">First name</label>
+                  <input type="text" class="form-control" id="fname">
+                </div>
+              </div>
+              <div class="col-6 mb-2">
+                <div class="form-group">
+                  <label class="text-black" style="font-size: 18px;" for="lname">Last name</label>
+                  <input type="text" class="form-control" id="lname">
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-2">
+              <label class="text-black" style="font-size: 18px;" for="email">Email address</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+
+            <div class="form-group mb-5">
+              <label class="text-black" style="font-size: 18px;" for="message">Message</label>
+              <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Bagian Kanan: Google Maps -->
+        <div class="content-right" style="flex: 1;  padding-left: 20px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.235169545245!2d102.0754308596156!3d0.125216352014015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a9f43208a7a9%3A0xdaa2f5f6cc41710b!2sAbadi%20Jaya%202!5e0!3m2!1sid!2sid!4v1732760302753!5m2!1sid!2sid"
+            width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <section id="products" class="product-cta text-white text-center py-5">
+    <h2>Explore Our Products!</h2>
+    <button class="btn btn-lg" onclick="window.location.href='#products'">View Products</button>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
+      <ul class="list-unstyled d-flex justify-content-center gap-3">
+        <li><a href="#" class="text-white">Privacy Policy</a></li>
+        <li><a href="#" class="text-white">Terms of Service</a></li>
+        <li><a href="#contact" class="text-white">Contact Us</a></li>
+      </ul>
+    </div>
   </footer>
-    
-    
+
+
 </body>
 
 </html>

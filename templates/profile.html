@@ -63,12 +63,12 @@
             var passwordIcon = document.getElementById('password-icon');
 
             if (a === 0) {
-                passwordField.textContent = "mySecret123";  
-                passwordIcon.src = 'static/images/hidden.png';  
+                passwordField.textContent = "mySecret123";
+                passwordIcon.src = 'static/images/hidden.png';
                 a = 1;
             } else {
-                passwordField.textContent = "********";  
-                passwordIcon.src = 'static/images/view.png';  
+                passwordField.textContent = "********";
+                passwordIcon.src = 'static/images/view.png';
                 a = 0;
             }
         }
@@ -124,60 +124,64 @@
     <!-- End Navbar Section -->
 
     <!-- Profile Section-->
-    <div class="container profile-container">
-        <div class="profile-header">
-            <div class="profile-photo">
-                <img src="/static/images/user.png" alt="Profile Picture">
+    <div class="main-wrapper">
+        <div class="container profile-container">
+            <div class="profile-header">
+                <div class="profile-photo">
+                    <img src="/static/images/user.png" alt="Profile Picture">
+                </div>
+                <h4>Your Name</h4>
+                <p>yourname@gmail.com</p>
             </div>
-            <h4>Your Name</h4>
-            <p>yourname@gmail.com</p>
-        </div>
 
-        <!-- Profile Information -->
-        <div class="profile-section">
-            <div class="row">
-                <div class="col-6 profile-label">Username</div>
-                <div class="col-6 profile-value text-end">yourname</div>
-            </div>
-        </div>
-        <div class="profile-section">
-            <div class="row">
-                <div class="col-6 profile-label">Email Account</div>
-                <div class="col-6 profile-value text-end">yourname@gmail.com</div>
-            </div>
-        </div>
-        <div class="profile-section">
-            <div class="row">
-                <div class="col-6 profile-label">Gender</div>
-                <div class="col-6 profile-value text-end">Female</div>
-            </div>
-        </div>
-        <div class="profile-section">
-            <div class="row align-items-center">
-                <div class="col-6 profile-label">Password</div>
-                <div class="col-6 d-flex justify-content-end">
-                    <span id="password-value">********</span>
-                    <img src="/static/images/view.png" onclick="pass()" class="pass-icon" id="password-icon" alt="eye icon">
+            <!-- Profile Information -->
+            <div class="profile-section">
+                <div class="row">
+                    <div class="col-6 profile-label">Username</div>
+                    <div class="col-6 profile-value text-end">yourname</div>
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-4">
-            <a class="btn edit-profile-btn" onclick="to_updatepage()">Edit Profile</a>
+            <div class="profile-section">
+                <div class="row">
+                    <div class="col-6 profile-label">Email Account</div>
+                    <div class="col-6 profile-value text-end">yourname@gmail.com</div>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="row">
+                    <div class="col-6 profile-label">Gender</div>
+                    <div class="col-6 profile-value text-end">Female</div>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="row align-items-center">
+                    <div class="col-6 profile-label">Password</div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <span id="password-value">********</span>
+                        <img src="/static/images/view.png" onclick="pass()" class="pass-icon" id="password-icon"
+                            alt="eye icon">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn edit-profile-btn" onclick="to_updatepage()">Edit Profile</a>
+            </div>
         </div>
     </div>
     <!--End Profile Section-->
 
-   <!-- Footer Section -->
-   <footer>
-    <div class="container">
-        <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
-        <ul class="list-unstyled d-flex justify-content-center gap-3">
-            <li><a href="#" class="text-white">Privacy Policy</a></li>
-            <li><a href="#" class="text-white">Terms of Service</a></li>
-            <li><a href="#contact" class="text-white">Contact Us</a></li>
-        </ul>
-    </div>
-</footer>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
+            <ul class="list-unstyled d-flex justify-content-center gap-3">
+                <li><a href="#" class="text-white">Privacy Policy</a></li>
+                <li><a href="#" class="text-white">Terms of Service</a></li>
+                <li><a href="#contact" class="text-white">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

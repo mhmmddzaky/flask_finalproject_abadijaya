@@ -9,7 +9,6 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    padding-top: 80px;
 }
 /* <End Global Styles> */
 
@@ -405,3 +404,14 @@ footer a:hover {
     color: #c3d30b; 
     text-decoration: underline;
 }
+
+.main-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey; /* Sesuaikan dengan latar belakang halaman */
+    padding-top: 70px;
+}
+

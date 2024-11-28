@@ -18,8 +18,8 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 120%; /* Lebih besar dari 100% untuk memastikan seluruh gambar terblur */
-    height: 120%;
+    width: 100%; /* Lebih besar dari 100% untuk memastikan seluruh gambar terblur */
+    height: 100%;
     background: url("/static/images/plaster_wall.jpg") no-repeat center center;
     background-size: cover;
     filter: blur(6px);

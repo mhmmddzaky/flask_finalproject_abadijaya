@@ -9,7 +9,6 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    padding-top: 80px;
 }
 /* <End Global Styles> */
 
@@ -424,4 +423,14 @@ footer a {
 footer a:hover {
     color: #c3d30b; 
     text-decoration: underline;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 70px;
 }

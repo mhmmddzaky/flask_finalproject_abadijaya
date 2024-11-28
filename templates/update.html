@@ -59,10 +59,10 @@
 
             if (inputField.type === "password") {
                 inputField.type = "text";
-                icon.src = "static/images/view.png"; 
+                icon.src = "static/images/view.png";
             } else {
                 inputField.type = "password";
-                icon.src = "static/images/hidden.png"; 
+                icon.src = "static/images/hidden.png";
             }
         }
         function previewProfilePicture() {
@@ -129,83 +129,94 @@
     <!-- End Navbar Section -->
 
     <!-- Update Section-->
-    <div class="container edit-profile-container">
-        <div class="profile-image">
-            <label for="upload-photo">
-                <img src="static/images/user.png" alt="Profile Picture" id="profile-picture">
-                <div class="edit-icon">+</div>
-            </label>
-            <input type="file" id="upload-photo" accept="image/*" onchange="previewProfilePicture()" style="display: none;">
-        </div>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="firstName" class="form-label">First Name :</label>
-                    <input type="text" id="firstName" class="form-control" placeholder="First Name">
+    <div class="main-wrapper">
+        <div class="container edit-profile-container">
+            <div class="profile-image">
+                <label for="upload-photo">
+                    <img src="static/images/user.png" alt="Profile Picture" id="profile-picture">
+                    <div class="edit-icon">+</div>
+                </label>
+                <input type="file" id="upload-photo" accept="image/*" onchange="previewProfilePicture()"
+                    style="display: none;">
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name :</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name :</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="lastName" class="form-label">Last Name :</label>
-                    <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Account :</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email">
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Account :</label>
-                <input type="email" id="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="mb-3">
-                <label for="gender" class="form-label">Gender :</label>
-                <select id="gender" class="form-select">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="currentPassword" class="form-label">Current Password :</label>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender :</label>
+                    <select id="gender" class="form-select">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="currentPassword" class="form-label">Current Password :</label>
+                        <div class="input-group">
+                            <input type="password" id="currentPassword" class="form-control"
+                                placeholder="Current Password">
+                            <span class="input-group-text">
+                                <img src="static/images/hidden.png" alt="Toggle Password"
+                                    onclick="togglePassword('currentPassword', 'currentPasswordIcon')"
+                                    id="currentPasswordIcon" class="password-icon">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="newPassword" class="form-label">New Password :</label>
+                        <div class="input-group">
+                            <input type="password" id="newPassword" class="form-control" placeholder="New Password">
+                            <span class="input-group-text">
+                                <img src="static/images/hidden.png" alt="Toggle Password"
+                                    onclick="togglePassword('newPassword', 'newPasswordIcon')" id="newPasswordIcon"
+                                    class="password-icon">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm New Password :</label>
                     <div class="input-group">
-                        <input type="password" id="currentPassword" class="form-control" placeholder="Current Password">
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password">
                         <span class="input-group-text">
-                            <img src="static/images/hidden.png" alt="Toggle Password" onclick="togglePassword('currentPassword', 'currentPasswordIcon')" id="currentPasswordIcon" class="password-icon">
+                            <img src="static/images/hidden.png" alt="Toggle Password"
+                                onclick="togglePassword('confirmPassword', 'confirmPasswordIcon')"
+                                id="confirmPasswordIcon" class="password-icon">
                         </span>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="newPassword" class="form-label">New Password :</label>
-                    <div class="input-group">
-                        <input type="password" id="newPassword" class="form-control" placeholder="New Password">
-                        <span class="input-group-text">
-                            <img src="static/images/hidden.png" alt="Toggle Password" onclick="togglePassword('newPassword', 'newPasswordIcon')" id="newPasswordIcon" class="password-icon">
-                        </span>
-                    </div>
+                <div class="button-container">
+                    <a class="btn update-profile-btn" onclick="to_profilepage()">Simpan</a>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm New Password :</label>
-                <div class="input-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password">
-                    <span class="input-group-text">
-                        <img src="static/images/hidden.png" alt="Toggle Password" onclick="togglePassword('confirmPassword', 'confirmPasswordIcon')" id="confirmPasswordIcon" class="password-icon">
-                    </span>
-                </div>
-            </div>
-            <div class="button-container">
-            <a class="btn update-profile-btn" onclick="to_profilepage()">Simpan</a>
+            </form>
         </div>
-        </form>
     </div>
     <!--End Update Section-->
 
-   <!-- Footer Section -->
-   <footer>
-    <div class="container">
-        <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
-        <ul class="list-unstyled d-flex justify-content-center gap-3">
-            <li><a href="#" class="text-white">Privacy Policy</a></li>
-            <li><a href="#" class="text-white">Terms of Service</a></li>
-            <li><a href="#contact" class="text-white">Contact Us</a></li>
-        </ul>
-    </div>
-</footer>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
+            <ul class="list-unstyled d-flex justify-content-center gap-3">
+                <li><a href="#" class="text-white">Privacy Policy</a></li>
+                <li><a href="#" class="text-white">Terms of Service</a></li>
+                <li><a href="#contact" class="text-white">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>
