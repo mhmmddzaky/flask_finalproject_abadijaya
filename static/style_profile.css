@@ -323,7 +323,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 60px; 
+    margin-top: 70px; 
     width: 90%;
     padding-left: 20px;
     padding-right: 20px;
@@ -424,6 +424,7 @@ footer a:hover {
     color: #c3d30b; 
     text-decoration: underline;
 }
+
 .main-wrapper {
     display: flex;
     justify-content: center;
@@ -431,5 +432,5 @@ footer a:hover {
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 70px;
+    padding-top: 60px;
 }
