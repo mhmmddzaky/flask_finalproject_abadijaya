@@ -42,5 +42,9 @@ def profile():
 def update_profile():
     return render_template('update.html')
 
+@app.route('/product')
+def product():
+    return render_template('product.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)

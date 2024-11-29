@@ -45,6 +45,9 @@
     function to_profilepage() {
       window.location.href = "/profile";
     }
+    function to_productpage() {
+      window.location.href = "/product";
+    }
 
     function toggleMenu() {
       const subMenu = document.getElementById("subMenu");
@@ -118,7 +121,7 @@
                 adipisci incidunt!.</span></p>
             <p>
               <a href="#" class="btn btn-secondary me-2">Eksplor</a>
-              <a href="#" class="btn btn-white-outline">Produk Kami</a>
+              <a href="#" onclick="to_productpage()" class="btn btn-white-outline">Produk Kami</a>
             </p>
           </div>
         </div>
@@ -218,7 +221,7 @@
   <!-- Call to Action Section -->
   <section id="products" class="product-cta text-white text-center py-5">
     <h2>Explore Our Products!</h2>
-    <button class="btn btn-lg" onclick="window.location.href='#products'">View Products</button>
+    <button class="btn btn-lg" onclick="window.location.href='/product'">View Products</button>
   </section>
 
   <!-- Footer Section -->
