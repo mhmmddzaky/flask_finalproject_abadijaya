@@ -46,10 +46,6 @@ def update_profile():
 def product():
     return render_template('product.html')
 
-@app.route('/feedback')
-def feedback():
-    return render_template('feedback.html')
-
 @app.route('/detail_produk')
 def detail_produk():
     return render_template('detail_produk.html')
@@ -57,6 +53,10 @@ def detail_produk():
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/feedback')
+def feedback():
+    return render_template('feedback.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)
