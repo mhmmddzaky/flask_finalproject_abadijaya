@@ -14,6 +14,8 @@ load_dotenv(dotenv_path)
 # db = client[DB_NAME]
 
 app = Flask(__name__)
+
+# Main Navbar #
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -50,6 +52,7 @@ def product():
 def detail_produk():
     return render_template('detail_produk.html')
 
+# Admin Navbar #
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
