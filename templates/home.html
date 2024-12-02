@@ -46,7 +46,10 @@
             window.location.href = "/profile";
         }
         function to_productpage() {
-        window.location.href = "/product";
+            window.location.href = "/product";
+        }
+        function to_dashboard() {
+            window.location.href = "/dashboard";
         }
         function toggleMenu() {
             const subMenu = document.getElementById("subMenu");
@@ -77,6 +80,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
                     </li>
+                    <li><a class="nav-link" href="#" onclick="to_productpage()">Produk</a></li>
                     <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
                     <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
                     <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
@@ -90,7 +94,7 @@
                         <img src="static/images/user.png" alt="User Profile">
                         <h3>Nama User</h3>
                     </div>
-                    <a class="sub-menu-link"onclick="to_profilepage()">
+                    <a class="sub-menu-link" onclick="to_profilepage()">
                         <img src="static/images/profile.png" alt="Profile Icon">
                         <p>Profile</p>
                         <span>&gt;</span>

@@ -48,6 +48,9 @@
     function to_detailpage() {
       window.location.href = "/detail_produk";
     }
+    function to_productpage() {
+      window.location.href = "/product";
+    }
 
     function toggleMenu() {
       const subMenu = document.getElementById("subMenu");
@@ -79,6 +82,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
           </li>
+          <li><a class="nav-link" href="#" onclick="to_productpage()">Produk</a></li>
           <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
           <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
           <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
@@ -133,119 +137,119 @@
 
   <!-- Content Produk -->
 
-    <div class="container-fluid px-md-5">
-        <div class="row mt-4">
-            <!-- Button Section (Sisi Kiri) -->
-            <div class="col-12 col-md-4 mt-2">
-                <div class="sticky-top" style="top: 95px;"> 
-                    <div class="card border-light h-100">
-                        <div class="card-body shadow">
-                            <h5 class="card-title fs-4">Product Categories</h5>
-                            <ul class="list-group text-muted">
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                                    <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Lemari</a>
-                                    <span class="badge bg-secondary rounded-pill fs-6">123</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                                    <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Spring Bed</a>
-                                    <span class="badge bg-secondary rounded-pill fs-6">330</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                                    <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Meja</a>
-                                    <span class="badge bg-secondary rounded-pill fs-6">99</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                                    <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Sofa</a>
-                                    <span class="badge bg-secondary rounded-pill fs-6">210</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                                    <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Kursi</a>
-                                    <span class="badge bg-secondary rounded-pill fs-6">134</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+  <div class="container-fluid px-md-5">
+    <div class="row mt-4">
+      <!-- Button Section (Sisi Kiri) -->
+      <div class="col-12 col-md-4 mt-2">
+        <div class="sticky-top" style="top: 95px;">
+          <div class="card border-light h-100">
+            <div class="card-body shadow">
+              <h5 class="card-title fs-4">Product Categories</h5>
+              <ul class="list-group text-muted">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Lemari</a>
+                  <span class="badge bg-secondary rounded-pill fs-6">123</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Spring Bed</a>
+                  <span class="badge bg-secondary rounded-pill fs-6">330</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Meja</a>
+                  <span class="badge bg-secondary rounded-pill fs-6">99</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Sofa</a>
+                  <span class="badge bg-secondary rounded-pill fs-6">210</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Kursi</a>
+                  <span class="badge bg-secondary rounded-pill fs-6">134</span>
+                </li>
+              </ul>
             </div>
-
-            <!-- Search and Card Section (Sisi Kanan) -->
-            <div class="col-12 col-md-8">
-                <!-- Search -->
-                <div class="mb-4 mt-2 ">
-                    <div class="input-group shadow">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    </div>
-                </div>
-
-                <!-- Card Section -->
-                <div class="row g-4">
-                    <!-- Card 1 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
-                            <div class="card-img-container lengkung-border-atas">
-                                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                                    <span class="text-white h5">Product Detail</span>
-                                </a>
-                            </div>
-                            <div class="card-footer border-top border-light p-4">
-                                <a href="#" class="h5 text-decoration-none text-dark">Lemari Jati</a>
-                                <div class="mt-2 fw-bold">Rp.299.000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
-                            <div class="card-img-container lengkung-border-atas">
-                                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                                    <span class="text-white h5">Product Detail</span>
-                                </a>
-                            </div>
-                            <div class="card-footer border-top border-light p-4">
-                                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                                <div class="mt-2 fw-bold">Rp799.000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="col-12 col-md-4">
-                        <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
-                            <div class="card-img-container lengkung-border-atas">
-                                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                                    <span class="text-white h5">Product Detail</span>
-                                </a>
-                            </div>
-                            <div class="card-footer border-top border-light p-4">
-                                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Meja Makan</a>
-                                <div class="mt-2 fw-bold">Rp199.000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="col-12 col-md-4 ">
-                        <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
-                            <div class="card-img-container lengkung-border-atas">
-                                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                                    <span class="text-white h5">Product Detail</span>
-                                </a>
-                            </div>
-                            <div class="card-footer border-top border-light p-4">
-                                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Sofa Tamu</a>
-                                <div class="mt-2 fw-bold">Rp.199.000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-<!-- End Content Produk -->
+      <!-- Search and Card Section (Sisi Kanan) -->
+      <div class="col-12 col-md-8">
+        <!-- Search -->
+        <div class="mb-4 mt-2 ">
+          <div class="input-group shadow">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+
+        <!-- Card Section -->
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-md-4">
+            <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+              <div class="card-img-container lengkung-border-atas">
+                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
+                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                  <span class="text-white h5">Product Detail</span>
+                </a>
+              </div>
+              <div class="card-footer border-top border-light p-4">
+                <a href="#" class="h5 text-decoration-none text-dark">Lemari Jati</a>
+                <div class="mt-2 fw-bold">Rp.299.000</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col-12 col-md-4">
+            <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+              <div class="card-img-container lengkung-border-atas">
+                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
+                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                  <span class="text-white h5">Product Detail</span>
+                </a>
+              </div>
+              <div class="card-footer border-top border-light p-4">
+                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                <div class="mt-2 fw-bold">Rp799.000</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-12 col-md-4">
+            <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+              <div class="card-img-container lengkung-border-atas">
+                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
+                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                  <span class="text-white h5">Product Detail</span>
+                </a>
+              </div>
+              <div class="card-footer border-top border-light p-4">
+                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Meja Makan</a>
+                <div class="mt-2 fw-bold">Rp199.000</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-12 col-md-4 ">
+            <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+              <div class="card-img-container lengkung-border-atas">
+                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
+                <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                  <span class="text-white h5">Product Detail</span>
+                </a>
+              </div>
+              <div class="card-footer border-top border-light p-4">
+                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Sofa Tamu</a>
+                <div class="mt-2 fw-bold">Rp.199.000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Content Produk -->
 
 
 

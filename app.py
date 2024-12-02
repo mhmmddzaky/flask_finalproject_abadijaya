@@ -54,5 +54,9 @@ def feedback():
 def detail_produk():
     return render_template('detail_produk.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)
