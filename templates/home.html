@@ -24,7 +24,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_home.css">
 
-    <title>Abadi Jaya</title>
+    <title>Topraja | Beranda</title>
 
     <script>
         function to_homepage() {
@@ -58,7 +58,6 @@
             }
         }
     </script>
-
 </head>
 
 <body>
@@ -94,7 +93,7 @@
                         <img src="static/images/user.png" alt="User Profile">
                         <h3>Nama User</h3>
                     </div>
-                    <a class="sub-menu-link" onclick="to_profilepage()">
+                    <a href="#" class="sub-menu-link" onclick="to_profilepage()">
                         <img src="static/images/profile.png" alt="Profile Icon">
                         <p>Profile</p>
                         <span>&gt;</span>
@@ -122,7 +121,7 @@
                             terjangkau untuk kebutuhan Anda.</p>
                         <p>
                             <a href="#" onclick="to_productpage()" class="btn btn-secondary me-2">Eksplor</a>
-                            <a href="#" class="btn btn-white-outline">Produk Kami</a>
+                            <a href="#" class="btn btn-white-outline">Kategori Produk</a>
                         </p>
                     </div>
                 </div>
@@ -134,7 +133,7 @@
     <!-- Start Products Type Card -->
     <section id="type-products" class="py-5">
         <div class="container" id="container-type-products">
-            <h1 class="text-center mb-4">Produk Andalan Kami</h1>
+            <h1 class="text-center mb-4">Kategori Produk</h1>
             <!-- Inner container with border for cards -->
             <div class="container-cards border p-3 rounded-2">
                 <div class="row">
@@ -145,8 +144,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 1</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -158,8 +155,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 2</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -171,8 +166,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 3</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -184,8 +177,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 4</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -197,8 +188,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 5</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -210,8 +199,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 6</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -223,8 +210,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 7</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -236,8 +221,6 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Produk 8</h5>
                                 <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-                                    dolor sit amet, consectetur adipiscing
                                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -248,8 +231,23 @@
     </section>
     <!-- End Products Type Card -->
 
+    <!-- Call to Action Section -->
+    <section id="products" class="product-cta text-white text-center py-5">
+        <h2>Explore Our Products!</h2>
+        <button class="btn btn-lg" onclick="window.location.href='/dashboard'">View Products</button>
+    </section>
 
-
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
+            <ul class="list-unstyled d-flex justify-content-center gap-3">
+                <li><a href="#" class="text-white">Privacy Policy</a></li>
+                <li><a href="#" class="text-white">Terms of Service</a></li>
+                <li><a href="#contact" class="text-white">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

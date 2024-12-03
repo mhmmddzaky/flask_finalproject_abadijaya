@@ -546,6 +546,49 @@ body::before {
 
 /* End Products Type Card */
 
+/* footer */
+.product-cta {
+    background-color: rgb(3, 3, 73); 
+    padding: 50px;
+}
+.product-cta h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.product-cta button {
+    font-size: 18px;
+    padding: 10px 25px;
+    background-color: #f8bf28; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-cta button:hover {
+    background-color: rgb(195, 211, 11); 
+}
+footer {
+    background-color: rgb(3, 3, 73) !important;
+    color: #f5f5f5; 
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #f5f5f5; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #c3d30b; 
+    text-decoration: underline;
+}
+/* end footer */
 
 
 

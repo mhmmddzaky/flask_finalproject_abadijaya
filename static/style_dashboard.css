@@ -1,0 +1,129 @@
+/* <-- Start Global Styles --> */
+* {
+    font-family: "Kanit", sans-serif;
+    font-style: normal;
+}
+
+body {
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    background-color: rgb(3, 3, 73);
+    color: white; /* Mengubah warna teks menjadi putih */
+    text-align: left; /* Mengatur semua teks di sidebar agar rata kiri */
+}
+
+/* Styling untuk teks di dalam sidebar */
+.container-sidebar a, 
+.container-sidebar a strong, 
+.container-sidebar a span,
+.container-sidebar ul li a {
+    color: white; /* Mengubah warna teks semua elemen di sidebar menjadi putih */
+    text-decoration: none; /* Menghapus garis bawah jika ada */
+    display: block; /* Membuat elemen anchor sebagai block sehingga teks berada di kiri */
+}
+
+/* Membuat teks dan item di sidebar tanpa style */
+.container-sidebar a, 
+.container-sidebar a strong, 
+.container-sidebar a span,
+.container-sidebar ul li a {
+    font-weight: normal; /* Menghapus gaya font tebal */
+    font-style: normal;  /* Menghapus gaya font miring */
+}
+
+/* Styling khusus untuk brand name */
+.container-sidebar .sidebar-brand {
+    font-weight: bold;
+    padding-left: 14px; /* Memberikan padding di kiri */
+    display: flex; /* Gunakan flex untuk menata brand */
+    align-items: center; /* Menyusun elemen brand secara vertikal */
+    justify-content: flex-start; /* Pastikan brand tetap berada di kiri */
+    text-align: left; /* Menjaga teks di sebelah kiri */
+}
+
+/* Menambahkan warna merah ke "Abadi Jaya" */
+.container-sidebar .sidebar-brand .brand-highlight {
+    color: rgb(220, 20, 60);  /* Crimson */
+}
+
+/* Mengatur dot yang ada setelah brand */
+.container-sidebar .sidebar-brand .brand-dot {
+    font-weight: bold;
+}
+
+/* Sidebar Item Styles */
+.container-sidebar ul li {
+    padding-left: 14px; /* Memberikan padding kiri pada item sidebar */
+    list-style: none; /* Menghapus bullet point */
+}
+
+.container-sidebar ul li a {
+    font-weight: 500;
+    color: white !important;
+    opacity: 0.8;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+    display: block; /* Membuat item sidebar menjadi block agar tombol membentang penuh */
+    padding: 10px 0; /* Memberikan padding vertikal untuk tombol */
+}
+
+/* Efek hover pada tombol sidebar */
+.container-sidebar ul li a:hover,
+.container-sidebar ul li a.active {
+    opacity: 1;
+}
+
+/* Garis yang muncul dari kiri ke kanan saat hover */
+.container-sidebar ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #f8bf28; /* Warna garis saat hover */
+    transition: width 0.3s ease;
+}
+
+/* Mengaktifkan animasi garis saat hover hanya sepanjang teks */
+.container-sidebar ul li a:hover::after {
+    width: 100%; /* Garis akan memanjang sesuai panjang teks */
+}
+
+/* Styling khusus untuk brand name */
+.container-sidebar .sidebar-brand {
+    font-weight: bold;
+    padding-left: 14px; /* Memberikan padding di kiri */
+    display: flex; /* Gunakan flex untuk menata brand */
+    align-items: center; /* Menyusun elemen brand secara vertikal */
+    justify-content: flex-start; /* Pastikan brand tetap berada di kiri */
+    text-align: left; /* Menjaga teks di sebelah kiri */
+}
+
+/* Menambahkan warna merah ke "Abadi Jaya" */
+.container-sidebar .sidebar-brand .brand-highlight {
+    color: rgb(220, 20, 60);  /* Crimson */
+    margin-left: 5px; /* Menambahkan spasi antara "Toko Perabot" dan "Abadi Jaya" */
+    font-weight: bold;
+}
+
+/* Mengatur dot yang ada setelah brand */
+.container-sidebar .sidebar-brand .brand-dot {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.container-sidebar .sidebar-brand .brand-dot {
+    opacity: 0.4;
+}

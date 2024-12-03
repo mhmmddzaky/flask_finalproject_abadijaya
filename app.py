@@ -52,7 +52,7 @@ def product():
 def detail_produk():
     return render_template('detail_produk.html')
 
-# Admin Navbar #
+# Admin Sidebar #
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')

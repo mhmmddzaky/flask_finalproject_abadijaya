@@ -24,7 +24,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_update.css">
 
-    <title>Profile Pengguna</title>
+    <title>Topraja | Update Profil</title>
 
     <script>
         function to_homepage() {
@@ -44,6 +44,12 @@
         }
         function to_profilepage() {
             window.location.href = "/profile";
+        }
+        function to_productpage() {
+            window.location.href = "/product";
+        }
+        function to_dashboard() {
+            window.location.href = "/dashboard";
         }
 
         function toggleMenu() {
@@ -99,6 +105,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
                     </li>
+                    <li><a class="nav-link" href="#" onclick="to_productpage()">Produk</a></li>
                     <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
                     <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
                     <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
