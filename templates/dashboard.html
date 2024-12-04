@@ -22,14 +22,14 @@
 
     <title>Topraja | Dashboard Admin</title>
 </head>
-    <script>
-        function to_addadminpage() {
-            window.location.href = "/add_admin";
-        }
-        function to_addprodukpage() {
-            window.location.href = "/add_produk";
-        }
-        </script>
+<script>
+    function to_addadminpage() {
+        window.location.href = "/add_admin";
+    }
+    function to_addprodukpage() {
+        window.location.href = "/add_produk";
+    }
+</script>
 
 <body>
 
@@ -98,17 +98,57 @@
 
     <div class="main-content">
         <h3>Halo, (...) Selamat Datang di Halaman Dashboard Admin</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
+        <!-- Start Card Section -->
+        <div class="card-container">
+            <!-- Card 1 -->
+            <a href="#" class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Halaman Manajemen Produk</h2>
+                    <p class="card-text">Lihat dan edit data produk di sini.</p>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="#" class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Halaman Manajemen User</h2>
+                    <p class="card-text">Lihat dan edit data user Admin di sini.</p>
+                </div>
+            </a>
+            <!-- Card 3 -->
+            <a href="#" class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Halaman Manajemen Feedback</h2>
+                    <p class="card-text">Lihat dan edit data feedback user di sini.</p>
+                </div>
+            </a>
+        </div>
+        <!-- Horizontal Line -->
+        <hr class="line-below-cards">
+        <!-- Additional Cards -->
+        <div class="card-container">
+            <!-- Card 1 -->
+            <a href="#" class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Halaman Tambah Produk</h2>
+                    <p class="card-text">Tambah produk baru di sini.</p>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="#" class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Halaman Tambah User</h2>
+                    <p class="card-text">Tambah user Admin baru di sini.</p>
+                </div>
+            </a>
+        </div>
     </div>
-
-
 
     <!-- Import Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

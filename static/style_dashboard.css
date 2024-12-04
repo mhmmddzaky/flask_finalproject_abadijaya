@@ -83,4 +83,51 @@ body {
     }
 }
 
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Kurangi jarak antar card */
+    margin-top: 1.5rem; /* Sedikit kurangi jarak dari atas */
+}
+
+.card {
+    width: 100%; /* Tetap mengikuti lebar kontainer */
+    border: 1px solid #000; /* Warna outline tetap hitam */
+    border-radius: 10px;
+    padding: 0.5rem 1rem; /* Kurangi padding untuk mengecilkan card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih halus */
+    text-decoration: none; /* Hilangkan garis bawah pada anchor */
+    background-color: white; /* Pastikan background tetap putih */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Percepat transisi */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Sedikit memperbesar card saat hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan sedikit lebih besar */
+}
+
+.card h2 {
+    font-size: 1.1rem; /* Ukuran font judul */
+    font-weight: 600;
+    margin-bottom: 0.4rem; /* Jarak bawah judul */
+    color: #000; /* Menjadikan warna judul tetap hitam */
+}
+
+.card p {
+    font-size: 0.85rem; /* Ukuran font isi */
+    color: #555;
+    margin: 0; /* Hilangkan margin bawah pada paragraf */
+}
+
+.line-below-cards {
+    border: none;
+    height: 3px; /* Tingkatkan ketebalan garis */
+    background-color: #000; /* Warna hitam solid */
+    margin-top: 1.5rem; /* Jarak atas */
+    opacity: 1; /* Pastikan tidak ada efek transparansi */
+}
+
+
+
+
 
