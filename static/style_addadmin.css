@@ -1,4 +1,4 @@
-/* <-- Start Global Styles --> */
+/* Global Styles */
 * {
     font-family: "Kanit", sans-serif;
     font-style: normal;
@@ -10,11 +10,11 @@ body {
     margin: 0;
     box-sizing: border-box;
     position: relative;
-    color: #333;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ body {
     background-color: rgb(3, 3, 73);
 }
 
-.sidebar .nav-link{
+.sidebar .nav-link {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -53,7 +53,7 @@ body {
 }
 
 .sidebar .icon {
-    font-size: 18px
+    font-size: 18px;
 }
 
 .sidebar .sub-menu {
@@ -61,17 +61,19 @@ body {
     padding-left: 3%;
 }
 
-/* Main content area (form section) */
+/* Main content area */
 .main-content {
+    position: relative;
     margin-left: 250px;
-    height: 100vh; 
+    height: 100vh;
     width: 100%;
     padding: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 /* Form container */
@@ -80,55 +82,10 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     height: auto;
-    min-height: 100%; 
+    min-height: 100%;
 }
-
-@media (max-width: 766px) {
-    .sidebar {
-        width: 60px;
-    }
-
-    .sidebar .description {
-        display: none;
-    }
-
-    .sidebar .nav-link{
-        justify-content: center;
-    }
-
-    .main-content {
-        margin-left: 60px;
-    }
-}
-.input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.pass-icon {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 30px; 
-}
-
-#password {
-    padding-right: 40px;
-}
-
-.invalid-feedback {
-        color: red;
-    font-size: 0.875rem;
-}
-
-.is-invalid ~ .invalid-feedback {
-    display: block; 
-}
-
 
 /* Form Styles */
 h2 {
@@ -146,17 +103,18 @@ h2 {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: #333;
 }
 
 .form-control {
-    width: 100%; 
-    height: 50px; 
+    width: 100%;
+    height: 38px;
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 3px;
+    color: #333;
     transition: all 0.3s ease;
 }
 
@@ -178,7 +136,7 @@ h2 {
 button {
     display: block;
     width: 100%;
-    height: 50px; 
+    height: 50px;
     padding: 10px;
     background-color: rgb(3, 3, 73);
     color: #fff;
@@ -186,10 +144,30 @@ button {
     font-weight: 600;
     border: none;
     border-radius: 3px;
+    margin-top: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: rgb(40, 50, 130);
+}
+
+/* Responsifitas */
+@media (max-width: 766px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar .description {
+        display: none;
+    }
+
+    .sidebar .nav-link {
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
 }
