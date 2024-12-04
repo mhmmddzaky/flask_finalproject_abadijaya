@@ -107,7 +107,24 @@
         }
     }
 
-    
+   let isPasswordVisible = false;
+
+function pass() {
+
+    const passwordIcon = document.getElementById("password-icon");
+    const passwordInput = document.getElementById("password");
+
+    if (isPasswordVisible) {
+        passwordIcon.src = "/static/images/hidden.png"; 
+        passwordInput.type = "password"; 
+    } else {
+        passwordIcon.src = "/static/images/view.png"; 
+        passwordInput.type = "text"; 
+    }
+
+    isPasswordVisible = !isPasswordVisible; 
+}
+
 </script>
 
 <body>
@@ -197,9 +214,15 @@
             
                     <div class="form-group">
                         <label for="password">Password:</label>
+                        <div class="input-container">
                         <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
+                        <img src="/static/images/hidden.png" id="password-icon" class="pass-icon" onclick="pass()" alt="eye icon">
+                        </div> 
                         <div class="invalid-feedback">Password tidak boleh kosong.</div>
                     </div>
+                    
+
+                    
             
                     <div class="form-group">
                         <label for="role">Role:</label>

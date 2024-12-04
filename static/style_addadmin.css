@@ -102,6 +102,33 @@ body {
         margin-left: 60px;
     }
 }
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pass-icon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 30px; 
+}
+
+#password {
+    padding-right: 40px;
+}
+
+.invalid-feedback {
+        color: red;
+    font-size: 0.875rem;
+}
+
+.is-invalid ~ .invalid-feedback {
+    display: block; 
+}
+
 
 /* Form Styles */
 h2 {
