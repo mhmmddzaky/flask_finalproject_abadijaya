@@ -9,8 +9,19 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-image: url('/static/images/furni_background.jpg');
+    position: relative;
 }
-
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1;  
+}
 /* <End Global Styles> */
 
 /* <-- Start Navbar Section --> */
@@ -320,9 +331,11 @@ body {
     max-width: 900px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #fff;
+    background-color:  rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
     margin-top: 70px; 
     width: 90%;
     padding-left: 20px;
@@ -348,7 +361,7 @@ body {
     position: absolute; 
     bottom: 25px;
     right: 10px; 
-    background-color: #f6faf5; 
+    background-color:rgba(255, 255, 255, 0.3); 
     border: 2px ; 
     border-radius: 50%; 
     width: 25px; 
@@ -385,7 +398,7 @@ form {
 }
 
 .update-profile-btn:hover {
-    background-color: rgb(195, 211, 11);
+    background-color: #d3a628;
 }
 /* End Update Style*/
 
@@ -413,7 +426,6 @@ footer a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey; 
     padding-top: 60px;
 }
 
