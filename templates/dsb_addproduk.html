@@ -168,9 +168,8 @@
        <!-- <h3>Halo, (...) Selamat Datang di Halaman Dashboard Admin</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua.</p> -->
-            <div class="container mt-5">
-                <div class="inner-container">
-                <h2 class="text-center mb-4">Tambah Produk</h2>
+            <div class="inner-container">
+                <h2>Tambah Produk</h2>
                 <form id="addProductForm">
                     <div class="mb-3">
                         <label for="productName" class="form-label">Nama Produk</label>
@@ -195,18 +194,21 @@
                     <div class="mb-3">
                         <label for="productCategory" class="form-label">Kategori</label>
                         <select class="form-select" id="productCategory" required>
-                            <option value="">Pilih kategori</option>
-                            <option value="elektronik">Elektronik</option>
-                            <option value="fashion">Fashion</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="otomotif">Otomotif</option>
-                            <option value="lainnya">Lainnya</option>
+                            <option value="">Pilih Kategori</option>
+                            <option value="elektronik">Lemari</option>
+                            <option value="fashion">Spring Bed</option>
+                            <option value="furniture">Meja</option>
+                            <option value="otomotif">Sofa</option>
+                            <option value="lainnya">Kursi</option>
                         </select>
                         <div class="invalid-feedback">Silakan pilih kategori.</div>
                     </div>
-                    <button type="button" class="w-100" onclick="addProduct()">Tambah Produk</button>
+                    <div class="form-group">
+                    <button type="button" onclick="addProduct()">Tambah Admin</button>
+                </div>
                 </form>
             </div>
+            
 
             </div>
     </div>

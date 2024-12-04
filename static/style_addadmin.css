@@ -5,11 +5,14 @@
 }
 
 body {
-    background-size: cover;
+    background-color: #f4f6f9;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     position: relative;
+    color: #333;
+    display: flex;
+    height: 100vh;
 }
 
 .sidebar {
@@ -58,13 +61,30 @@ body {
     padding-left: 3%;
 }
 
+/* Main content area (form section) */
 .main-content {
     margin-left: 250px;
-    height: 100%;
+    height: 100vh; 
+    width: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: auto; 
 }
 
-/* Responsifitas */
+/* Form container */
+.inner-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: auto;
+    min-height: 100%; 
+}
+
 @media (max-width: 766px) {
     .sidebar {
         width: 60px;
@@ -81,4 +101,68 @@ body {
     .main-content {
         margin-left: 60px;
     }
+}
+
+/* Form Styles */
+h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: rgb(3, 3, 73);
+    font-weight: 600;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control {
+    width: 100%; 
+    height: 50px; 
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: rgb(3, 3, 73);
+    box-shadow: 0 0 5px rgba(3, 3, 73, 0.3);
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    height: 50px; 
+    padding: 10px;
+    background-color: rgb(3, 3, 73);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(40, 50, 130);
 }
