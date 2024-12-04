@@ -1,0 +1,169 @@
+/* <-- Start Global Styles --> */
+* {
+    font-family: "Kanit", sans-serif;
+    font-style: normal;
+}
+
+body {
+    background-color: grey;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/static/images/furni_background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.inner-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    margin-top: 350px;
+    margin-bottom: 50px;
+    overflow: hidden; 
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position : relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    text-align: left;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="file"], 
+textarea, 
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fff;
+    appearance: none; 
+}
+textarea {
+    background-size: none; 
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8bf28;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #d3a628;
+}
+
+.invalid-feedback {
+    text-align: left; 
+    font-size: 14px; 
+    color: #d9534f;
+}
+
+@media (max-width: 768px) {
+    .inner-container {
+        padding: 20px;
+        margin: 0 5%; 
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="file"], 
+    textarea, 
+    select,
+    button {
+        font-size: 14px; 
+        padding: 8px; 
+    }
+
+    .inner-container {
+        margin-top: 145px; 
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inner-container {
+        padding: 15px;
+        margin: 0 3%; 
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="file"], 
+    textarea, 
+    select,
+    button {
+        font-size: 12px; 
+        padding: 6px; 
+    }
+
+    .inner-container {
+        margin-top: 120px; 
+    }
+}

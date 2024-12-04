@@ -57,6 +57,14 @@ def detail_produk():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/add_admin')
+def add_admin():
+    return render_template('add_admin.html')
+
+@app.route('/add_produk')
+def add_produk():
+    return render_template('add_produk.html')
+
 @app.route('/feedback')
 def feedback():
     return render_template('feedback.html')

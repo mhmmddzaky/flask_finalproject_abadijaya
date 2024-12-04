@@ -22,6 +22,14 @@
 
     <title>Topraja | Dashboard Admin</title>
 </head>
+    <script>
+        function to_addadminpage() {
+            window.location.href = "/add_admin";
+        }
+        function to_addprodukpage() {
+            window.location.href = "/add_produk";
+        }
+        </script>
 
 <body>
 
@@ -53,13 +61,13 @@
                 <span class="description">Feedback</span>
             </a>
             <hr>
-            <a href="#" class="nav-link">
+            <a href="#" onclick="to_addprodukpage()" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-plus-circle"></i>
                 </span>
                 <span class="description">Tambah Produk</span>
             </a>
-            <a href="#" class="nav-link">
+            <a href="javascript:void(0);" onclick="to_addadminpage()" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-person-plus"></i>
                 </span>
