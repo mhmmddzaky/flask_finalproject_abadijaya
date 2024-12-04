@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Import CSS -->
-    <link rel="stylesheet" href="static/style_dashboard.css">
+    <link rel="stylesheet" href="static/style_dsb_tabeluser.css">
 
-    <title>Topraja | Dashboard Admin</title>
+    <title>Topraja | Tabel User</title>
 </head>
 <script>
     function to_dashboard() {
@@ -34,6 +34,9 @@
     }
     function to_tabelfeedback() {
         window.location.href = "/tabel_feedback";
+    }
+    function to_edituser() {
+        window.location.href = "/edit_user";
     }
 
     // Changed soon
@@ -114,49 +117,7 @@
         <h3>Halo, (...) Selamat Datang di Halaman Dashboard Admin</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua.</p>
-        <!-- Start Card Section -->
-        <div class="card-container">
-            <!-- Card 1 -->
-            <a href="#" onclick="to_tabelproduk()" class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen Produk</h2>
-                    <p class="card-text">Lihat dan edit data produk di sini.</p>
-                </div>
-            </a>
-            <!-- Card 2 -->
-            <a href="#" onclick="to_tabeluser()" class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen User</h2>
-                    <p class="card-text">Lihat dan edit data user di sini.</p>
-                </div>
-            </a>
-            <!-- Card 3 -->
-            <a href="#" onclick="to_tabelfeedback()" class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen Feedback</h2>
-                    <p class="card-text">Lihat dan edit data feedback user di sini.</p>
-                </div>
-            </a>
-        </div>
-        <!-- Horizontal Line -->
-        <hr class="line-below-cards">
-        <!-- Additional Cards -->
-        <div class="card-container">
-            <!-- Card 1 -->
-            <a href="#" class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Halaman Tambah Produk</h2>
-                    <p class="card-text">Tambah produk baru di sini.</p>
-                </div>
-            </a>
-            <!-- Card 2 -->
-            <a href="#" class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Halaman Tambah User Admin</h2>
-                    <p class="card-text">Tambah user Admin baru di sini.</p>
-                </div>
-            </a>
-        </div>
+
     </div>
 
     <!-- Import Bootstrap JS Bundle -->

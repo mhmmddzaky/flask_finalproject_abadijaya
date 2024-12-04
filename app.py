@@ -57,6 +57,27 @@ def detail_produk():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/tabel_produk')
+def tabel_produk():
+    return render_template('dsb_tabelproduk.html')
+
+@app.route('/tabel_user')
+def tabel_user():
+    return render_template('dsb_tabeluser.html')
+
+@app.route('/tabel_feedback')
+def tabel_feedback():
+    return render_template('dsb_tabelfeedback.html')
+
+@app.route('/edit_produk')
+def edit_produk():
+    return render_template('dsb_editproduk.html')
+
+@app.route('/edit_user')
+def edit_user():
+    return render_template('dsb_edituser.html')
+
+#changed soon#
 @app.route('/add_admin')
 def add_admin():
     return render_template('add_admin.html')
@@ -64,6 +85,14 @@ def add_admin():
 @app.route('/add_produk')
 def add_produk():
     return render_template('add_produk.html')
+
+# @app.route('/add_admin')
+# def add_admin():
+    # return render_template('dsb_addproduk.html') #soon#
+
+# @app.route('/add_produk')
+# def add_produk():
+#     return render_template('dsb_adduser.html') #soon#
 
 @app.route('/feedback')
 def feedback():
