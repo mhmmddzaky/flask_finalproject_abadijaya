@@ -77,22 +77,14 @@ def edit_produk():
 def edit_user():
     return render_template('dsb_edituser.html')
 
-#changed soon#
+
 @app.route('/add_admin')
 def add_admin():
-    return render_template('add_admin.html')
+    return render_template('dsb_adduser.html') 
 
 @app.route('/add_produk')
 def add_produk():
-    return render_template('add_produk.html')
-
-# @app.route('/add_admin')
-# def add_admin():
-    # return render_template('dsb_addproduk.html') #soon#
-
-# @app.route('/add_produk')
-# def add_produk():
-#     return render_template('dsb_adduser.html') #soon#
+    return render_template('dsb_addproduk.html') 
 
 @app.route('/feedback')
 def feedback():
