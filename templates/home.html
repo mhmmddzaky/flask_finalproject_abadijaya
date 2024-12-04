@@ -15,8 +15,18 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+    
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+      
+
     <!-- Import Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
 
     <!-- Import Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -130,106 +140,301 @@
     </div>
     <!-- End Banner Section -->
 
-    <!-- Start Products Type Card -->
-    <section id="type-products" class="py-5">
-        <div class="container" id="container-type-products">
-            <h1 class="text-center mb-4">Kategori Produk</h1>
-            <!-- Inner container with border for cards -->
-            <div class="container-cards border p-3 rounded-2">
+  <section class="main">
+
+    <!-- Section kategori produk -->
+    <section class="kategori-product" id="kategori-product">
+        <div class="container">
+          <!-- Section Header -->
+          <div class="section-header">
+            <div class="judul">
+              <h3 class="montserrat-alternates-bold">
+                Pilih Kategori<br>Furniture Terbaik Kamu
+              </h3>
+               <!-- SVG Line as Border -->
+               <svg class="line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 5" height="10">
+                <line x1="0" y1="1" x2="100" y2="1" stroke="#141493" stroke-width="4"/>
+              </svg>
+            </div>
+            <div class="icon">
+              <i class="fa-solid fa-arrow-left"></i>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+      
+          <!-- Card Slider -->
+          <div class="card-kategori swiper">
+            <div class="swiper-wrapper">
+              <!-- Card 1 -->
+              <div class="swiper-slide card" style="width: 18rem;">
+                <div class="card-img-container shadow-sm">
+                  <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                  <div class="overlay">
+                    <p class="overlay-text montserrat-alternates-bold">Spring Bed</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="swiper-slide card" style="width: 18rem;">
+                <div class="card-img-container shadow-sm">
+                  <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                  <div class="overlay">
+                    <p class="overlay-text montserrat-alternates-bold">Lemari</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="swiper-slide card" style="width: 18rem;">
+                <div class="card-img-container shadow-sm">
+                  <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                  <div class="overlay">
+                    <p class="overlay-text montserrat-alternates-bold">Meja</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="swiper-slide card" style="width: 18rem;">
+                <div class="card-img-container shadow-sm">
+                  <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                  <div class="overlay">
+                    <p class="overlay-text montserrat-alternates-bold">Kursi</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Card 5 -->
+              <div class="swiper-slide card" style="width: 18rem;">
+                <div class="card-img-container shadow-sm">
+                  <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                  <div class="overlay">
+                    <p class="overlay-text montserrat-alternates-bold">Sofa</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>  
+    <!-- End kategori produk -->
+
+    <!-- Section Produk Unggulan -->
+     <section class="product-unggulan" id="product-unggulan">
+        <div class="container">
+             <!-- Section Header -->
+          <div class="section-header">
+            <div class="judul">
+                <h3 class="montserrat-alternates-bold">
+                    Beberapa Produk<br> Unggulan  Dari Kami
+                </h3>
+                 <!-- SVG Line as Border -->
+                 <svg class="line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 5" height="10">
+                  <line x1="0" y1="1" x2="100" y2="1" stroke="#141493" stroke-width="4"/>
+                </svg>
+            </div>
+            <!-- <div class="icon">
+                <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div> -->
+          </div>
+
+          <!-- product -->
+          <div class="section-product-unggulan">
+            <div class="row">
+              <!-- Kolom Kiri: Banner Produk -->
+              <div class="col-md-6">
+                <div class="banner-produk-unggulan h-100">
+                  <img src="static/images/img-banner.png" class="img-fluid h-100 w-70 object-contain" alt="...">
+                </div>
+              </div>
+              
+              <!-- Kolom Kanan: Card Produk -->
+              <div class="col-md-6">
                 <div class="row">
-                    <!-- Card 1 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 1">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 1</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  <!-- Card 1 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 2</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <!-- Card 2 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 3">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 3</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <!-- Card 3 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 4 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 4</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <!-- Card 4 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 5 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 5">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 5</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <!-- Card 5 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 6 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 6">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 6</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <!-- Card 6 -->
+                  <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-light position-relative h-100 shadow lengkung-border" onclick="to_detailpage()">
+                      <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                        <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                        <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                          <span class="text-white h5">Product Detail</span>
+                        </a>
+                      </div>
+                      <div class="card-footer border-top border-light p-4">
+                        <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                        <div class="mt-2 fw-bold">Rp799.000</div>
+                      </div>
                     </div>
-                    <!-- Card 7 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 7">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 7</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 8 -->
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="card rounded-2">
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 8">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Produk 8</h5>
-                                <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </section>
+    <!-- Akhir Produk Unggulan -->
+
+    <!-- Section Banner Tengah -->
+    <div class="banner-tengah-container">
+        <div class="banner-tengah-content">
+          <h2 class="banner-tengah-text montserrat-alternates-bold">
+            Hadirkan Keindahan dan Kenyamanan di Setiap Sudut Rumah Anda.
+          </h2>
+        </div>
+      </div>      
+    <!-- End Section Banner Tengah -->
+
+    <!-- Section Kenapa memilih kami -->
+    <section class="why-choose" id="why-choose">
+        <div class="container container-why-choose d-flex pb-5">
+            <!-- Section Header -->
+            <div class="section-header-why-choose">
+                <div class="judul-why-choose">
+                  <h3 class="montserrat-alternates-bold">
+                    Kenapa <br> Harus<br> Memilih <br><span style="color: rgb(220, 20, 60);">Kami</span>
+                  </h3>
+                  <!-- SVG Line as Border -->
+                  <svg class="line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 5" height="10">
+                    <line x1="0" y1="1" x2="100" y2="1" stroke="#141493" stroke-width="4"/>
+                  </svg>
+                </div>
+                <div class="additional-svg-container">
+                    <img src="{{ url_for('static', filename='images/_image.svg') }}" alt="Additional SVG" class="additional-svg-img">
                 </div>
             </div>
+
+            <!-- section Teks -->
+             <div class="container-teks-why-choose">
+                <h3>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet, consectetur</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum officiis commodi eum dolor 
+                  eos doloremque provident possimus dolore dolorum. Architecto.
+                </p>
+                <div class="teks-why-choose">
+
+                  <!-- Item 1 -->
+                    <div class="teks-why-choose-item">
+                        <div class="teks-why-choose-main">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="teks-why-choose-desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis laborum non similique perferendis commodi quae.</p>
+                        </div>
+                    </div>
+
+                   <!-- Item 1 -->
+                   <div class="teks-why-choose-item">
+                    <div class="teks-why-choose-main">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="teks-why-choose-desc">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis laborum non similique perferendis commodi quae.</p>
+                    </div>
+                  </div>
+
+                   <!-- Item 1 -->
+                   <div class="teks-why-choose-item">
+                    <div class="teks-why-choose-main">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="teks-why-choose-desc">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis laborum non similique perferendis commodi quae.</p>
+                    </div>
+                </div>
+
+                  <!-- Item 1 -->
+                  <div class="teks-why-choose-item">
+                    <div class="teks-why-choose-main">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="teks-why-choose-desc">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis laborum non similique perferendis commodi quae.</p>
+                    </div>
+                 </div>
+
+                </div>
+             </div>
         </div>
     </section>
-    <!-- End Products Type Card -->
+    <!-- End Section Kenapa memilih kami -->
+
+  </section>
 
     <!-- Call to Action Section -->
     <section id="products" class="product-cta text-white text-center py-5">
@@ -248,6 +453,24 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        const swiper = new Swiper(".swiper", {
+          slidesPerView: 3,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: ".fa-arrow-right", // Menghubungkan tombol next
+            prevEl: ".fa-arrow-left", // Menghubungkan tombol prev
+          },
+          breakpoints: {
+            // Responsiveness
+            320: { slidesPerView: 1 },
+            620: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+      </script>
 </body>
 
 </html>
