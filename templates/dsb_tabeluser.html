@@ -46,6 +46,10 @@
     function to_addprodukpage() {
         window.location.href = "/add_produk";
     }
+
+    function to_homepage() {
+        window.location.href = "/";
+    }
 </script>
 
 <body>
@@ -105,7 +109,7 @@
                     <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
                     <span class="description">Profil</span>
                 </a>
-                <a href="#" class="nav-link">
+                <a href="#" onclick="to_homepage()" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
                     <span class="description">Logout</span>
                 </a>
