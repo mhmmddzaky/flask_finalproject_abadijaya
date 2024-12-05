@@ -14,12 +14,8 @@
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
-
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-
 
   <!-- Import Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -34,30 +30,6 @@
   <title>Topraja | Beranda</title>
 
   <script>
-    function to_homepage() {
-      window.location.href = "/";
-    }
-    function to_loginpage() {
-      window.location.href = "/login";
-    }
-    function to_registerpage() {
-      window.location.href = "/register";
-    }
-    function to_aboutpage() {
-      window.location.href = "/about";
-    }
-    function to_contactpage() {
-      window.location.href = "/contact";
-    }
-    function to_profilepage() {
-      window.location.href = "/profile";
-    }
-    function to_productpage() {
-      window.location.href = "/product";
-    }
-    function to_dashboard() {
-      window.location.href = "/dashboard";
-    }
     function toggleMenu() {
       const subMenu = document.getElementById("subMenu");
       if (subMenu) {
@@ -72,7 +44,7 @@
   <nav class="custom-navbar navbar navbar-expand-md navbar-light bg-white fixed-top"
     aria-label="Toko Abadi Jaya navigation bar">
     <div class="container">
-      <a class="navbar-brand" href="#" onclick="to_homepage()">
+      <a class="navbar-brand" href="/">
         Toko Perabot
         <strong style="color: rgb(220, 20, 60);">Abadi Jaya</strong>
         <span class="brand-dot">.</span>
@@ -84,13 +56,13 @@
       <div class="collapse navbar-collapse" id="navbarsToko">
         <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
           <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
+            <a class="nav-link" href="/">Beranda</a>
           </li>
-          <li><a class="nav-link" href="/product" onclick="to_productpage()">Produk</a></li>
-          <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
-          <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
-          <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
-          <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
+          <li><a class="nav-link" href="/product">Produk</a></li>
+          <li><a class="nav-link" href="/about">Tentang</a></li>
+          <li><a class="nav-link" href="/contact">Kontak</a></li>
+          <li><a class="nav-link" href="/register">Daftar</a></li>
+          <li><a class="nav-link" href="/login">Masuk</a></li>
         </ul>
       </div>
       <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
@@ -100,7 +72,7 @@
             <img src="static/images/user.png" alt="User Profile">
             <h3>Nama User</h3>
           </div>
-          <a href="#" class="sub-menu-link" onclick="to_profilepage()">
+          <a href="/profile" class="sub-menu-link">
             <img src="static/images/profile.png" alt="Profile Icon">
             <p>Profile</p>
             <span>&gt;</span>
@@ -127,7 +99,7 @@
             <p class="mb-4">Kami menyediakan berbagai perabot rumah tangga modern, berkualitas, dan
               terjangkau untuk kebutuhan Anda.</p>
             <p>
-              <a href="#" onclick="to_productpage()" class="btn btn-secondary me-2">Eksplor</a>
+              <a href="/product" class="btn btn-secondary me-2">Eksplor</a>
               <a href="#" class="btn btn-white-outline">Kategori Produk</a>
             </p>
           </div>
@@ -253,12 +225,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
@@ -270,12 +243,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
@@ -287,12 +261,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
@@ -304,12 +279,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
@@ -321,12 +297,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
@@ -338,12 +315,13 @@
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="#" class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
