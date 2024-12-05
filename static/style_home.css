@@ -832,8 +832,7 @@ body::before {
     }
 
     .line-svg {
-        display: block; 
-        margin: 0 auto; 
+        display: none;
     }
 
     .section-header-why-choose {
@@ -849,6 +848,19 @@ body::before {
 }
 
 /* End Why Choose */
+
+/* Start Kenali Toko Kami */
+
+    /* Efek hover zoom-in */
+.hover-zoom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .hover-zoom:hover {
+    transform: scale(1.1); /* Zoom-in */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan efek bayangan */
+  }
+/* End Kenali Toko Kami */
 
 
 /* footer */
