@@ -24,27 +24,6 @@
 </head>
 
 <script>
-    function to_dashboard() {
-        window.location.href = "/dashboard";
-    }
-    function to_tabelproduk() {
-        window.location.href = "/tabel_produk";
-    }
-    function to_tabeluser() {
-        window.location.href = "/tabel_user";
-    }
-    function to_tabelfeedback() {
-        window.location.href = "/tabel_feedback";
-    }
-    function to_addadmin() {
-        window.location.href = "/add_admin";
-    }
-    function to_addproduk() {
-        window.location.href = "/add_produk";
-    }
-    function to_homepage() {
-        window.location.href = "/";
-    }
     function addProduct() {
         const productName = document.getElementById("productName").value.trim();
         const productImage = document.getElementById("productImage").files[0];
@@ -88,38 +67,39 @@
     <!-- Start Sidebar Section -->
     <div class="sidebar">
         <nav class="nav flex-column">
-            <a href="#" onclick="to_dashboard()" class="nav-link">
+            <a href="/dashboard" class="nav-link">
                 <span class="icon">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-grid"></i> <!-- This is the grid icon -->
                 </span>
                 <span class="description">Dashboard</span>
             </a>
-            <a href="#" onclick="to_tabelproduk()" class="nav-link">
+            <a href="/tabel_produk" class="nav-link">
                 <span class="icon">
-                    <i class="bi bi-bag"></i>
+                    <i class="bi bi-bag"></i> <!-- This is the grid icon -->
                 </span>
                 <span class="description">Produk</span>
             </a>
-            <a href="#" onclick="to_tabeluser()" class="nav-link">
+            <a href="/tabel_user" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-person"></i>
                 </span>
                 <span class="description">Users</span>
             </a>
-            <a href="#" onclick="to_tabelfeedback()" class="nav-link">
+            <a href="/tabel_feedback" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-envelope"></i>
                 </span>
                 <span class="description">Feedback</span>
             </a>
             <hr>
-            <a href="#" onclick="to_addproduk()" class="nav-link">
+            <a href="/add_produk" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-plus-circle"></i>
                 </span>
                 <span class="description">Tambah Produk</span>
             </a>
-            <a href="#" onclick="to_addadmin()" class="nav-link">
+
+            <a href="/add_admin" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-person-plus"></i>
                 </span>
@@ -140,9 +120,9 @@
                     <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
                     <span class="description">Profil</span>
                 </a>
-                <a href="#" onclick="to_homepage()" class="nav-link">
+                <a href="/" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="description">Logout
+                    <span class="description">Logout</span>
                 </a>
             </div>
         </nav>
@@ -164,18 +144,6 @@
                     <div class="invalid-feedback">Silakan unggah gambar produk.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="productBrand" class="form-label">Merek Produk</label>
-                    <input type="text" class="form-control" id="productBrand" placeholder="Masukkan merek produk"
-                        required>
-                    <div class="invalid-feedback">Merek produk tidak boleh kosong.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="productDescription" class="form-label">Deskripsi Produk</label>
-                    <textarea class="form-control" id="productDescription" rows="4"
-                        placeholder="Masukkan deskripsi produk" required></textarea>
-                    <div class="invalid-feedback">Deskripsi produk tidak boleh kosong.</div>
-                </div>
-                <div class="mb-3">
                     <label for="productCategory" class="form-label">Kategori Produk</label>
                     <select class="form-select" id="productCategory" required>
                         <option value="">Pilih kategori produk</option>
@@ -186,6 +154,18 @@
                         <option value="kursi">Kursi</option>
                     </select>
                     <div class="invalid-feedback">Silakan pilih kategori produk.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="productBrand" class="form-label">Merek Produk</label>
+                    <input type="text" class="form-control" id="productBrand" placeholder="Masukkan merek produk"
+                        required>
+                    <div class="invalid-feedback">Merek produk tidak boleh kosong.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Deskripsi Produk</label>
+                    <textarea class="form-control" id="productDescription" rows="4"
+                        placeholder="Masukkan deskripsi produk" required></textarea>
+                    <div class="invalid-feedback">Deskripsi produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="productPrice" class="form-label">Harga Produk</label>

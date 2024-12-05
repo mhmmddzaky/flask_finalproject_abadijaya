@@ -82,3 +82,93 @@ body {
         margin-left: 60px;
     }
 }
+
+/* Tabel Produk */
+.product-table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    outline: 2px solid black;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.product-table th {
+    background-color: rgb(3, 3, 73);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Kolom aksi dengan Flexbox */
+.product-table td:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+/* Tombol Edit dan Delete */
+.product-table button {
+    width: 48%;
+    padding: 5px 0;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.product-table button:hover {
+    background-color: #0056b3;
+}
+
+.product-table .edit-btn {
+    background-color: #28a745; /* Warna hijau untuk tombol Edit */
+}
+
+.product-table .delete-btn {
+    background-color: #dc3545; /* Warna merah untuk tombol Delete */
+}
+
+/* Responsivitas untuk perangkat ponsel (orientasi vertikal) */
+@media (max-width: 767px) and (orientation: portrait) {
+    .product-table th, .product-table td {
+        text-align: left; /* Teks header dan data ke kiri */
+    }
+
+    .product-table td:last-child {
+        padding: 0 5px; /* Kurangi padding kolom aksi */
+    }
+
+    .product-table button {
+        width: 100%; /* Tombol akan mengambil 100% lebar kolom pada perangkat kecil */
+        margin: 5px 0; /* Menjaga jarak antar tombol */
+    }
+
+    /* Posisi tombol pertama di atas dan tombol kedua di bawah */
+    .product-table td:last-child {
+        flex-direction: column;
+        justify-content: flex-start; /* Tombol pertama di atas */
+    }
+}
+
+
+
+

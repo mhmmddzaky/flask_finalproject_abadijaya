@@ -22,70 +22,48 @@
 
     <title>Topraja | Dashboard Admin</title>
 </head>
+
 <script>
-    function to_dashboard() {
-        window.location.href = "/dashboard";
-    }
-    function to_tabelproduk() {
-        window.location.href = "/tabel_produk";
-    }
-    function to_tabeluser() {
-        window.location.href = "/tabel_user";
-    }
-    function to_tabelfeedback() {
-        window.location.href = "/tabel_feedback";
-    }
 
-    function to_addadmin() {
-        window.location.href = "/add_admin";
-    }
-    function to_addproduk() {
-        window.location.href = "/add_produk";
-    }
-
-    function to_homepage() {
-        window.location.href = "/";
-    }
 </script>
 
 <body>
-
     <!-- Start Sidebar Section -->
     <div class="sidebar">
         <nav class="nav flex-column">
-            <a href="#" onclick="to_dashboard()" class="nav-link">
+            <a href="/dashboard" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-grid"></i> <!-- This is the grid icon -->
                 </span>
                 <span class="description">Dashboard</span>
             </a>
-            <a href="#" onclick="to_tabelproduk()" class="nav-link">
+            <a href="/tabel_produk" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-bag"></i> <!-- This is the grid icon -->
                 </span>
                 <span class="description">Produk</span>
             </a>
-            <a href="#" onclick="to_tabeluser()" class="nav-link">
+            <a href="/tabel_user" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-person"></i>
                 </span>
                 <span class="description">Users</span>
             </a>
-            <a href="#" onclick="to_tabelfeedback()" class="nav-link">
+            <a href="/tabel_feedback" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-envelope"></i>
                 </span>
                 <span class="description">Feedback</span>
             </a>
             <hr>
-            <a href="#" onclick="to_addproduk()" class="nav-link">
+            <a href="/add_produk" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-plus-circle"></i>
                 </span>
                 <span class="description">Tambah Produk</span>
             </a>
 
-            <a href="#" onclick="to_addadmin()" class="nav-link">
+            <a href="/add_admin" class="nav-link">
                 <span class="icon">
                     <i class="bi bi-person-plus"></i>
                 </span>
@@ -106,7 +84,7 @@
                     <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
                     <span class="description">Profil</span>
                 </a>
-                <a href="#" onclick="to_homepage()" class="nav-link">
+                <a href="/" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
                     <span class="description">Logout</span>
                 </a>
@@ -121,23 +99,23 @@
         <!-- Start Card Section -->
         <div class="card-container">
             <!-- Card 1 -->
-            <a href="#" onclick="to_tabelproduk()" class="card">
+            <a href="/tabel_produk" class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen Produk</h2>
+                    <h2 class="card-title">Halaman Tabel Produk</h2>
                     <p class="card-text">Lihat dan edit data produk di sini.</p>
                 </div>
             </a>
             <!-- Card 2 -->
-            <a href="#" onclick="to_tabeluser()" class="card">
+            <a href="/tabel_user" class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen User</h2>
+                    <h2 class="card-title">Halaman Tabel User</h2>
                     <p class="card-text">Lihat dan edit data user di sini.</p>
                 </div>
             </a>
             <!-- Card 3 -->
-            <a href="#" onclick="to_tabelfeedback()" class="card">
+            <a href="/tabel_feedback" class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Halaman Manajemen Feedback</h2>
+                    <h2 class="card-title">Halaman Tabel Feedback</h2>
                     <p class="card-text">Lihat dan edit data feedback user di sini.</p>
                 </div>
             </a>
@@ -147,14 +125,14 @@
         <!-- Additional Cards -->
         <div class="card-container">
             <!-- Card 1 -->
-            <a href="#" onclick="to_addproduk()" class="card">
+            <a href="/add_produk" class="card">
                 <div class="card-body">
                     <h2 class="card-title">Halaman Tambah Produk</h2>
                     <p class="card-text">Tambah produk baru di sini.</p>
                 </div>
             </a>
             <!-- Card 2 -->
-            <a href="#" onclick="to_addadmin()" class="card">
+            <a href="/add_admin" class="card">
                 <div class="card-body">
                     <h2 class="card-title">Halaman Tambah User Admin</h2>
                     <p class="card-text">Tambah user Admin baru di sini.</p>
