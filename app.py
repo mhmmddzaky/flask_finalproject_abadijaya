@@ -77,6 +77,9 @@ def edit_produk():
 def edit_user():
     return render_template('dsb_edituser.html')
 
+@app.route('/view_feedback')
+def view_feedback():
+    return render_template('view_feedback.html')
 
 @app.route('/add_admin')
 def add_admin():
