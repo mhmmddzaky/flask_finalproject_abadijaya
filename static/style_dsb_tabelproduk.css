@@ -167,6 +167,11 @@ body {
         flex-direction: column;
         justify-content: flex-start; /* Tombol pertama di atas */
     }
+
+    .product-table .edit-link {
+        width: 100%; /* Tombol akan mengambil 100% lebar kolom pada perangkat kecil */
+        margin: 5px 0; /* Menjaga jarak antar tombol */
+    }
 }
 
 .edit-link {

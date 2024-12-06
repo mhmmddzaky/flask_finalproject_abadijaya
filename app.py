@@ -79,7 +79,7 @@ def edit_user():
 
 @app.route('/view_feedback')
 def view_feedback():
-    return render_template('view_feedback.html')
+    return render_template('dsb_viewfeedback.html')
 
 @app.route('/add_admin')
 def add_admin():
