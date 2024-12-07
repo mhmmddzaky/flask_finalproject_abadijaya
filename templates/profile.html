@@ -108,12 +108,12 @@
                     <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
                 </ul>
             </div>
-            <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+            <img src="{{ user.profile_picture }}" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="static/images/user.png" alt="User Profile">
-                        <h3>Nama User</h3>
+                        <img src="{{ user.profile_picture }}" alt="User Profile">
+                        <h3>{{ user.username }}</h3>
                     </div>
                     <a class="sub-menu-link" onclick="to_profilepage()">
                         <img src="static/images/profile.png" alt="Profile Icon">
@@ -131,28 +131,63 @@
     </nav>
     <!-- End Navbar Section -->
 
+    <!-- Modal Notifikasi -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel">
+                                        {% if messages[0][0] == 'success' %}
+                                            Halo!!
+                                        {% elif messages[0][0] == 'error' %}
+                                            Maaf!!
+                                        {% else %}
+                                            Notifikasi
+                                        {% endif %}
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {% for category, message in messages %}
+                                        <div 
+                                            class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
+                                            role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+  <!-- End Modal Notifikasi -->
+
+
     <!-- Profile Section-->
     <div class="main-wrapper">
         <div class="container profile-container">
             <div class="profile-header">
                 <div class="profile-photo">
-                    <img src="/static/images/user.png" alt="Profile Picture">
+                    <img src="{{ user.profile_picture }}" alt="Profile Picture">
                 </div>
-                <h4>Your Name</h4>
-                <p>yourname@gmail.com</p>
+                <h4>{{ user.username }}</h4>
+                <p>{{ user.email }}</p>
             </div>
 
             <!-- Profile Information -->
             <div class="profile-section">
                 <div class="row">
                     <div class="col-6 profile-label">Username</div>
-                    <div class="col-6 profile-value text-end">yourname</div>
+                    <div class="col-6 profile-value text-end">{{ user.username }}</div>
                 </div>
             </div>
             <div class="profile-section">
                 <div class="row">
                     <div class="col-6 profile-label">Email Account</div>
-                    <div class="col-6 profile-value text-end">yourname@gmail.com</div>
+                    <div class="col-6 profile-value text-end">{{ user.email }}</div>
                 </div>
             </div>
             <div class="profile-section">
@@ -161,7 +196,7 @@
                     <div class="col-6 profile-value text-end">Female</div>
                 </div>
             </div>
-            <div class="profile-section">
+            <!-- <div class="profile-section">
                 <div class="row align-items-center">
                     <div class="col-6 profile-label">Password</div>
                     <div class="col-6 d-flex justify-content-end">
@@ -170,7 +205,7 @@
                             alt="eye icon">
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="text-center mt-4">
                 <a class="btn edit-profile-btn" onclick="to_updatepage()">Edit Profile</a>
             </div>
@@ -190,6 +225,23 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notificationModal = document.getElementById('notificationModal');
+            if (notificationModal) {
+                const modal = new bootstrap.Modal(notificationModal);
+                
+                // Tampilkan modal
+                modal.show();
+    
+                // Sembunyikan modal otomatis setelah 5 detik
+                setTimeout(() => {
+                    modal.hide();
+                }, 3000); // 5000 ms = 5 detik
+            }
+        });
+      </script>
 </body>
 
 </html>

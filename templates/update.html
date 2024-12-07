@@ -112,12 +112,12 @@
                     <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
                 </ul>
             </div>
-            <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+            <img src="{{ profile_picture }}" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="static/images/user.png" alt="User Profile">
-                        <h3>Nama User</h3>
+                        <img src="{{ profile_picture }}" alt="User Profile">
+                        <h3>{{ username }}</h3>
                     </div>
                     <a class="sub-menu-link" onclick="to_profilepage()">
                         <img src="static/images/profile.png" alt="Profile Icon">
@@ -140,39 +140,43 @@
         <div class="container edit-profile-container">
             <div class="profile-image">
                 <label for="upload-photo">
-                    <img src="static/images/user.png" alt="Profile Picture" id="profile-picture">
+                    <img src="{{ profile_picture }}" alt="Profile Picture" id="profile-picture">
                     <div class="edit-icon">+</div>
                 </label>
                 <input type="file" id="upload-photo" accept="image/*" onchange="previewProfilePicture()"
                     style="display: none;">
             </div>
-            <form method="POST" enctype="multipart/form-data">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="firstName" class="form-label">First Name :</label>
-                        <input type="text" id="firstName" class="form-control" placeholder="First Name">
-                    </div>
-                    <div class="col-md-6">
+            <form method="POST" action="{{ url_for('update_profile') }}" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="profile_picture" class="form-label">Foto Profile:</label>
+                    <input type="file" id="profile_picture" name="profile_picture" class="form-control" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <!-- <div class="col-md-6"> -->
+                        <label for="firstName" class="form-label">Name :</label>
+                        <input type="text" id="Name" name="new_username" class="form-control" placeholder="Name">
+                    <!-- </div> -->
+                    <!-- <div class="col-md-6">
                         <label for="lastName" class="form-label">Last Name :</label>
                         <input type="text" id="lastName" class="form-control" placeholder="Last Name">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Account :</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email">
+                    <input type="email" id="email" name="new_email" class="form-control" placeholder="Email">
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="gender" class="form-label">Gender :</label>
                     <select id="gender" class="form-select">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="currentPassword" class="form-label">Current Password :</label>
                         <div class="input-group">
-                            <input type="password" id="currentPassword" class="form-control"
+                            <input type="password" id="currentPassword" name="current_password" class="form-control"
                                 placeholder="Current Password">
                             <span class="input-group-text">
                                 <img src="static/images/hidden.png" alt="Toggle Password"
@@ -184,7 +188,7 @@
                     <div class="col-md-6">
                         <label for="newPassword" class="form-label">New Password :</label>
                         <div class="input-group">
-                            <input type="password" id="newPassword" class="form-control" placeholder="New Password">
+                            <input type="password" id="newPassword" name="new_password" class="form-control" placeholder="New Password">
                             <span class="input-group-text">
                                 <img src="static/images/hidden.png" alt="Toggle Password"
                                     onclick="togglePassword('newPassword', 'newPasswordIcon')" id="newPasswordIcon"
@@ -196,7 +200,7 @@
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Confirm New Password :</label>
                     <div class="input-group">
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password">
+                        <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="Confirm Password">
                         <span class="input-group-text">
                             <img src="static/images/hidden.png" alt="Toggle Password"
                                 onclick="togglePassword('confirmPassword', 'confirmPasswordIcon')"
@@ -205,7 +209,7 @@
                     </div>
                 </div>
                 <div class="button-container">
-                    <a class="btn update-profile-btn" onclick="to_profilepage()">Simpan</a>
+                    <button type="submit" class="btn btn-light btn-lg btn-block">Simpan</button>
                 </div>
             </form>
         </div>
@@ -224,6 +228,7 @@
             </ul>
         </div>
     </footer>
+
 </body>
 
 </html>

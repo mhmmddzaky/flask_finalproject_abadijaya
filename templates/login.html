@@ -85,16 +85,27 @@
     <!-- Kontainer Login -->
     <div class="container-banner">
         <div class="inner-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div 
+                    class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
+                    role="alert">
+                    {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <h1>Login</h1>
-            <form>
+            <form  method="POST" action="{{ url_for('login') }}">
                 <!-- Username -->
                 <div class="form-outline mb-4">
-                    <input type="text" id="username" class="form-control form-control-lg" placeholder="Username"
+                    <input type="text" id="username" name="email" class="form-control form-control-lg" placeholder="Email"
                         required />
                 </div>
                 <!-- Password -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Password"
+                    <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password"
                         required />
                 </div>
                 <!-- Submit Button -->

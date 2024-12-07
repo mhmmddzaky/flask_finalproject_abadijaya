@@ -61,32 +61,71 @@
           <li><a class="nav-link" href="/product">Produk</a></li>
           <li><a class="nav-link" href="/about">Tentang</a></li>
           <li><a class="nav-link" href="/contact">Kontak</a></li>
+          <!-- {% if not session.user_id %} jika user belum login -->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
+          <!-- {% endif %} -->
+
         </ul>
       </div>
-      <img src="static/images/user.png" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
-      <div class="sub-menu-wrap" id="subMenu">
-        <div class="sub-menu">
-          <div class="user-info">
-            <img src="static/images/user.png" alt="User Profile">
-            <h3>Nama User</h3>
+      {% if session.user_id %} <!--jika user sudah login login-->
+          <img src="{{ profile_picture }}" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+          <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+              <div class="user-info">
+                <img src="{{ profile_picture }}" alt="User Profile">
+                <h3>{{ username }}</h3>
+              </div>
+              <a href="/profile" class="sub-menu-link">
+                <img src="static/images/profile.png" alt="Profile Icon">
+                <p>Profile</p>
+                <span>&gt;</span>
+              </a>
+              <a href="{{ url_for('logout') }}" class="sub-menu-link">
+                <img src="static/images/logout.png" alt="Logout Icon">
+                <p>Keluar</p>
+                <span>&gt;</span>
+              </a>
+            </div>
           </div>
-          <a href="/profile" class="sub-menu-link">
-            <img src="static/images/profile.png" alt="Profile Icon">
-            <p>Profile</p>
-            <span>&gt;</span>
-          </a>
-          <a href="#" class="sub-menu-link">
-            <img src="static/images/logout.png" alt="Logout Icon">
-            <p>Keluar</p>
-            <span>&gt;</span>
-          </a>
-        </div>
-      </div>
+        {% endif %}
     </div>
   </nav>
   <!-- End Navbar Section -->
+
+  <!-- Modal Notifikasi -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="modalLabel">
+                              {% if messages[0][0] == 'success' %}
+                                  Halo!!
+                              {% elif messages[0][0] == 'error' %}
+                                  Maaf!!
+                              {% else %}
+                                  Notifikasi
+                              {% endif %}
+                          </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          {% for category, message in messages %}
+                              <div 
+                                  class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
+                                  role="alert">
+                                  {{ message }}
+                              </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      {% endif %}
+    {% endwith %}
+  <!-- End Modal Notifikasi -->
 
   <!-- Start Banner Section -->
   <div class="container-banner d-flex align-items-center">
@@ -507,6 +546,24 @@
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
       },
+    });
+  </script>
+  
+  <!-- Script to Automatically Show and Hide Modal -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const notificationModal = document.getElementById('notificationModal');
+        if (notificationModal) {
+            const modal = new bootstrap.Modal(notificationModal);
+            
+            // Tampilkan modal
+            modal.show();
+
+            // Sembunyikan modal otomatis setelah 5 detik
+            setTimeout(() => {
+                modal.hide();
+            }, 3000); // 5000 ms = 5 detik
+        }
     });
   </script>
 </body>
