@@ -167,8 +167,20 @@ body {
         flex-direction: column;
         justify-content: flex-start; /* Tombol pertama di atas */
     }
+    .product-table .edit-link {
+        width: 100%; /* Tombol akan mengambil 100% lebar kolom pada perangkat kecil */
+        margin: 5px 0; /* Menjaga jarak antar tombol */
+    }
 }
 
 
+.edit-link {
+    text-decoration: none; /* Hilangkan garis bawah */
+    display: inline-block; /* Agar mengikuti tata letak tombol */
+    width: 48%; /* Sesuai dengan lebar tombol */
+}
+.edit-link > .edit-btn {
+    width: 100%; /* Tombol akan menyesuaikan lebar elemen induknya */
+}
 
 
