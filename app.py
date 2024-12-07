@@ -60,8 +60,15 @@ def login():
             session["user_id"] = str(user["_id"])
             session["username"] = user["username"]
             session["profile_picture"] = user.get("profile_picture", "static/images/profile .png")
+            session["role"] = user.get("role", "user")
+
             flash(f"Selamat datang, {user['username']}!", "success")
-            return redirect(url_for("home"))
+
+            # Redirect berdasarkan role
+            if session["role"] == "admin":
+                return redirect(url_for("dashboard"))
+            else:
+                return redirect(url_for("home"))
         else:
             flash("Email atau password salah.", "error")
             return redirect(url_for("login"))
@@ -72,11 +79,12 @@ def register():
     if request.method == "POST":
         # Ambil data dari form
         username = request.form.get("username")
+        fullname = request.form.get("fullname")
         email = request.form.get("email")
         password = request.form.get("password")
 
         # Validasi data (contoh sederhana)
-        if not username or not email or not password:
+        if not username or not fullname or not email or not password:
             flash("Semua field wajib diisi!", "error")
             return redirect(url_for("register"))
 
@@ -95,8 +103,10 @@ def register():
 
         db.users.insert_one({
             "username": username,
+            "fullname": fullname,
             "email": email,
             "password": hashed_password,
+            "role": "user",
             "profile_picture": default_profile_picture
         })
 
@@ -136,6 +146,7 @@ def update_profile():
 
     if request.method == "POST":
         new_name = request.form["new_username"]
+        new_fullname = request.form["new_fullname"]
         new_email = request.form["new_email"]
         current_password = request.form["current_password"]
         new_password = request.form["new_password"]
@@ -144,6 +155,12 @@ def update_profile():
 
         user_id = session.get("user_id")
         user = db.users.find_one({"_id": ObjectId(user_id)})
+
+       # Cek apakah email sudah digunakan oleh pengguna lain
+        existing_user = db.users.find_one({"email": new_email})
+        if existing_user and str(existing_user["_id"]) != str(user["_id"]):
+            flash("Email sudah terdaftar oleh pengguna lain. Gunakan email lain.", "error")
+            return redirect(url_for("update_profile"))
 
          # Verifikasi password lama
         if not check_password_hash(user["password"], current_password):
@@ -170,10 +187,11 @@ def update_profile():
             # Jika tidak ada file yang diunggah, gunakan foto profil yang sudah ada atau default
             file_path = user.get("profile_picture", "static/foto_profile/profile.png")
         
-        # Update username dan email jika password valid
+        # Update jika password valid
         db.users.update_one({"_id": ObjectId(user_id)}, {
             "$set": {
                 "username": new_name,
+                "fullname": new_fullname,
                 "email": new_email,
                 "profile_picture": file_path,
             }
@@ -236,8 +254,45 @@ def edit_user():
 def view_feedback():
     return render_template('dsb_viewfeedback.html')
 
-@app.route('/add_admin')
+@app.route('/add_admin', methods=["GET", "POST"])
 def add_admin():
+    if request.method == "POST":
+        # Ambil data dari form
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        fullname = request.form.get("fullname")
+        role = request.form.get("role")
+
+        # Validasi data (contoh sederhana)
+        if not username or not email or not fullname or not role or not password:
+            flash("Semua field wajib diisi!", "error")
+            return redirect(url_for("add_admin"))
+
+        # Cek apakah email sudah digunakan
+        existing_user = db.users.find_one({"email": email})
+        if existing_user:
+            flash("Email sudah terdaftar. Gunakan email lain.", "error")
+            return redirect(url_for("add_admin"))
+
+        # Hash password dan simpan ke database
+         # Hash password dan simpan ke database
+        hashed_password = generate_password_hash(password)  
+
+        # Foto profil default
+        default_profile_picture = "static/foto_profile/profile.png"
+
+        db.users.insert_one({
+            "username": username,
+            "email": email,
+            "password": hashed_password,
+            "role": role,
+            "fullname": fullname,
+            "profile_picture": default_profile_picture
+        })
+
+        flash("User Berhasil Ditambahkan", "success")
+        return redirect(url_for("add_admin"))
     return render_template('dsb_adduser.html') 
 
 @app.route('/add_produk')

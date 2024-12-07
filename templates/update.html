@@ -124,7 +124,7 @@
                         <p>Profile</p>
                         <span>&gt;</span>
                     </a>
-                    <a href="#" class="sub-menu-link">
+                    <a href="{{ url_for('logout') }}" class="sub-menu-link">
                         <img src="static/images/logout.png" alt="Logout Icon">
                         <p>Keluar</p>
                         <span>&gt;</span>
@@ -134,6 +134,40 @@
         </div>
     </nav>
     <!-- End Navbar Section -->
+
+     <!-- Modal Notifikasi -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel">
+                                    {% if messages[0][0] == 'success' %}
+                                        Halo!!
+                                    {% elif messages[0][0] == 'error' %}
+                                        Maaf!!
+                                    {% else %}
+                                        Notifikasi
+                                    {% endif %}
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                {% for category, message in messages %}
+                                    <div 
+                                        class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
+                                        role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        {% endif %}
+        {% endwith %}
+    <!-- End Modal Notifikasi -->
 
     <!-- Update Section-->
     <div class="main-wrapper">
@@ -153,13 +187,17 @@
                 </div>
                 <div class="mb-3">
                     <!-- <div class="col-md-6"> -->
-                        <label for="firstName" class="form-label">Name :</label>
-                        <input type="text" id="Name" name="new_username" class="form-control" placeholder="Name">
+                        <label for="firstName" class="form-label">Username :</label>
+                        <input type="text" id="username" name="new_username" class="form-control" placeholder="Username">
                     <!-- </div> -->
                     <!-- <div class="col-md-6">
                         <label for="lastName" class="form-label">Last Name :</label>
                         <input type="text" id="lastName" class="form-control" placeholder="Last Name">
                     </div> -->
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Nama Lengkap :</label>
+                        <input type="text" id="fullname" name="new_fullname" class="form-control" placeholder="Nama Lengkap">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Account :</label>
@@ -228,6 +266,23 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notificationModal = document.getElementById('notificationModal');
+            if (notificationModal) {
+                const modal = new bootstrap.Modal(notificationModal);
+                
+                // Tampilkan modal
+                modal.show();
+    
+                // Sembunyikan modal otomatis setelah 5 detik
+                setTimeout(() => {
+                    modal.hide();
+                }, 3000); // 5000 ms = 5 detik
+            }
+        });
+      </script>
 
 </body>
 

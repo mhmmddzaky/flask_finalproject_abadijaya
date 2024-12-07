@@ -120,7 +120,7 @@
                         <p>Profile</p>
                         <span>&gt;</span>
                     </a>
-                    <a href="#" class="sub-menu-link">
+                    <a href="{{ url_for('logout') }}" class="sub-menu-link">
                         <img src="static/images/logout.png" alt="Logout Icon">
                         <p>Keluar</p>
                         <span>&gt;</span>
@@ -186,14 +186,14 @@
             </div>
             <div class="profile-section">
                 <div class="row">
-                    <div class="col-6 profile-label">Email Account</div>
-                    <div class="col-6 profile-value text-end">{{ user.email }}</div>
+                    <div class="col-6 profile-label">Nama Lengkap</div>
+                    <div class="col-6 profile-value text-end">{{ user.fullname }}</div>
                 </div>
             </div>
             <div class="profile-section">
                 <div class="row">
-                    <div class="col-6 profile-label">Gender</div>
-                    <div class="col-6 profile-value text-end">Female</div>
+                    <div class="col-6 profile-label">Email Account</div>
+                    <div class="col-6 profile-value text-end">{{ user.email }}</div>
                 </div>
             </div>
             <!-- <div class="profile-section">
