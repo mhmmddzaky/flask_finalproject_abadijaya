@@ -27,27 +27,7 @@
     <title>Topraja | Login</title>
 
     <script>
-        function to_homepage() {
-            window.location.href = "/";
-        }
-        function to_loginpage() {
-            window.location.href = "/login";
-        }
-        function to_registerpage() {
-            window.location.href = "/register";
-        }
-        function to_aboutpage() {
-            window.location.href = "/about";
-        }
-        function to_contactpage() {
-            window.location.href = "/contact";
-        }
-        function to_productpage() {
-            window.location.href = "/product";
-        }
-        function to_dashboard() {
-            window.location.href = "/dashboard";
-        }
+
     </script>
 </head>
 
@@ -56,7 +36,7 @@
     <nav class="custom-navbar navbar navbar-expand-md navbar-light bg-white fixed-top"
         aria-label="Toko Abadi Jaya navigation bar">
         <div class="container">
-            <a class="navbar-brand" href="#" onclick="to_homepage()">
+            <a class="navbar-brand" href="/">
                 Toko Perabot
                 <strong style="color: rgb(220, 20, 60);">Abadi Jaya</strong>
                 <span class="brand-dot">.</span>
@@ -68,45 +48,100 @@
             <div class="collapse navbar-collapse" id="navbarsToko">
                 <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" onclick="to_homepage()">Beranda</a>
+                        <a class="nav-link" href="/">Beranda</a>
                     </li>
-                    <li><a class="nav-link" href="#" onclick="to_productpage()">Produk</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_aboutpage()">Tentang</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_contactpage()">Kontak</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_registerpage()">Daftar</a></li>
-                    <li><a class="nav-link" href="#" onclick="to_loginpage()">Masuk</a></li>
-                </ul>
+                    <li><a class="nav-link" href="/product">Produk</a></li>
+                    <li><a class="nav-link" href="/about">Tentang</a></li>
+                    <li><a class="nav-link" href="/contact">Kontak</a></li>
+                    <!-- {% if not session.user_id %} jika user belum login -->
+                    <li><a class="nav-link" href="/register">Daftar</a></li>
+                    <li><a class="nav-link" href="/login">Masuk</a></li>
+                    <!-- {% endif %} -->
 
+                </ul>
             </div>
+            {% if session.user_id %} <!--jika user sudah login login-->
+            <img src="{{ profile_picture }}" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="{{ profile_picture }}" alt="User Profile">
+                        <h3>{{ username }}</h3>
+                    </div>
+                    <a href="/profile" class="sub-menu-link">
+                        <img src="static/images/profile.png" alt="Profile Icon">
+                        <p>Profile</p>
+                        <span>&gt;</span>
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="sub-menu-link">
+                        <img src="static/images/logout.png" alt="Logout Icon">
+                        <p>Keluar</p>
+                        <span>&gt;</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </nav>
     <!-- End Navbar Section -->
+
+    <!-- Modal Notifikasi -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">
+                        {% if messages[0][0] == 'success' %}
+                        Halo!
+                        {% elif messages[0][0] == 'error' %}
+                        Maaf!
+                        {% else %}
+                        Notifikasi
+                        {% endif %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% for category, message in messages %}
+                    <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                        role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+    <!-- End Modal Notifikasi -->
 
     <!-- Kontainer Login -->
     <div class="container-banner">
         <div class="inner-container">
             {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                    <div 
-                    class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
-                    role="alert">
-                    {{ message }}
-                    </div>
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             {% endwith %}
             <h1>Login</h1>
-            <form  method="POST" action="{{ url_for('login') }}">
+            <form method="POST" action="{{ url_for('login') }}">
                 <!-- Username -->
                 <div class="form-outline mb-4">
-                    <input type="text" id="username" name="email" class="form-control form-control-lg" placeholder="Email"
-                        required />
+                    <input type="text" id="username" name="email" class="form-control form-control-lg"
+                        placeholder="Email" required />
                 </div>
                 <!-- Password -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password"
-                        required />
+                    <input type="password" id="password" name="password" class="form-control form-control-lg"
+                        placeholder="Password" required />
                 </div>
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-light btn-lg btn-block w-100">Masuk</button>
@@ -120,8 +155,11 @@
     <!-- Call to Action Section -->
     <section id="products" class="product-cta text-white text-center py-5">
         <h2>Explore Our Products!</h2>
-        <button class="btn btn-lg" onclick="window.location.href='/product'">View Products</button>
+        <a href="/product">
+            <button class="btn btn-lg">View Products</button>
+        </a>
     </section>
+
 
     <!-- Footer Section -->
     <footer>
@@ -134,6 +172,23 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notificationModal = document.getElementById('notificationModal');
+            if (notificationModal) {
+                const modal = new bootstrap.Modal(notificationModal);
+
+                // Tampilkan modal
+                modal.show();
+
+                // Sembunyikan modal otomatis setelah 5 detik
+                setTimeout(() => {
+                    modal.hide();
+                }, 3000); // 5000 ms = 5 detik
+            }
+        });
+    </script>
 </body>
 
 </html>

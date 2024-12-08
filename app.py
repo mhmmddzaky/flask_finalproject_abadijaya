@@ -123,11 +123,19 @@ def logout():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+    return render_template(
+    'about.html',
+    username=session.get("username"),
+    profile_picture=profile_picture)
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+    return render_template(
+    'contact.html',
+    username=session.get("username"),
+    profile_picture=profile_picture)
 
 @app.route('/profile')
 @login_required
@@ -219,11 +227,19 @@ def update_profile():
 
 @app.route('/product')
 def product():
-    return render_template('product.html')
+    profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+    return render_template(
+    'product.html',
+    username=session.get("username"),
+    profile_picture=profile_picture)
 
 @app.route('/detail_produk')
 def detail_produk():
-    return render_template('detail_produk.html')
+    profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+    return render_template(
+    'detail_produk.html',
+    username=session.get("username"),
+    profile_picture=profile_picture)
 
 # Admin Sidebar #
 @app.route('/dashboard')
