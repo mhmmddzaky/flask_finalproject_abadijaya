@@ -400,9 +400,9 @@ def add_produk():
 
     return render_template('dsb_addproduk.html')
 
-@app.route('/feedback')
-def feedback():
-    return render_template('feedback.html')
+@app.route('/profile_admin')
+def profile_admin():
+    return render_template('profile_admin.html') 
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)
