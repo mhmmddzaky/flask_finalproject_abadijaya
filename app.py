@@ -165,11 +165,14 @@ def contact():
 @app.route('/profile')
 @login_required
 def profile():
+    profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
     # Ambil data pengguna dari database berdasarkan session user_id
     user_id = session.get("user_id")
     user = db.users.find_one({"_id": ObjectId(user_id)})
 
-    return render_template('profile.html', user=user)
+    return render_template('profile.html',
+                           user=user,
+                           profile_picture=profile_picture)
 
 @app.route('/update', methods=["GET", "POST"])
 def update_profile():
