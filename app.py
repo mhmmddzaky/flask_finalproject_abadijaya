@@ -129,13 +129,38 @@ def about():
     username=session.get("username"),
     profile_picture=profile_picture)
 
-@app.route('/contact')
+@app.route('/contact', methods=["GET", "POST"])
 def contact():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+
+    if request.method == "POST":
+        # Ambil data dari form
+        fullname = request.form.get("fullname")
+        email = request.form.get("email")
+        message = request.form.get("message")
+
+        # Validasi sederhana
+        if not fullname or not email or not message:
+            flash("Semua field wajib diisi!", "error")
+            return redirect(url_for("contact"))
+
+        # Simpan pesan ke database (contoh, tambahkan logika database sesuai kebutuhan)
+        db.feedback.insert_one({
+            "fullname": fullname,
+            "email": email,
+            "message": message,
+            "date": datetime.now()  # Tanggal saat pesan dikirim
+        })
+
+        flash("Pesan berhasil dikirim. Terima kasih telah menghubungi kami!", "success")
+        return redirect(url_for("contact"))
+
     return render_template(
-    'contact.html',
-    username=session.get("username"),
-    profile_picture=profile_picture)
+        'contact.html',
+        username=session.get("username"),
+        profile_picture=profile_picture
+    )
+
 
 @app.route('/profile')
 @login_required

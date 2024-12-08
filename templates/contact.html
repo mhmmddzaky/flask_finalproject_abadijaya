@@ -193,21 +193,22 @@
               </div>
             </div>
           </div>
-          <form>
+          <form method="POST" action="{{ url_for('contact') }}">
             <div class="form-group mb-2">
               <label class="text-black" style="font-size: 18px;" for="fullname">Full Name</label>
-              <input type="text" class="form-control" id="fullname">
+              <input type="text" class="form-control" id="fullname" name="fullname" required>
             </div>
             <div class="form-group mb-2">
               <label class="text-black" style="font-size: 18px;" for="email">Email address</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group mb-5">
               <label class="text-black" style="font-size: 18px;" for="message">Message</label>
-              <textarea class="form-control" id="message" cols="30" rows="5"></textarea>
+              <textarea class="form-control" id="message" name="message" cols="30" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
           </form>
+
         </div>
 
         <!-- Bagian Kanan: Google Maps -->
