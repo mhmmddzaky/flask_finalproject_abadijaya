@@ -278,6 +278,15 @@ def dashboard():
 def tabel_produk():
     return render_template('dsb_tabelproduk.html')
 
+# GET data products
+@app.route('/products', methods=['GET'])
+def get_products():
+    try:
+        products = list(db.product.find({}, {'_id': False}))
+        return jsonify({'products': products})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/tabel_user')
 def tabel_user():
     return render_template('dsb_tabeluser.html')
@@ -339,9 +348,57 @@ def add_admin():
         return redirect(url_for("add_admin"))
     return render_template('dsb_adduser.html') 
 
-@app.route('/add_produk')
+@app.route('/add_produk', methods=['GET', 'POST'])
 def add_produk():
-    return render_template('dsb_addproduk.html') 
+    if request.method == 'POST':
+        try:
+            # Menerima data dari form
+            product_name = request.form.get('product_name')
+            product_category = request.form.get('product_category')
+            product_brand = request.form.get('product_brand')
+            product_desc = request.form.get('product_desc')
+            product_price = request.form.get('product_price')
+
+            # Validasi sederhana
+            if not product_name or not product_category or not product_brand or not product_desc or not product_price:
+                flash('Semua field wajib diisi!', 'error')
+                return redirect(url_for('add_produk'))
+
+            # Mengelola file gambar
+            file = request.files.get('product_image')
+            if file:
+                # Ekstensi file
+                extension = file.filename.split('.')[-1]
+                # Nama file berdasarkan timestamp
+                timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+                filename = f'product-{timestamp}.{extension}'
+                # Path penyimpanan file
+                file_path = os.path.join('static', 'product_images', filename)
+                file.save(file_path)  # Simpan file ke folder lokal
+            else:
+                flash('Gambar produk harus diunggah!', 'error')
+                return redirect(url_for('add_produk'))
+
+
+            # Data yang akan disimpan ke MongoDB
+            product_data = {
+                'product_name': product_name,
+                'product_image': filename,
+                'product_category': product_category,
+                'product_brand': product_brand,
+                'product_desc': product_desc,
+                'product_price': product_price
+            }
+            # Simpan ke collection 'product'
+            db.product.insert_one(product_data)
+
+            flash('Produk berhasil ditambahkan!', 'success')
+            return redirect(url_for('add_produk'))
+        except Exception as e:
+            flash(f'Error: {str(e)}', 'error')
+            return redirect(url_for('add_produk'))
+
+    return render_template('dsb_addproduk.html')
 
 @app.route('/feedback')
 def feedback():
