@@ -192,7 +192,7 @@ def update_profile():
         user_id = session.get("user_id")
         user = db.users.find_one({"_id": ObjectId(user_id)})
 
-       # Cek apakah email sudah digunakan oleh pengguna lain
+        # Cek apakah email sudah digunakan oleh pengguna lain
         existing_user = db.users.find_one({"email": new_email})
         if existing_user and str(existing_user["_id"]) != str(user["_id"]):
             flash("Email sudah terdaftar oleh pengguna lain. Gunakan email lain.", "error")
@@ -278,9 +278,77 @@ def dashboard():
 def tabel_produk():
     return render_template('dsb_tabelproduk.html')
 
+# Tabel User
 @app.route('/tabel_user')
 def tabel_user():
-    return render_template('dsb_tabeluser.html')
+    # Ambil semua data pengguna dari koleksi users
+    users = list(db.users.find())
+    
+    # Ubah ObjectId ke string 
+    for user in users:
+        user["_id"] = str(user["_id"])
+
+    return render_template('dsb_tabeluser.html', users=users)
+
+@app.route('/edit_user', methods=["GET", "POST"])
+def edit_user():
+    user_id = request.args.get("id")
+    
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if request.method == "POST":
+        new_name = request.form["new_username"]
+        new_fullname = request.form["new_fullname"]
+        new_email = request.form["new_email"]
+        new_password = request.form["new_password"]
+        new_role = request.form["new_role"]
+
+        # Cek apakah email sudah digunakan oleh pengguna lain
+        existing_user = db.users.find_one({"email": new_email})
+        if existing_user and str(existing_user["_id"]) != str(user["_id"]):
+            flash("Email sudah terdaftar oleh pengguna lain. Gunakan email lain.", "error")
+            return redirect(url_for("edit_user"))
+        
+        # Update data
+        db.users.update_one({"_id": ObjectId(user_id)}, {
+            "$set": {
+                "username": new_name,
+                "fullname": new_fullname,
+                "email": new_email,
+                "role": new_role,
+            }
+        })
+
+         # password baru, hash dan simpan
+        if new_password:
+            hashed_password = generate_password_hash(new_password)
+            db.users.update_one({"_id": ObjectId(user_id)}, {
+                "$set": {
+                    "password": hashed_password
+                }
+            })
+        
+        flash("Data Kamu berhasil diperbarui.", "success")
+        return redirect(url_for("tabel_user"))
+
+    return render_template('dsb_edituser.html', user=user)
+
+@app.route('/delete_user/<user_id>',  methods=["POST"])
+def delete_user(user_id):
+
+    # Hapus pengguna berdasarkan ID
+    result = db.users.delete_one({"_id": ObjectId(user_id)})
+
+    # Cek apakah ada data yang dihapus
+    if result.deleted_count > 0:
+        flash("Pengguna berhasil dihapus.", "success")
+    else:
+        flash("Pengguna tidak ditemukan.", "error")
+
+    return redirect(url_for("tabel_user"))
+
+# End Tabel User
+
 
 @app.route('/tabel_feedback')
 def tabel_feedback():
@@ -289,10 +357,6 @@ def tabel_feedback():
 @app.route('/edit_produk')
 def edit_produk():
     return render_template('dsb_editproduk.html')
-
-@app.route('/edit_user')
-def edit_user():
-    return render_template('dsb_edituser.html')
 
 @app.route('/view_feedback')
 def view_feedback():

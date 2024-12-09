@@ -331,6 +331,13 @@ body::before {
 }
 /* <End Navbar Section> */
 
+/* class Font Montserrat Alternates */
+.montserrat-alternates-bold {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 .banner {
     position: relative;
     background: url('/static/images/furni_background.jpg') no-repeat center center/cover;
@@ -401,8 +408,30 @@ img {
     color: #555;
 }
 
-#owner img {
-    border-radius: 50%;
+.same-size {
+    height: 250px; /* Atur tinggi sesuai kebutuhan */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+  }
+
+  .hover-zoom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .hover-zoom:hover {
+    transform: scale(1.1); /* Zoom-in */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan efek bayangan */
+  }
+
+.owner-img {
+    width: 450px; /* Atur lebar sesuai kebutuhan */
+    height: 450px; /* Atur tinggi sesuai kebutuhan */
+    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+    border-radius: 50%; /* Tetap bulat */
+  }
+
+.equal-img {
+    height: 200px; /* Atur tinggi sesuai kebutuhan */
+    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
 }
 
 #owner h3 {
