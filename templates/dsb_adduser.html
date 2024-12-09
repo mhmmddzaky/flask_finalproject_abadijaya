@@ -114,7 +114,7 @@
                     <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
                     <span class="description">Profil</span>
                 </a>
-                <a href="/" class="nav-link">
+                <a href="{{ url_for('logout') }}" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
                     <span class="description">Logout</span>
                 </a>
@@ -125,35 +125,34 @@
 
     <!-- Modal Notifikasi -->
     {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">
-                                {% if messages[0][0] == 'success' %}
-                                    Halo!!
-                                {% elif messages[0][0] == 'error' %}
-                                    Maaf!!
-                                {% else %}
-                                    Notifikasi
-                                {% endif %}
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            {% for category, message in messages %}
-                                <div 
-                                    class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
-                                    role="alert">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        </div>
+    {% if messages %}
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">
+                        {% if messages[0][0] == 'success' %}
+                        Halo!!
+                        {% elif messages[0][0] == 'error' %}
+                        Maaf!!
+                        {% else %}
+                        Notifikasi
+                        {% endif %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% for category, message in messages %}
+                    <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                        role="alert">
+                        {{ message }}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-        {% endif %}
+        </div>
+    </div>
+    {% endif %}
     {% endwith %}
     <!-- End Modal Notifikasi -->
 
@@ -163,24 +162,26 @@
             <form method="POST" action="{{ url_for('add_admin') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username Anda" required>
+                    <input type="text" class="form-control" id="username" name="username"
+                        placeholder="Masukkan username Anda" required>
                     <div class="invalid-feedback">Username tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password Anda"
-                        required>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Masukkan password Anda" required>
                     <div class="invalid-feedback">Password tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda"
+                        required>
                     <div class="invalid-feedback">Email tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="fullname" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Masukkan nama lengkap Anda"
-                        required>
+                    <input type="text" class="form-control" id="fullname" name="fullname"
+                        placeholder="Masukkan nama lengkap Anda" required>
                     <div class="invalid-feedback">Nama tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
@@ -203,22 +204,22 @@
         crossorigin="anonymous"></script>
 
     <!-- Script to Automatically Show and Hide Modal -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const notificationModal = document.getElementById('notificationModal');
-        if (notificationModal) {
-            const modal = new bootstrap.Modal(notificationModal);
-            
-            // Tampilkan modal
-            modal.show();
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notificationModal = document.getElementById('notificationModal');
+            if (notificationModal) {
+                const modal = new bootstrap.Modal(notificationModal);
 
-            // Sembunyikan modal otomatis setelah 5 detik
-            setTimeout(() => {
-                modal.hide();
-            }, 3000); // 5000 ms = 5 detik
-        }
-    });
-  </script>
+                // Tampilkan modal
+                modal.show();
+
+                // Sembunyikan modal otomatis setelah 5 detik
+                setTimeout(() => {
+                    modal.hide();
+                }, 3000); // 5000 ms = 5 detik
+            }
+        });
+    </script>
 </body>
 
 </html>

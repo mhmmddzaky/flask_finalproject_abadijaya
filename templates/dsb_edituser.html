@@ -114,7 +114,7 @@
                     <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
                     <span class="description">Profil</span>
                 </a>
-                <a href="/" class="nav-link">
+                <a href="{{ url_for('logout') }}" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
                     <span class="description">Logout</span>
                 </a>
@@ -122,38 +122,37 @@
         </nav>
     </div>
 
-     <!-- Modal Notifikasi -->
-     {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">
-                                {% if messages[0][0] == 'success' %}
-                                    Halo!!
-                                {% elif messages[0][0] == 'error' %}
-                                    Maaf!!
-                                {% else %}
-                                    Notifikasi
-                                {% endif %}
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            {% for category, message in messages %}
-                                <div 
-                                    class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
-                                    role="alert">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        </div>
+    <!-- Modal Notifikasi -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">
+                        {% if messages[0][0] == 'success' %}
+                        Halo!!
+                        {% elif messages[0][0] == 'error' %}
+                        Maaf!!
+                        {% else %}
+                        Notifikasi
+                        {% endif %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% for category, message in messages %}
+                    <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                        role="alert">
+                        {{ message }}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-        {% endif %}
-     {% endwith %}
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
     <!-- End Modal Notifikasi -->
 
     <div class="main-content">
@@ -162,29 +161,32 @@
             <form method="POST" action="{{ url_for('edit_user', id=user._id) }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="new_username" value="{{ user.username }}" required>
+                    <input type="text" class="form-control" id="username" name="new_username"
+                        value="{{ user.username }}" required>
                     <div class="invalid-feedback">Username tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="new_password" placeholder="Masukkan Baru password Anda">
+                    <input type="password" class="form-control" id="password" name="new_password"
+                        placeholder="Masukkan Baru password Anda">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="new_email" value="{{ user.email }}" required>
+                    <input type="email" class="form-control" id="email" name="new_email" value="{{ user.email }}"
+                        required>
                     <div class="invalid-feedback">Email tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="fullname" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="fullname" name="new_fullname" value="{{ user.fullname }}"
-                        required>
+                    <input type="text" class="form-control" id="fullname" name="new_fullname"
+                        value="{{ user.fullname }}" required>
                     <div class="invalid-feedback">Nama tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
                     <select class="form-select" id="role" name="new_role" required>
                         <option value="{{ user.role }}">{{ user.role }}</option>
-                        <option >Masukkan Role</option>
+                        <option>Masukkan Role</option>
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     </select>
@@ -207,7 +209,7 @@
             const notificationModal = document.getElementById('notificationModal');
             if (notificationModal) {
                 const modal = new bootstrap.Modal(notificationModal);
-                
+
                 // Tampilkan modal
                 modal.show();
 
