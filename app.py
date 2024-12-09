@@ -134,26 +134,33 @@ def contact():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
 
     if request.method == "POST":
-        # Ambil data dari form
-        fullname = request.form.get("fullname")
-        email = request.form.get("email")
-        message = request.form.get("message")
+        try:
+            # Ambil data dari form
+            fullname = request.form.get("fullname")
+            email = request.form.get("email")
+            message = request.form.get("message")
 
-        # Validasi sederhana
-        if not fullname or not email or not message:
-            flash("Semua field wajib diisi!", "error")
+            # Validasi sederhana
+            if not fullname or not email or not message:
+                flash("Semua field wajib diisi!", "error")
+                return redirect(url_for("contact"))
+
+            # Data yang akan disimpan ke database
+            feedback_data = {
+                "fullname": fullname,
+                "email": email,
+                "message": message,
+                "date": datetime.now()
+            }
+            
+            # Simpan pesan ke database
+            db.feedback.insert_one(feedback_data)
+
+            flash("Pesan berhasil dikirim. Terima kasih telah menghubungi kami!", "success")
             return redirect(url_for("contact"))
-
-        # Simpan pesan ke database (contoh, tambahkan logika database sesuai kebutuhan)
-        db.feedback.insert_one({
-            "fullname": fullname,
-            "email": email,
-            "message": message,
-            "date": datetime.now()  # Tanggal saat pesan dikirim
-        })
-
-        flash("Pesan berhasil dikirim. Terima kasih telah menghubungi kami!", "success")
-        return redirect(url_for("contact"))
+        except Exception as e:
+            flash(f"Terjadi kesalahan: {str(e)}", "error")
+            return redirect(url_for("contact"))
 
     return render_template(
         'contact.html',
@@ -360,18 +367,32 @@ def delete_user(user_id):
 
 @app.route('/tabel_feedback', methods=['GET'])
 def tabel_feedback():
-    feedbacks = list(db.feedback.find()) 
+    # Ambil semua data feedback dari koleksi feedback
+    feedbacks = list(db.feedback.find())
+
+    # Ubah ObjectId menjadi string
     for feedback in feedbacks:
-        feedback["_id"] = str(feedback["_id"]) 
+        feedback["_id"] = str(feedback["_id"])
+
     return render_template('dsb_tabelfeedback.html', feedbacks=feedbacks)
-@app.route('/delete_feedback/<feedback_id>', methods=['POST'])
+
+
+@app.route('/delete_feedback/<feedback_id>', methods=["POST"])
 def delete_feedback(feedback_id):
-    result = db.feedback.delete_one({"_id": ObjectId(feedback_id)})
-    if result.deleted_count > 0:
-        flash("Feedback berhasil dihapus.", "success")
-    else:
-        flash("Feedback tidak ditemukan.", "error")
-    return redirect(url_for('tabel_feedback'))
+    try:
+        # Hapus feedback berdasarkan ID
+        result = db.feedback.delete_one({"_id": ObjectId(feedback_id)})
+
+        # Cek apakah ada data yang dihapus
+        if result.deleted_count > 0:
+            flash("Feedback berhasil dihapus.", "success")
+        else:
+            flash("Feedback tidak ditemukan.", "error")
+    except Exception as e:
+        flash(f"Terjadi kesalahan: {str(e)}", "error")
+    
+    return redirect(url_for("tabel_feedback"))
+
 
 @app.route('/edit_produk')
 def edit_produk():
