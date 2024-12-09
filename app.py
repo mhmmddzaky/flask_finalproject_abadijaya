@@ -358,9 +358,20 @@ def delete_user(user_id):
 # End Tabel User
 
 
-@app.route('/tabel_feedback')
+@app.route('/tabel_feedback', methods=['GET'])
 def tabel_feedback():
-    return render_template('dsb_tabelfeedback.html')
+    feedbacks = list(db.feedback.find()) 
+    for feedback in feedbacks:
+        feedback["_id"] = str(feedback["_id"]) 
+    return render_template('dsb_tabelfeedback.html', feedbacks=feedbacks)
+@app.route('/delete_feedback/<feedback_id>', methods=['POST'])
+def delete_feedback(feedback_id):
+    result = db.feedback.delete_one({"_id": ObjectId(feedback_id)})
+    if result.deleted_count > 0:
+        flash("Feedback berhasil dihapus.", "success")
+    else:
+        flash("Feedback tidak ditemukan.", "error")
+    return redirect(url_for('tabel_feedback'))
 
 @app.route('/edit_produk')
 def edit_produk():
