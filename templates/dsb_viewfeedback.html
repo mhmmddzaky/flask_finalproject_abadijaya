@@ -95,27 +95,26 @@
     <div class="main-content">
         <div class="inner-container">
             <h2>Feedback</h2>
-            <form id="addUserForm">
+            <form>
                 <div class="mb-3">
                     <label for="namaPengirim" class="form-label">Nama Pengirim</label>
-                    <input type="text" class="form-control" id="namaPengirim" placeholder="Masukkan nama pengirim"
-                        required>
-                    <div class="invalid-feedback">Nama pengirim tidak boleh kosong.</div>
+                    <input type="text" class="form-control" id="namaPengirim" name="sender_name"
+                        value="{{ feedback.fullname }}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
-                    <div class="invalid-feedback">Email tidak boleh kosong.</div>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ feedback.email }}"
+                        readonly>
                 </div>
                 <div class="mb-3">
                     <label for="pesan" class="form-label">Pesan</label>
-                    <textarea class="form-control" id="pesan" placeholder="Masukkan pesan Anda" rows="4"
-                        required></textarea>
-                    <div class="invalid-feedback">Pesan tidak boleh kosong.</div>
+                    <textarea class="form-control" id="pesan" name="message" rows="4"
+                        readonly>{{ feedback.message }}</textarea>
                 </div>
             </form>
         </div>
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

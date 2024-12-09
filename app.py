@@ -448,9 +448,23 @@ def edit_produk():
     return render_template('dsb_editproduk.html', product=product)
 
 
-@app.route('/view_feedback')
+@app.route('/view_feedback', methods=["GET"])
 def view_feedback():
-    return render_template('dsb_viewfeedback.html')
+    feedback_id = request.args.get("id")
+    
+    # Mendapatkan data feedback berdasarkan ID
+    feedback = db.feedback.find_one({"_id": ObjectId(feedback_id)}, {
+        "fullname": 1,
+        "email": 1,
+        "message": 1
+    })
+
+    if not feedback:
+        flash("Feedback tidak ditemukan.", "error")
+        return redirect(url_for("tabel_feedback"))
+
+    return render_template('dsb_viewfeedback.html', feedback=feedback)
+
 
 @app.route('/add_admin', methods=["GET", "POST"])
 def add_admin():
