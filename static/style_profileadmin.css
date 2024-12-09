@@ -83,9 +83,9 @@ body {
 }
 
 .profile-container {
-    max-width: 1000px; 
+    max-width: 90%; 
     margin: 10px auto; 
-    padding: 40px; 
+    padding: 10px; 
     background-color: rgba(255, 255, 255, 0.15); 
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
@@ -136,7 +136,6 @@ body {
 }
 
 
-
 .edit-profile-btn {
     font-size: 18px;
     padding: 10px 25px;
@@ -159,8 +158,20 @@ body {
     color: #555;
 }
 
-
-
-
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; 
+    }
+    .main-content {
+        margin-left: 200px; 
+        width: calc(100% - 200px);
+        padding: 20px;
+    }
+    .profile-container {
+        max-width: 95%; 
+        padding: 15px; 
+    }
+}
 
 
