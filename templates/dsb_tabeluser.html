@@ -93,39 +93,38 @@
         </nav>
     </div>
 
-         <!-- Modal Notifikasi -->
-         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">
-                                    {% if messages[0][0] == 'success' %}
-                                        Halo!!
-                                    {% elif messages[0][0] == 'error' %}
-                                        Maaf!!
-                                    {% else %}
-                                        Notifikasi
-                                    {% endif %}
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                {% for category, message in messages %}
-                                    <div 
-                                        class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}" 
-                                        role="alert">
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
+    <!-- Modal Notifikasi -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">
+                        {% if messages[0][0] == 'success' %}
+                        Halo!!
+                        {% elif messages[0][0] == 'error' %}
+                        Maaf!!
+                        {% else %}
+                        Notifikasi
+                        {% endif %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            {% endif %}
-        {% endwith %}
-        <!-- End Modal Notifikasi -->
+                <div class="modal-body">
+                    {% for category, message in messages %}
+                    <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                        role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+    <!-- End Modal Notifikasi -->
 
     <div class="main-content">
         <h3>Tabel User</h3>
@@ -151,7 +150,8 @@
                         <a href="{{ url_for('edit_user', id=user._id) }}" class="edit-link">
                             <button class="edit-btn">Edit</button>
                         </a>
-                        <form action="{{ url_for('delete_user', user_id=user['_id']) }}" class="edit-link" method="POST" onsubmit="return confirm('Yakin ingin menghapus pengguna ini?');">
+                        <form action="{{ url_for('delete_user', user_id=user['_id']) }}" class="edit-link" method="POST"
+                            onsubmit="return confirm('Yakin ingin menghapus pengguna ini?');">
                             <button class="delete-btn">Delete</button>
                         </form>
                     </td>
@@ -172,7 +172,7 @@
             const notificationModal = document.getElementById('notificationModal');
             if (notificationModal) {
                 const modal = new bootstrap.Modal(notificationModal);
-                
+
                 // Tampilkan modal
                 modal.show();
 

@@ -274,20 +274,17 @@ def detail_produk():
 def dashboard():
     return render_template('dashboard.html')
 
+# Tabel Produk
 @app.route('/tabel_produk')
 def tabel_produk():
-    return render_template('dsb_tabelproduk.html')
+    # Ambil semua data produk dari koleksi product
+    products = list(db.product.find())
+    
+    # Ubah ObjectId ke string
+    for product in products:
+        product["_id"] = str(product["_id"])
 
-
-# GET data products
-@app.route('/products', methods=['GET'])
-def get_products():
-    try:
-        products = list(db.product.find({}, {'_id': False}))
-        return jsonify({'products': products})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
+    return render_template('dsb_tabelproduk.html', products=products)
 
 # Tabel User
 @app.route('/tabel_user')
@@ -445,7 +442,6 @@ def add_produk():
                 flash('Gambar produk harus diunggah!', 'error')
                 return redirect(url_for('add_produk'))
 
-
             # Data yang akan disimpan ke MongoDB
             product_data = {
                 'product_name': product_name,
@@ -465,6 +461,22 @@ def add_produk():
             return redirect(url_for('add_produk'))
 
     return render_template('dsb_addproduk.html')
+
+@app.route('/delete_produk/<product_id>', methods=["POST"])
+def delete_produk(product_id):
+    try:
+        # Hapus produk berdasarkan ID
+        result = db.product.delete_one({"_id": ObjectId(product_id)})
+
+        # Cek apakah ada data yang dihapus
+        if result.deleted_count > 0:
+            flash("Produk berhasil dihapus.", "success")
+        else:
+            flash("Produk tidak ditemukan.", "error")
+    except Exception as e:
+        flash(f"Terjadi kesalahan: {str(e)}", "error")
+    
+    return redirect(url_for("tabel_produk"))
 
 @app.route('/profile_admin')
 def profile_admin():

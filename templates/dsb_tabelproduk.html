@@ -28,48 +28,7 @@
 </head>
 
 <script>
-    $(document).ready(function () {
-        loadProducts();
-    });
 
-    function loadProducts() {
-        $.ajax({
-            type: "GET",
-            url: "/products",
-            success: function (response) {
-                let products = response['products']; // Pastikan response memiliki key 'products'
-                for (let i = 0; i < products.length; i++) {
-                    let productName = products[i]['product_name'];
-                    let productCategory = products[i]['product_category'];
-                    let productBrand = products[i]['product_brand'];
-                    let productDesc = products[i]['product_desc'];
-                    let productPrice = products[i]['product_price'];
-
-                    // Gunakan backticks untuk membuat template HTML
-                    let temp_html = `
-                        <tr>
-                            <td>${productName}</td>
-                            <td>${productCategory}</td>
-                            <td>${productBrand}</td>
-                            <td>...</td>
-                            <td>Rp ${productPrice}</td>
-                            <td>
-                                <a href="/edit_produk" class="edit-link">
-                                    <button class="edit-btn">Edit</button>
-                                </a>
-                                <button class="delete-btn">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                    // Append HTML ke table body
-                    $("#product-table-body").append(temp_html);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Error loading products:", error);
-            },
-        });
-    }
 </script>
 
 
@@ -153,11 +112,30 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody id="product-table-body">
-                <!-- Data akan diisi melalui JavaScript -->
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.product_category }}</td>
+                    <td>{{ product.product_brand }}</td>
+                    <td>...</td>
+                    <td>Rp {{ product.product_price }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_produk', id=product._id) }}" class="edit-link">
+                            <button class="edit-btn">Edit</button>
+                        </a>
+                        <form action="{{ url_for('delete_produk', product_id=product['_id']) }}" class="edit-link"
+                            method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');">
+                            <button class="delete-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
+
+
 
     <!-- Import Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
