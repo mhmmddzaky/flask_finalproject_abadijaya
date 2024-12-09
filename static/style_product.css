@@ -552,7 +552,7 @@ body::before {
 .product-cta button {
     font-size: 18px;
     padding: 10px 25px;
-    background-color: rgb(195, 211, 11); 
+    background-color: rgb(49, 49, 238);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -561,7 +561,7 @@ body::before {
 }
 
 .product-cta button:hover {
-    background-color: rgb(220, 20, 60); 
+    background-color:rgb(24, 24, 173) ;
 }
 footer {
     background-color: rgb(3, 3, 73) !important;

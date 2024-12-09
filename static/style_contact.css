@@ -18,7 +18,7 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Lebih besar dari 100% untuk memastikan seluruh gambar terblur */
+    width: 100%; 
     height: 100%;
     background: url("/static/images/plaster_wall.jpg") no-repeat center center;
     background-size: cover;
@@ -620,7 +620,7 @@ body::before {
 .product-cta button {
     font-size: 18px;
     padding: 10px 25px;
-    background-color: #f8bf28; 
+    background-color:rgb(49, 49, 238);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -629,7 +629,8 @@ body::before {
 }
 
 .product-cta button:hover {
-    background-color: rgb(195, 211, 11); 
+    background-color:rgb(24, 24, 173) ; 
+    color: white;
 }
 footer {
     background-color: rgb(3, 3, 73) !important;

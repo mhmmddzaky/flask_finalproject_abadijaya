@@ -578,5 +578,9 @@ def delete_produk(product_id):
 def profile_admin():
     return render_template('profile_admin.html') 
 
+@app.route('/updateprofile_admin')
+def updateprofile_admin():
+    return render_template('update_profileadmin.html') 
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)

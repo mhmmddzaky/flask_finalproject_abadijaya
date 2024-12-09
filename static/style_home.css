@@ -813,7 +813,7 @@ body::before {
     .teks-why-choose-desc p {
         text-align: left;
         margin: 0; 
-        font-size: 15px; /
+        font-size: 15px; 
         color: #777; 
         line-height: 1.5; 
     }
@@ -877,7 +877,7 @@ body::before {
 .product-cta button {
     font-size: 18px;
     padding: 10px 25px;
-    background-color: #f8bf28; 
+    background-color: rgb(49, 49, 238);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -886,7 +886,7 @@ body::before {
 }
 
 .product-cta button:hover {
-    background-color: rgb(195, 211, 11); 
+    background-color:rgb(24, 24, 173) ;
 }
 footer {
     background-color: rgb(3, 3, 73) !important;
