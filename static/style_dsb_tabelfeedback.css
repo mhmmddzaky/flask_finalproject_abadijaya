@@ -182,7 +182,7 @@ body {
 .edit-link > .edit-btn {
     width: 100%; /* Tombol akan menyesuaikan lebar elemen induknya */
 }
-.delete-btn {
+.edit-link > .delete-btn {
     width: 100%; /* Tombol akan menyesuaikan lebar elemen induknya */
 }
 

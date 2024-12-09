@@ -131,54 +131,52 @@
     <div class="main-content">
         <div class="inner-container">
             <h2>Edit Produk</h2>
-            <form id="addProductForm">
+            <form method="POST" action="{{ url_for('edit_produk', id=product._id) }}" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="productName" class="form-label">Nama Produk</label>
-                    <input type="text" class="form-control" id="productName" placeholder="Masukkan nama produk"
-                        required>
+                    <label for="product_name" class="form-label">Nama Produk</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name"
+                        value="{{ product.product_name }}" required>
                     <div class="invalid-feedback">Nama produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="productImage" class="form-label">Gambar Produk</label>
-                    <input type="file" class="form-control" id="productImage" accept="image/*" required>
-                    <div class="invalid-feedback">Silakan unggah gambar produk.</div>
+                    <label for="product_image" class="form-label">Gambar Produk</label>
+                    <input type="file" class="form-control" id="product_image" name="product_image">
+                    <small class="form-text text-muted">
+                        Biarkan kosong jika tidak ingin mengganti gambar produk.
+                    </small>
                 </div>
                 <div class="mb-3">
-                    <label for="productCategory" class="form-label">Kategori Produk</label>
-                    <select class="form-select" id="productCategory" required>
-                        <option value="">Pilih kategori produk</option>
-                        <option value="lemari">Lemari</option>
-                        <option value="springBed">Spring Bed</option>
-                        <option value="meja">Meja</option>
-                        <option value="sofa">Sofa</option>
-                        <option value="kursi">Kursi</option>
-                    </select>
-                    <div class="invalid-feedback">Silakan pilih kategori produk.</div>
+                    <label for="product_category" class="form-label">Kategori Produk</label>
+                    <input type="text" class="form-control" id="product_category" name="product_category"
+                        value="{{ product.product_category }}" required>
+                    <div class="invalid-feedback">Kategori produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="productBrand" class="form-label">Merek Produk</label>
-                    <input type="text" class="form-control" id="productBrand" placeholder="Masukkan merek produk"
-                        required>
-                    <div class="invalid-feedback">Merek produk tidak boleh kosong.</div>
+                    <label for="product_brand" class="form-label">Brand Produk</label>
+                    <input type="text" class="form-control" id="product_brand" name="product_brand"
+                        value="{{ product.product_brand }}" required>
+                    <div class="invalid-feedback">Brand produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="productDescription" class="form-label">Deskripsi Produk</label>
-                    <textarea class="form-control" id="productDescription" rows="4"
-                        placeholder="Masukkan deskripsi produk" required></textarea>
+                    <label for="product_desc" class="form-label">Deskripsi Produk</label>
+                    <textarea class="form-control" id="product_desc" name="product_desc" rows="3"
+                        required>{{ product.product_desc }}</textarea>
                     <div class="invalid-feedback">Deskripsi produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="productPrice" class="form-label">Harga Produk</label>
-                    <input type="number" class="form-control" id="productPrice" placeholder="Masukkan harga produk"
-                        required>
+                    <label for="product_price" class="form-label">Harga Produk</label>
+                    <input type="number" class="form-control" id="product_price" name="product_price"
+                        value="{{ product.product_price }}" required>
                     <div class="invalid-feedback">Harga produk tidak boleh kosong.</div>
                 </div>
                 <div class="form-group">
-                    <button type="button" onclick="addProduct()">Simpan Perubahan</button>
+                    <button type="submit">Simpan Perubahan</button>
                 </div>
             </form>
         </div>
     </div>
+
+
 
     <!-- Import Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

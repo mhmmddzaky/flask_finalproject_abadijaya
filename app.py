@@ -394,9 +394,59 @@ def delete_feedback(feedback_id):
     return redirect(url_for("tabel_feedback"))
 
 
-@app.route('/edit_produk')
+@app.route('/edit_produk', methods=["GET", "POST"])
 def edit_produk():
-    return render_template('dsb_editproduk.html')
+    product_id = request.args.get("id")
+    
+    # Mendapatkan data produk berdasarkan ID
+    product = db.product.find_one({"_id": ObjectId(product_id)}, {
+        "product_name": 1,
+        "product_category": 1,
+        "product_brand": 1,
+        "product_desc": 1,
+        "product_price": 1
+    })
+
+    if not product:
+        flash("Produk tidak ditemukan.", "error")
+        return redirect(url_for("tabel_produk"))
+
+    if request.method == "POST":
+        new_name = request.form["product_name"]
+        new_category = request.form["product_category"]
+        new_brand = request.form["product_brand"]
+        new_desc = request.form["product_desc"]
+        new_price = request.form["product_price"]
+
+        # Data yang akan diupdate
+        update_data = {
+            "product_name": new_name,
+            "product_category": new_category,
+            "product_brand": new_brand,
+            "product_desc": new_desc,
+            "product_price": new_price
+        }
+
+        # Cek apakah ada gambar baru yang diunggah
+        file = request.files.get("product_image")
+        if file and file.filename != "":
+            extension = file.filename.split('.')[-1]
+            timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+            filename = f'product-{timestamp}.{extension}'
+            file_path = os.path.join('static', 'product_images', filename)
+            file.save(file_path)
+
+            # Tambahkan nama file gambar baru ke data update
+            update_data["product_image"] = filename
+
+        # Update data produk di database
+        db.product.update_one({"_id": ObjectId(product_id)}, {"$set": update_data})
+
+        flash("Produk berhasil diperbarui.", "success")
+        return redirect(url_for("tabel_produk"))
+
+    return render_template('dsb_editproduk.html', product=product)
+
 
 @app.route('/view_feedback')
 def view_feedback():
