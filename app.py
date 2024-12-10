@@ -267,10 +267,20 @@ def update_profile():
 @app.route('/product')
 def product():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+
+     # Ambil semua data produk dari koleksi product
+    products = list(db.product.find())
+    
+    # Ubah ObjectId ke string
+    for product in products:
+        product["_id"] = str(product["_id"])
+
+
     return render_template(
     'product.html',
     username=session.get("username"),
-    profile_picture=profile_picture)
+    profile_picture=profile_picture,
+    products=products)
 
 # PRODUCT DETAIL ROUTE
 @app.route('/detail_produk')
@@ -444,7 +454,6 @@ def add_admin():
             return redirect(url_for("add_admin"))
 
         # Hash password dan simpan ke database
-         # Hash password dan simpan ke database
         hashed_password = generate_password_hash(password)  
 
         # Foto profil default
