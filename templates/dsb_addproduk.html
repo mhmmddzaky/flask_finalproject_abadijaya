@@ -208,6 +208,15 @@
                     <div class="invalid-feedback">Merek produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
+                    <label for="featured_prod" class="form-label">Jenis Produk</label>
+                    <select class="form-select" name="featured_prod" id="featured_prod" required>
+                        <option value="">Pilih jenis produk</option>
+                        <option value="unggulan">Unggulan</option>
+                        <option value="biasa">Biasa</option>
+                    </select>
+                    <div class="invalid-feedback">Silakan pilih jenis produk.</div>
+                </div>
+                <div class="mb-3">
                     <label for="productDescription" class="form-label">Deskripsi Produk</label>
                     <textarea class="form-control" name="product_desc" id="productDescription" rows="4"
                         placeholder="Masukkan deskripsi produk" required></textarea>

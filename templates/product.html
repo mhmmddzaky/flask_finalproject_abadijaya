@@ -150,7 +150,7 @@
 
   <!-- Content Produk -->
   <div class="container-fluid px-md-5">
-    <div class="row mt-4">
+    <div class="row mt-4 mb-4">
       <!-- Button Section (Sisi Kiri) -->
       <div class="col-12 col-md-4 mt-2">
         <div class="sticky-top" style="top: 95px;">
@@ -205,14 +205,14 @@
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
                 <img src="/static/product_images/{{ product.product_image }}" class="card-img-top zoom-image" alt="product-image">
-                <a href="/detail_produk"
+                <a href="{{ url_for('detail_produk', id=product._id) }}"
                   class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                   <span class="text-white h5">Product Detail</span>
                 </a>
               </div>
-              <div class="card-footer border-top border-light p-4">
+              <div class="card-footer text-center border-top border-light p-4">
                 <a href="#" class="h5 text-decoration-none text-dark">{{ product.product_name }}</a>
-                <div class="mt-2 fw-bold">Rp {{ product.product_price }}</div>
+                <div class="mt-2 fw-bold">{{ product.product_price|rupiah }}</div>
               </div>
             </div>
           </div>

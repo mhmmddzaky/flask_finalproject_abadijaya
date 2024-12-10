@@ -20,6 +20,15 @@ db = client[DB_NAME]
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
+# Fungsi untuk format Rupiah
+def format_rupiah(amount):
+    amount = int(amount)
+    return f"Rp {amount:,.0f}".replace(",", ".")
+
+# Mendaftarkan fungsi sebagai filter Jinja2
+app.jinja_env.filters['rupiah'] = format_rupiah
+
+
 # REGISTER ROUTE
 @app.route('/register',methods=["GET", "POST"])
 def register():
@@ -116,10 +125,15 @@ def logout():
 def home():
     # ambil path foto profile   
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+
+    # mengambil product unggulan
+    featured_products = list(db.product.find({"featured_prod": "unggulan"}))
+
     return render_template(
         'home.html',
          username=session.get("username"),
-         profile_picture=profile_picture)
+         profile_picture=profile_picture,
+         products=featured_products)
 
 # ABOUT ROUTE
 @app.route('/about')
@@ -286,10 +300,20 @@ def product():
 @app.route('/detail_produk')
 def detail_produk():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
+
+    # mendapatkan id produknya
+    product_id = request.args.get("id")
+
+    # mencari data sesuai id nya
+    get_product = db.product.find_one({"_id": ObjectId(product_id)})
+
+    print(get_product)
+
     return render_template(
     'detail_produk.html',
     username=session.get("username"),
-    profile_picture=profile_picture)
+    profile_picture=profile_picture,
+    get_product=get_product)
 
 # DASHBOARD ROUTE
 @app.route('/dashboard')
@@ -419,6 +443,7 @@ def add_produk():
             product_name = request.form.get('product_name')
             product_category = request.form.get('product_category')
             product_brand = request.form.get('product_brand')
+            featured_prod = request.form.get('featured_prod')
             product_desc = request.form.get('product_desc')
             product_price = request.form.get('product_price')
 
@@ -448,6 +473,7 @@ def add_produk():
                 'product_image': filename,
                 'product_category': product_category,
                 'product_brand': product_brand,
+                'featured_prod': featured_prod,
                 'product_desc': product_desc,
                 'product_price': product_price
             }

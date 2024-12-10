@@ -61,10 +61,13 @@
           <li><a class="nav-link" href="/product">Produk</a></li>
           <li><a class="nav-link" href="/about">Tentang</a></li>
           <li><a class="nav-link" href="/contact">Kontak</a></li>
-          <!-- {% if not session.user_id %} jika user belum login -->
+          {% if session.get("role") == "admin" %} <!-- jika user adalah admin -->
+          <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          {% endif %}
+          {% if not session.user_id %} <!-- jika user belum login -->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
-          <!-- {% endif %} -->
+          {% endif %}
 
         </ul>
       </div>
@@ -257,24 +260,26 @@
             <!-- Kolom Kanan: Card Produk -->
             <div class="col-md-6">
               <div class="row">
+               {% for product in products %}
                 <!-- Card 1 -->
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
+                      <img src="/static/product_images/{{ product.product_image }}" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
-                      <a href="/detail_produk"
+                      <a href="{{ url_for('detail_produk', id=product._id) }}"
                         class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
                     <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">{{ product.product_name }}</a>
+                      <div class="mt-2 fw-bold">{{ product.product_price|rupiah }}</div>
                     </div>
                   </div>
                 </div>
+                {% endfor %}
                 <!-- Card 2 -->
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
