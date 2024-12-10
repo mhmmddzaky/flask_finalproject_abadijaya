@@ -296,6 +296,120 @@ def detail_produk():
 def dashboard():
     return render_template('dashboard.html')
 
+# CATEGORY ADD ROUTE
+@app.route('/add_kategori', methods=['GET', 'POST'])
+def add_kategori():
+    if request.method == 'POST':
+        try:
+            # Menerima data dari form
+            category_name = request.form.get('category_name')
+
+            # Validasi sederhana
+            if not category_name:
+                flash('Nama kategori wajib diisi!', 'error')
+                return redirect(url_for('add_kategori'))
+
+            # Mengelola file gambar
+            file = request.files.get('category_image')
+            if file:
+                # Ekstensi file
+                extension = file.filename.split('.')[-1]
+                # Nama file berdasarkan timestamp
+                timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+                filename = f'category-{timestamp}.{extension}'
+                # Path penyimpanan file
+                file_path = os.path.join('static', 'category_images', filename)
+                file.save(file_path)  # Simpan file ke folder lokal
+            else:
+                flash('Gambar kategori harus diunggah!', 'error')
+                return redirect(url_for('add_kategori'))
+
+            # Data yang akan disimpan ke MongoDB
+            category_data = {
+                'category_name': category_name,
+                'category_image': filename,
+            }
+            # Simpan ke collection 'categories'
+            db.category.insert_one(category_data)
+
+            flash('Kategori berhasil ditambahkan!', 'success')
+            return redirect(url_for('add_kategori'))
+        except Exception as e:
+            flash(f'Error: {str(e)}', 'error')
+            return redirect(url_for('add_kategori'))
+
+    return render_template('dsb_addkategori.html')
+
+# CATEGORY TABLE ROUTE
+@app.route('/tabel_kategori')
+def tabel_kategori():
+    # Ambil semua data kategori dari koleksi category
+    categories = list(db.category.find())
+    
+    # Ubah ObjectId ke string
+    for category in categories:
+        category["_id"] = str(category["_id"])
+
+    return render_template('dsb_tabelkategori.html', categories=categories)
+
+# CATEGORY EDIT ROUTE
+@app.route('/edit_kategori', methods=["GET", "POST"])
+def edit_kategori():
+    category_id = request.args.get("id")
+    
+    # Mendapatkan data kategori berdasarkan ID
+    category = db.category.find_one({"_id": ObjectId(category_id)}, {
+        "category_name": 1
+    })
+
+    if not category:
+        flash("Kategori tidak ditemukan.", "error")
+        return redirect(url_for("tabel_kategori"))
+
+    if request.method == "POST":
+        new_name = request.form["category_name"]
+
+        # Data yang akan diupdate
+        update_data = {"category_name": new_name}
+
+        # Cek apakah ada gambar baru yang diunggah
+        file = request.files.get("category_image")
+        if file and file.filename != "":
+            extension = file.filename.split('.')[-1]
+            timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+            filename = f'category-{timestamp}.{extension}'
+            file_path = os.path.join('static', 'category_images', filename)
+            file.save(file_path)
+
+            # Tambahkan nama file gambar baru ke data update
+            update_data["category_image"] = filename
+
+        # Update data kategori di database
+        db.category.update_one({"_id": ObjectId(category_id)}, {"$set": update_data})
+
+        flash("Kategori berhasil diperbarui.", "success")
+        return redirect(url_for("tabel_kategori"))
+
+    return render_template('dsb_editkategori.html', category=category)
+
+# CATEGORY DELETE ROUTE
+@app.route('/delete_kategori/<category_id>', methods=["POST"])
+def delete_kategori(category_id):
+    try:
+        # Hapus kategori berdasarkan ID
+        result = db.category.delete_one({"_id": ObjectId(category_id)})
+
+        # Cek apakah ada data yang dihapus
+        if result.deleted_count > 0:
+            flash("Kategori berhasil dihapus.", "success")
+        else:
+            flash("Kategori tidak ditemukan.", "error")
+    except Exception as e:
+        flash(f"Terjadi kesalahan: {str(e)}", "error")
+    
+    return redirect(url_for("tabel_kategori"))
+
+
 # PRODUCT ADD ROUTE
 @app.route('/add_produk', methods=['GET', 'POST'])
 def add_produk():
