@@ -58,73 +58,85 @@
 </head>
 
 <body>
-   <!-- Start Sidebar Section -->
-   <div class="sidebar">
-    <nav class="nav flex-column">
-        <a href="/dashboard" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-grid"></i> <!-- This is the grid icon -->
-            </span>
-            <span class="description">Dashboard</span>
-        </a>
-        <a href="/tabel_produk" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-bag"></i> <!-- This is the grid icon -->
-            </span>
-            <span class="description">Produk</span>
-        </a>
-        <a href="/tabel_user" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-person"></i>
-            </span>
-            <span class="description">Users</span>
-        </a>
-        <a href="/tabel_feedback" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-envelope"></i>
-            </span>
-            <span class="description">Feedback</span>
-        </a>
-        <hr>
-        <a href="/add_produk" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-plus-circle"></i>
-            </span>
-            <span class="description">Tambah Produk</span>
-        </a>
-
-        <a href="/add_admin" class="nav-link">
-            <span class="icon">
-                <i class="bi bi-person-plus"></i>
-            </span>
-            <span class="description">Tambah User</span>
-        </a>
-        <hr>
-        <!-- Sidebar Dropdown -->
-        <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false"
-            aria-controls="submenu">
-            <span class="icon">
-                <i class="bi bi-person-circle"></i>
-            </span>
-            <span class="description">Akun <i class="bi bi-caret-down"></i></span>
-        </a>
-        <!-- Sidebar Submenu -->
-        <div class="sub-menu collapse" id="submenu">
-            <a href="/profile_admin" class="nav-link">
-                <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
-                <span class="description">Profil</span>
+    <!-- Start Sidebar Section -->
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <a href="/dashboard" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-grid"></i> <!-- This is the grid icon -->
+                </span>
+                <span class="description">Dashboard</span>
             </a>
-            <a href="{{ url_for('logout') }}" class="nav-link">
-                <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                <span class="description">Logout</span>
+            <hr>
+            <a href="/tabel_kategori" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-bookmark"></i> <!-- This is the grid icon -->
+                </span>
+                <span class="description">Kategori</span>
             </a>
-        </div>
-    </nav>
-</div>
+            <a href="/tabel_produk" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-bag"></i> <!-- This is the grid icon -->
+                </span>
+                <span class="description">Produk</span>
+            </a>
+            <a href="/tabel_user" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-person"></i>
+                </span>
+                <span class="description">Users</span>
+            </a>
+            <a href="/tabel_feedback" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-envelope"></i>
+                </span>
+                <span class="description">Feedback</span>
+            </a>
+            <hr>
+            <a href="/add_kategori" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-bookmark-plus"></i>
+                </span>
+                <span class="description">Tambah Kategori</span>
+            </a>
+            <a href="/add_produk" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-bag-plus"></i>
+                </span>
+                <span class="description">Tambah Produk</span>
+            </a>
+            <a href="/add_admin" class="nav-link">
+                <span class="icon">
+                    <i class="bi bi-person-plus"></i>
+                </span>
+                <span class="description">Tambah User</span>
+            </a>
+            <hr>
+            <!-- Sidebar Dropdown -->
+            <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false"
+                aria-controls="submenu">
+                <span class="icon">
+                    <i class="bi bi-person-circle"></i>
+                </span>
+                <span class="description">Akun <i class="bi bi-caret-down"></i></span>
+            </a>
+            <!-- Sidebar Submenu -->
+            <div class="sub-menu collapse" id="submenu">
+                <a href="/profile_admin" class="nav-link">
+                    <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
+                    <span class="description">Profil</span>
+                </a>
+                <a href="{{ url_for('logout') }}" class="nav-link">
+                    <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+                    <span class="description">Logout</span>
+                </a>
+            </div>
+        </nav>
+    </div>
 
 
-     <!-- Update Section-->
-     <div class="main-wrapper">
+    <!-- Update Section-->
+    <div class="main-wrapper">
         <div class="container edit-profile-container">
             <div class="profile-image">
                 <label for="upload-photo">
