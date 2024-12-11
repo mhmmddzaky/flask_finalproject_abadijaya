@@ -364,7 +364,7 @@ body::before {
 .container-banner .intro-excerpt h1 {
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
-    font-size: 60px;
+    font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 20px;
 }

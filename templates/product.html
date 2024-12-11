@@ -65,7 +65,7 @@
           {% if not session.user_id %} <!--jika user belum login-->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
-           {% endif %} 
+          {% endif %}
 
         </ul>
       </div>
@@ -193,22 +193,23 @@
       <!-- Search and Card Section (Sisi Kanan) -->
       <div class="col-12 col-md-8">
         <!-- Search -->
-      <div class="mb-4 mt-2">
-      <form action="{{ url_for('product') }}" method="get">
-      <div class="input-group shadow">
-      <input type="text" name="search" class="form-control" placeholder="Search" value="{{ request.args.get('search', '') }}">
-      <button class="input-group-text btn btn-secondary" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-      </div>
-      </form>
-      </div>
-    <!-- Menampilkan pesan jika produk tidak ditemukan -->
-    {% if no_results %}
-    <div class="alert alert-warning" role="alert">
-    <strong>Produk tidak tersedia</strong>
-    </div>
-    {% endif %}
+        <div class="mb-4 mt-2">
+          <form action="{{ url_for('product') }}" method="get">
+            <div class="input-group shadow">
+              <input type="text" name="search" class="form-control" placeholder="Search"
+                value="{{ request.args.get('search', '') }}">
+              <button class="input-group-text btn btn-secondary" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Menampilkan pesan jika produk tidak ditemukan -->
+        {% if no_results %}
+        <div class="alert alert-warning" role="alert">
+          <strong>Produk tidak tersedia</strong>
+        </div>
+        {% endif %}
 
 
 
@@ -219,7 +220,8 @@
           <div class="col-12 col-md-4">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
-                <img src="/static/product_images/{{ product.product_image }}" class="card-img-top zoom-image" alt="product-image">
+                <img src="/static/product_images/{{ product.product_image }}" class="card-img-top zoom-image"
+                  alt="product-image">
                 <a href="{{ url_for('detail_produk', id=product._id) }}"
                   class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                   <span class="text-white h5">Product Detail</span>
