@@ -733,7 +733,28 @@ def delete_feedback(feedback_id):
 # ADMIN PROFILE ROUTE
 @app.route('/profile_admin')
 def profile_admin():
-    return render_template('profile_admin.html') 
+    # Periksa apakah pengguna sudah login
+    if "user_id" not in session:
+        flash("Anda harus login terlebih dahulu!", "error")
+        return redirect(url_for("login"))
+
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if not user:
+        flash("Pengguna tidak ditemukan.", "error")
+        return redirect(url_for("login"))
+
+    # Kirim data ke template
+    profile_data = {
+        "username": user.get("username", "Tidak Diketahui"),
+        "full_name": user.get("fullname", "Tidak Diketahui"),
+        "email": user.get("email", "Tidak Diketahui"),
+        "profile_picture": user.get("profile_picture", "/static/images/default_profile.png")
+    }
+
+    return render_template('profile_admin.html', profile_data=profile_data)
 
 # ADMIN PROFILE EDIT ROUTE
 @app.route('/updateprofile_admin')

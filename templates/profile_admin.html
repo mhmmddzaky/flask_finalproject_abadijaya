@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Import CSS -->
-    <link rel="stylesheet" href="static/style_profileadmin.css">
+    <link rel="stylesheet" href="/static/style_profileadmin.css">
 
-    <title>Topraja | Profil</title>
+    <title>Topraja | Profil Admin</title>
 </head>
 
 <body>
@@ -29,20 +29,20 @@
         <nav class="nav flex-column">
             <a href="/dashboard" class="nav-link">
                 <span class="icon">
-                    <i class="bi bi-grid"></i> <!-- This is the grid icon -->
+                    <i class="bi bi-grid"></i>
                 </span>
                 <span class="description">Dashboard</span>
             </a>
             <hr>
             <a href="/tabel_kategori" class="nav-link">
                 <span class="icon">
-                    <i class="bi bi-bookmark"></i> <!-- This is the grid icon -->
+                    <i class="bi bi-bookmark"></i>
                 </span>
                 <span class="description">Kategori</span>
             </a>
             <a href="/tabel_produk" class="nav-link">
                 <span class="icon">
-                    <i class="bi bi-bag"></i> <!-- This is the grid icon -->
+                    <i class="bi bi-bag"></i>
                 </span>
                 <span class="description">Produk</span>
             </a>
@@ -108,49 +108,40 @@
         <!-- Profile Section-->
         <div class="main-wrapper">
             <div class="container profile-container">
-                <div class="profile-header">
+                <div class="profile-header text-center">
                     <div class="profile-photo">
-                        <img src="/static/images/user.png" alt="Profile Picture">
+                        <img src="{{ profile_data.profile_picture }}" alt="Profile Picture" class="rounded-circle" width="150" height="150">
                     </div>
-                    <h4>Your Name</h4>
-                    <p>yourname@gmail.com</p>
+                    <h4>{{ profile_data.username }}</h4>
+                    <p>{{ profile_data.email }}</p>
                 </div>
 
                 <!-- Profile Information -->
                 <div class="profile-section">
                     <div class="row">
                         <div class="col-6 profile-label">Username</div>
-                        <div class="col-6 profile-value text-end">yourname</div>
+                        <div class="col-6 profile-value text-end">{{ profile_data.username }}</div>
                     </div>
                 </div>
                 <div class="profile-section">
                     <div class="row">
                         <div class="col-6 profile-label">Nama Lengkap</div>
-                        <div class="col-6 profile-value text-end">Nama</div>
+                        <div class="col-6 profile-value text-end">{{ profile_data.full_name }}</div>
                     </div>
                 </div>
                 <div class="profile-section">
                     <div class="row">
                         <div class="col-6 profile-label">Email Account</div>
-                        <div class="col-6 profile-value text-end">yourname@gmail.com</div>
+                        <div class="col-6 profile-value text-end">{{ profile_data.email }}</div>
                     </div>
                 </div>
-                <!--<div class="profile-section">
-                <div class="row align-items-center">
-                    <div class="col-6 profile-label">Password</div>
-                    <div class="col-6 d-flex justify-content-end">
-                        <span id="password-value">********</span>
-                        <img src="/static/images/view.png" onclick="pass()" class="pass-icon" id="password-icon"
-                            alt="eye icon">
-                    </div>
-                </div>
-            </div>-->
+
                 <div class="text-center mt-4">
-                    <a class="btn edit-profile-btn" href="/updateprofile_admin">Edit Profile</a>
+                    <a class="btn btn-primary edit-profile-btn" href="/edit_user">Edit Profile</a>
                 </div>
             </div>
         </div>
-        <!--End Profile Section-->
+        <!-- End Profile Section -->
     </div>
 
     <!-- Import Bootstrap JS Bundle -->
