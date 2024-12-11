@@ -4,6 +4,7 @@
     font-style: normal;
 }
 
+
 body {
     background: url("/static/images/plaster_wall.jpg") no-repeat center center;
     background-size: cover;
@@ -339,11 +340,14 @@ body::before {
 }
 .banner {
     position: relative;
-    background: url('/static/images/furni_background.jpg') no-repeat center center/cover;
-    height: 76vh;
+    min-height: 76vh;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    align-items: center;
+    padding: 4rem 0;
+    background: url("/static/images/furni_background.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .banner::before {
@@ -353,25 +357,39 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
-.banner h1 {
-    z-index: 1;  
-    color: #fff;
+.banner .container {
     position: relative;
-    font-size: 2.5rem;
-    font-weight: bold;
+    z-index: 2;
 }
 
-.banner p {
-    z-index: 1;  
-    color: #fff;
-    position: relative;
+.banner .intro-excerpt {
+    text-align: left; 
+    max-width: 600px;
+    color: white;
+}
+
+.banner .intro-excerpt h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.banner .intro-excerpt p {
     font-size: 1.1rem;
     font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
 }
+
+.banner .intro-excerpt h1, .banner .intro-excerpt p {
+    text-align: left; 
+}
+
+/* <-- End Banner Section --> */
 
 .card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
