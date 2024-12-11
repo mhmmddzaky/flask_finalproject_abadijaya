@@ -421,7 +421,7 @@ body::before {
     color: #ffffff;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .container-banner {
         text-align: center;
         padding: 3rem 0;
@@ -437,7 +437,7 @@ body::before {
     .container-banner .btn {
         margin-top: 1rem;
     }
-}
+} */
 
 @media (max-width: 768px) and (orientation: portrait) {
     .container-banner {
@@ -448,9 +448,7 @@ body::before {
 
     .container-banner .intro-excerpt {
         text-align: left;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        margin-bottom: 2rem;
+        padding-left: 1rem;
     }
 
     .container-banner .btn {
@@ -482,6 +480,12 @@ body::before {
     
     /* class Font Montserrat Alternates */
     .montserrat-alternates-bold {
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-bold1 {
         font-family: "Montserrat Alternates", sans-serif;
         font-weight: 700;
         font-style: normal;
@@ -845,7 +849,16 @@ body::before {
     .additional-svg-container {
         display: none;
     }
+
+
 }
+
+@media screen and (max-width: 600px) {
+    .montserrat-alternates-bold1 {
+        padding-left: 31px;
+    }
+}
+
 
 /* End Why Choose */
 

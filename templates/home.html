@@ -233,7 +233,7 @@
         <!-- Section Header -->
         <div class="section-header">
           <div class="judul">
-            <h3 class="montserrat-alternates-bold">
+            <h3 class="montserrat-alternates-bold1">
               Beberapa Produk<br> Unggulan Dari Kami
             </h3>
             <!-- SVG Line as Border -->
@@ -260,14 +260,14 @@
             <!-- Kolom Kanan: Card Produk -->
             <div class="col-md-6">
               <div class="row">
-               {% for product in products %}
+                {% for product in products %}
                 <!-- Card 1 -->
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/product_images/{{ product.product_image }}" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
+                      <img src="/static/product_images/{{ product.product_image }}"
+                        class="card-produk-unggulan-img-top zoom-image" alt="product-image">
                       <a href="{{ url_for('detail_produk', id=product._id) }}"
                         class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
