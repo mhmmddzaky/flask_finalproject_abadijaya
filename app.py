@@ -278,23 +278,37 @@ def update_profile():
         username=session.get("username"))
 
 # PRODUCT ROUTE
-@app.route('/product')
+@app.route('/product', methods=['GET'])
 def product():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
-
-     # Ambil semua data produk dari koleksi product
-    products = list(db.product.find())
     
-    # Ubah ObjectId ke string
+    # Mendapatkan parameter pencarian dari URL
+    search_query = request.args.get('search', '')  # Jika tidak ada pencarian, default ke string kosong
+    
+    # Jika ada query pencarian, filter produk berdasarkan nama produk
+    if search_query:
+        products = list(db.product.find({
+            'product_name': {'$regex': search_query, '$options': 'i'}  # Mencari produk dengan nama yang sesuai
+        }))
+    else:
+        # Ambil semua data produk jika tidak ada pencarian
+        products = list(db.product.find())
+
+    # Ubah ObjectId menjadi string untuk keperluan tampilan
     for product in products:
         product["_id"] = str(product["_id"])
 
+    no_results = len(products) == 0  # Cek apakah tidak ada hasil pencarian
 
     return render_template(
-    'product.html',
-    username=session.get("username"),
-    profile_picture=profile_picture,
-    products=products)
+        'product.html',
+        username=session.get("username"),
+        profile_picture=profile_picture,
+        products=products,
+        no_results=no_results,  # Menyertakan variabel untuk menampilkan pesan jika tidak ada hasil
+        search_query=search_query  # Kirimkan query pencarian untuk menampilkan kembali di input
+    )
+
 
 # PRODUCT DETAIL ROUTE
 @app.route('/detail_produk')

@@ -190,12 +190,24 @@
       <!-- Search and Card Section (Sisi Kanan) -->
       <div class="col-12 col-md-8">
         <!-- Search -->
-        <div class="mb-4 mt-2 ">
-          <div class="input-group shadow">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-          </div>
-        </div>
+      <div class="mb-4 mt-2">
+      <form action="{{ url_for('product') }}" method="get">
+      <div class="input-group shadow">
+      <input type="text" name="search" class="form-control" placeholder="Search" value="{{ request.args.get('search', '') }}">
+      <button class="input-group-text btn btn-secondary" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+      </div>
+      </form>
+      </div>
+    <!-- Menampilkan pesan jika produk tidak ditemukan -->
+    {% if no_results %}
+    <div class="alert alert-warning" role="alert">
+    <strong>Produk tidak tersedia</strong>
+    </div>
+    {% endif %}
+
+
 
         <!-- Card Section -->
         <div class="row g-4">
@@ -217,7 +229,7 @@
             </div>
           </div>
           {% endfor %}
-          <!-- Card 2 -->
+          <!-- //Card 2 //
           <div class="col-12 col-md-4">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
@@ -233,7 +245,7 @@
               </div>
             </div>
           </div>
-          <!-- Card 3 -->
+          //Card 3 //
           <div class="col-12 col-md-4">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
@@ -249,7 +261,7 @@
               </div>
             </div>
           </div>
-          <!-- Card 4 -->
+          //Card 4// 
           <div class="col-12 col-md-4 ">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
@@ -264,7 +276,7 @@
                 <div class="mt-2 fw-bold">Rp.199.000</div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
