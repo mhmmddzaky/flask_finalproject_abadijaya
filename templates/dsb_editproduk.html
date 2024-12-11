@@ -182,48 +182,62 @@
             <h2>Edit Produk</h2>
             <form method="POST" action="{{ url_for('edit_produk', id=product._id) }}" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="product_name" class="form-label">Nama Produk</label>
-                    <input type="text" class="form-control" id="product_name" name="product_name"
+                    <label for="productName" class="form-label">Nama Produk</label>
+                    <input type="text" class="form-control" name="product_name" id="productName"
                         value="{{ product.product_name }}" required>
                     <div class="invalid-feedback">Nama produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="product_image" class="form-label">Gambar Produk</label>
-                    <input type="file" class="form-control" id="product_image" name="product_image">
+                    <label for="productImage" class="form-label">Gambar Produk</label>
+                    <input type="file" class="form-control" name="product_image" id="productImage" accept="image/*">
                     <small class="form-text text-muted">
                         Biarkan kosong jika tidak ingin mengganti gambar produk.
                     </small>
                 </div>
                 <div class="mb-3">
-                    <label for="product_category" class="form-label">Kategori Produk</label>
-                    <input type="text" class="form-control" id="product_category" name="product_category"
-                        value="{{ product.product_category }}" required>
-                    <div class="invalid-feedback">Kategori produk tidak boleh kosong.</div>
+                    <label for="productCategory" class="form-label">Kategori Produk</label>
+                    <select class="form-select" name="product_category" id="productCategory" required>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}" {% if
+                            category.category_name==product.product_category %}selected{% endif %}>{{
+                            category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">Silakan pilih kategori produk.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="product_brand" class="form-label">Brand Produk</label>
-                    <input type="text" class="form-control" id="product_brand" name="product_brand"
+                    <label for="productBrand" class="form-label">Merek Produk</label>
+                    <input type="text" class="form-control" name="product_brand" id="productBrand"
                         value="{{ product.product_brand }}" required>
-                    <div class="invalid-feedback">Brand produk tidak boleh kosong.</div>
+                    <div class="invalid-feedback">Merek produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="product_desc" class="form-label">Deskripsi Produk</label>
-                    <textarea class="form-control" id="product_desc" name="product_desc" rows="3"
+                    <label for="featured_prod" class="form-label">Jenis Produk</label>
+                    <select class="form-select" id="featured_prod" name="featured_prod" required>
+                        <option value="{{ product.featured_prod }}">{{ product.featured_prod }}</option>
+                        <option value="unggulan">Unggulan</option>
+                        <option value="biasa">Biasa</option>
+                    </select>
+                    <div class="invalid-feedback">Silakan pilih jenis produk.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Deskripsi Produk</label>
+                    <textarea class="form-control" name="product_desc" id="productDescription" rows="4"
                         required>{{ product.product_desc }}</textarea>
                     <div class="invalid-feedback">Deskripsi produk tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="product_price" class="form-label">Harga Produk</label>
-                    <input type="number" class="form-control" id="product_price" name="product_price"
+                    <label for="productPrice" class="form-label">Harga Produk</label>
+                    <input type="text" class="form-control" name="product_price" id="productPrice"
                         value="{{ product.product_price }}" required>
                     <div class="invalid-feedback">Harga produk tidak boleh kosong.</div>
                 </div>
-                <div class="form-group">
-                    <button type="submit">Simpan Perubahan</button>
-                </div>
+                <button type="submit">Simpan Perubahan</button>
             </form>
         </div>
     </div>
+
 
     <!-- Import Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

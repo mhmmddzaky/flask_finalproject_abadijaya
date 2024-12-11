@@ -541,14 +541,15 @@ def tabel_produk():
 @app.route('/edit_produk', methods=["GET", "POST"])
 def edit_produk():
     product_id = request.args.get("id")
-    
+
     # Mendapatkan data produk berdasarkan ID
     product = db.product.find_one({"_id": ObjectId(product_id)}, {
         "product_name": 1,
         "product_category": 1,
         "product_brand": 1,
         "product_desc": 1,
-        "product_price": 1
+        "product_price": 1,
+        "featured_prod": 1
     })
 
     if not product:
@@ -561,6 +562,7 @@ def edit_produk():
         new_brand = request.form["product_brand"]
         new_desc = request.form["product_desc"]
         new_price = request.form["product_price"]
+        new_featured = request.form.get("featured_prod")
 
         # Data yang akan diupdate
         update_data = {
@@ -568,7 +570,8 @@ def edit_produk():
             "product_category": new_category,
             "product_brand": new_brand,
             "product_desc": new_desc,
-            "product_price": new_price
+            "product_price": new_price,
+            "featured_prod": new_featured
         }
 
         # Cek apakah ada gambar baru yang diunggah
@@ -589,7 +592,13 @@ def edit_produk():
         flash("Produk berhasil diperbarui.", "success")
         return redirect(url_for("tabel_produk"))
 
-    return render_template('dsb_editproduk.html', product=product)
+    # Ambil data kategori untuk disertakan di form
+    categories = list(db.category.find())
+    for category in categories:
+        category["_id"] = str(category["_id"])
+
+    return render_template('dsb_editproduk.html', product=product, categories=categories)
+
 
 # PRODUCT DELETE ROUTE
 @app.route('/delete_produk/<product_id>', methods=["POST"])
