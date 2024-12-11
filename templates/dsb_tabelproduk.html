@@ -156,7 +156,7 @@
                     <th>Nama Produk</th>
                     <th>Kategori Produk</th>
                     <th>Merek Produk</th>
-                    <th>Deskripsi Produk</th>
+                    <th>Jenis Produk Produk</th>
                     <th>Harga Produk</th>
                     <th>Aksi</th>
                 </tr>
@@ -167,7 +167,7 @@
                     <td>{{ product.product_name }}</td>
                     <td>{{ product.product_category }}</td>
                     <td>{{ product.product_brand }}</td>
-                    <td>...</td>
+                    <td>{{ product.featured_prod }}</td>
                     <td>Rp {{ product.product_price }}</td>
                     <td>
                         <a href="{{ url_for('edit_produk', id=product._id) }}" class="edit-link">
