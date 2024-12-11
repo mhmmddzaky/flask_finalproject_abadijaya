@@ -59,10 +59,13 @@
           <li><a class="nav-link" href="/product">Produk</a></li>
           <li><a class="nav-link" href="/about">Tentang</a></li>
           <li><a class="nav-link" href="/contact">Kontak</a></li>
-          <!-- {% if not session.user_id %} jika user belum login -->
+          {% if session.get("role") == "admin" %} <!-- jika user adalah admin -->
+          <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          {% endif %}
+          {% if not session.user_id %} <!--jika user belum login-->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
-          <!-- {% endif %} -->
+           {% endif %} 
 
         </ul>
       </div>

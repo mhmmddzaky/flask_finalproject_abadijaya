@@ -321,8 +321,6 @@ def detail_produk():
     # mencari data sesuai id nya
     get_product = db.product.find_one({"_id": ObjectId(product_id)})
 
-    print(get_product)
-
     return render_template(
     'detail_produk.html',
     username=session.get("username"),
