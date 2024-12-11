@@ -500,7 +500,13 @@ def add_produk():
             flash(f'Error: {str(e)}', 'error')
             return redirect(url_for('add_produk'))
 
-    return render_template('dsb_addproduk.html')
+    # Ambil data kategori untuk disertakan di form
+    categories = list(db.category.find())
+    for category in categories:
+        category["_id"] = str(category["_id"])
+
+    return render_template('dsb_addproduk.html', categories=categories)
+
 
 # PRODUCT TABLE ROUTE
 @app.route('/tabel_produk')
