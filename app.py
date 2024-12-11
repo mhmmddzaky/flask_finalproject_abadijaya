@@ -330,7 +330,26 @@ def detail_produk():
 # DASHBOARD ROUTE
 @app.route('/dashboard')
 def dashboard():
+    # Periksa apakah pengguna sudah login
+    if "user_id" not in session:
+        flash("Anda harus login terlebih dahulu!", "error")
+        return redirect(url_for("login"))
+
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if not user:
+        flash("Pengguna tidak ditemukan.", "error")
+        return redirect(url_for("login"))
+
+    # Periksa apakah pengguna memiliki peran admin
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home"))  # Ganti 'home' dengan halaman lain untuk user biasa
+
     return render_template('dashboard.html')
+
 
 # CATEGORY ADD ROUTE
 @app.route('/add_kategori', methods=['GET', 'POST'])
@@ -764,6 +783,11 @@ def profile_admin():
         flash("Pengguna tidak ditemukan.", "error")
         return redirect(url_for("login"))
 
+    # Periksa apakah pengguna memiliki peran admin
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home"))  
+
     # Kirim data ke template
     profile_data = {
         "username": user.get("username", "Tidak Diketahui"),
@@ -773,6 +797,7 @@ def profile_admin():
     }
 
     return render_template('profile_admin.html', profile_data=profile_data)
+
 
 # ADMIN PROFILE EDIT ROUTE
 @app.route('/updateprofile_admin')
