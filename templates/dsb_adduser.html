@@ -20,7 +20,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_addadmin.css">
 
-    <title>Topraja | Tambah User</title>
+    <title>Topraja | Tambah Pengguna</title>
 </head>
 
 <script>
@@ -84,7 +84,7 @@
                 <span class="icon">
                     <i class="bi bi-person"></i>
                 </span>
-                <span class="description">Users</span>
+                <span class="description">Pengguna</span>
             </a>
             <a href="/tabel_feedback" class="nav-link">
                 <span class="icon">
@@ -109,7 +109,7 @@
                 <span class="icon">
                     <i class="bi bi-person-plus"></i>
                 </span>
-                <span class="description">Tambah User</span>
+                <span class="description">Tambah Pengguna</span>
             </a>
             <hr>
             <!-- Sidebar Dropdown -->
@@ -169,18 +169,18 @@
 
     <div class="main-content">
         <div class="inner-container">
-            <h2>Tambah User</h2>
+            <h2>Tambah Pengguna</h2>
             <form method="POST" action="{{ url_for('add_admin') }}">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username"
+                    <label for="username" class="form-label">Nama Pengguna</label>
+                    <input type="text" class="form-control" id="username" name="nama pengguna"
                         placeholder="Masukkan username Anda" required>
-                    <div class="invalid-feedback">Username tidak boleh kosong.</div>
+                    <div class="invalid-feedback">Nama Pengguna tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="Masukkan password Anda" required>
+                    <label for="password" class="form-label">Kata Sandi</label>
+                    <input type="password" class="form-control" id="password" name="kata sandi"
+                        placeholder="Masukkan kata sandi Anda" required>
                     <div class="invalid-feedback">Password tidak boleh kosong.</div>
                 </div>
                 <div class="mb-3">
@@ -204,7 +204,7 @@
                     <div class="invalid-feedback">Role tidak boleh kosong.</div>
                 </div>
                 <div class="form-group">
-                    <button type="submit">Tambah User</button>
+                    <button type="submit">Tambah Pengguna</button>
                 </div>
             </form>
         </div>

@@ -24,7 +24,7 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_login.css">
 
-    <title>Topraja | Login</title>
+    <title>Topraja | Masuk</title>
 
     <script>
 
@@ -131,7 +131,7 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-            <h1>Login</h1>
+            <h1>Masuk</h1>
             <form method="POST" action="{{ url_for('login') }}">
                 <!-- Username -->
                 <div class="form-outline mb-4">
@@ -141,7 +141,7 @@
                 <!-- Password -->
                 <div class="form-outline mb-4">
                     <input type="password" id="password" name="password" class="form-control form-control-lg"
-                        placeholder="Password" required />
+                        placeholder="Kata Sandi" required />
                 </div>
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-light btn-lg btn-block w-100">Masuk</button>
