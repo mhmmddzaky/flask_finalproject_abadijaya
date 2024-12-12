@@ -266,8 +266,8 @@
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="{{ product.product_image[0] }}"
-                        class="card-produk-unggulan-img-top zoom-image" alt="product-image">
+                      <img src="{{ product.product_image[0] }}" class="card-produk-unggulan-img-top zoom-image"
+                        alt="product-image">
                       <a href="{{ url_for('detail_produk', id=product._id) }}"
                         class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                         <span class="text-white h5">Product Detail</span>
@@ -515,28 +515,72 @@
 
     </section>
     <!-- end section foto toko -->
-
   </section>
 
-  <!-- Call to Action Section -->
-  <section id="products" class="product-cta text-white text-center py-5">
-    <h2>Explore Our Products!</h2>
-    <a href="/product">
-      <button class="btn btn-lg">View Products</button>
-    </a>
-  </section>
+  <!-- Start Footer Section -->
+  <section id="main-footer" class="main-footer text-white text-center py-5">
+    <footer id="footer" class="footer light-background">
+      <div class="footer-top" style="justify-content: center;">
+        <div class="container">
+          <div class="row gy-4">
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
-      <ul class="list-unstyled d-flex justify-content-center gap-3">
-        <li><a href="#" class="text-white">Privacy Policy</a></li>
-        <li><a href="#" class="text-white">Terms of Service</a></li>
-        <li><a href="#contact" class="text-white">Contact Us</a></li>
-      </ul>
-    </div>
-  </footer>
+            <div class="col-lg-5 col-md-12 footer-about" style="text-align: left;">
+              <a href="/" style="text-decoration: none;">
+                <h4>
+                  <strong style="font-weight: bold; color: white;">Toko Perabot</strong>
+                  <strong style="font-weight: bold; color: rgb(220, 20, 60);">Abadi Jaya</strong>
+                  <span style="color: white;">.</span>
+                </h4>
+              </a>
+              <p>Kami menyediakan berbagai perabot rumah tangga modern, berkualitas, dan terjangkau untuk kebutuhan
+                Anda.</p>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Product Management</a></li>
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Graphic Design</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start" style="text-align: left;">
+              <h4>Contact Us</h4>
+              <p>A108 Adam Street</p>
+              <p>New York, NY 535022</p>
+              <p>United States</p>
+              <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+              <p><strong>Email:</strong> <span>info@example.com</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container copyright text-center" style="padding-bottom: 30px;">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Nova</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+            href="https://themewagon.com">ThemeWagon</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <!-- End Footer Section -->
+
 
   <script>
     const swiper = new Swiper(".swiper", {
