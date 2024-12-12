@@ -195,7 +195,8 @@ def profile():
 
     return render_template('profile.html',
                            user=user,
-                           profile_picture=profile_picture)
+                           profile_picture=profile_picture,
+                           username=session.get("username"))
 
 # PROFILE UPDATE ROUTE
 @app.route('/update', methods=["GET", "POST"])
