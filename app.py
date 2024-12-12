@@ -321,11 +321,18 @@ def detail_produk():
     # mencari data sesuai id nya
     get_product = db.product.find_one({"_id": ObjectId(product_id)})
 
+    # Ambil kategori produk
+    category = get_product.get("category")
+
+    # Mencari produk lain dengan kategori yang sama
+    related_products = db.product.find({"category": category, "_id": {"$ne": ObjectId(product_id)}})
+
     return render_template(
     'detail_produk.html',
     username=session.get("username"),
     profile_picture=profile_picture,
-    get_product=get_product)
+    get_product=get_product,
+     related_products=related_products)
 
 # DASHBOARD ROUTE
 @app.route('/dashboard')
@@ -484,24 +491,28 @@ def add_produk():
                 return redirect(url_for('add_produk'))
 
             # Mengelola file gambar
-            file = request.files.get('product_image')
-            if file:
-                # Ekstensi file
-                extension = file.filename.split('.')[-1]
-                # Nama file berdasarkan timestamp
-                timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-                filename = f'product-{timestamp}.{extension}'
-                # Path penyimpanan file
-                file_path = os.path.join('static', 'product_images', filename)
-                file.save(file_path)  # Simpan file ke folder lokal
-            else:
-                flash('Gambar produk harus diunggah!', 'error')
-                return redirect(url_for('add_produk'))
+            file = request.files.getlist('product_image')
+            print(request.files.getlist('product_image'))
+            image_paths = []
+            for index, file in enumerate(file):
+                if file:
+                    # Ekstensi file
+                    extension = file.filename.split('.')[-1]
+                    # Nama file berdasarkan timestamp
+                    timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S-%f')
+                    filename = f'product-{timestamp}-{index}.{extension}'
+                    # Path penyimpanan file
+                    file_path = os.path.join('static', 'product_images', filename)
+                    file.save(file_path)  # Simpan file ke folder lokal
+                    image_paths.append(file_path)
+                else:
+                    flash('Gambar produk harus diunggah!', 'error')
+                    return redirect(url_for('add_produk'))
 
             # Data yang akan disimpan ke MongoDB
             product_data = {
                 'product_name': product_name,
-                'product_image': filename,
+                'product_image': image_paths,
                 'product_category': product_category,
                 'product_brand': product_brand,
                 'featured_prod': featured_prod,

@@ -266,7 +266,7 @@
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/product_images/{{ product.product_image }}"
+                      <img src="{{ product.product_image[0] }}"
                         class="card-produk-unggulan-img-top zoom-image" alt="product-image">
                       <a href="{{ url_for('detail_produk', id=product._id) }}"
                         class="overlay d-flex align-items-center justify-content-center text-decoration-none">
