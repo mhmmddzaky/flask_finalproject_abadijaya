@@ -251,7 +251,7 @@
         <div id="related-products-carousel" class="carousel-inner">
           <div class="carousel-item active">
             <div class="row justify-content-center">
-              {% for product in related_products %}
+              {% for product in related_products[:4] %}
               <div class="col-md-3 col-lg-3 mb-4">
                 <div class="product-item p-3 lengkung-border text-center shadow-sm" style="background-color: #f5f5f5;">
                   <div class="product-img position-relative overflow-hidden">

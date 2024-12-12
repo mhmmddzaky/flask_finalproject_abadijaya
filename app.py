@@ -129,10 +129,14 @@ def home():
     # mengambil product unggulan
     featured_products = list(db.product.find({"featured_prod": "unggulan"}))
 
+    # Ambil semua kategori dari koleksi `categories`
+    categories = list(db.category.find())
+
     return render_template(
         'home.html',
          username=session.get("username"),
          profile_picture=profile_picture,
+         categories= categories,
          products=featured_products)
 
 # ABOUT ROUTE
@@ -282,18 +286,33 @@ def update_profile():
 @app.route('/product', methods=['GET'])
 def product():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
-    
+
+    # Ambil semua kategori dari koleksi `categories`
+    categories = list(db.category.find())
+
+    # code untuk menghitung jumlah produk sesuai dengan kategorinya
+    for category in categories:
+        product_count = db.product.count_documents({"product_category": category["category_name"]})
+        category["product_count"] = product_count  # Menambahkan jumlah produk ke kategori
+
+    # Ambil kategori yang dipilih dari query string
+    selected_category = request.args.get("category", "Semua")
     # Mendapatkan parameter pencarian dari URL
     search_query = request.args.get('search', '')  # Jika tidak ada pencarian, default ke string kosong
-    
-    # Jika ada query pencarian, filter produk berdasarkan nama produk
+
+    # Bangun query untuk MongoDB secara dinamis
+    query = {}
+
+    # Tambahkan filter kategori jika kategori yang dipilih bukan "Semua"
+    if selected_category != "Semua":
+        query["product_category"] = selected_category
+
+    # Tambahkan filter pencarian jika ada query pencarian
     if search_query:
-        products = list(db.product.find({
-            'product_name': {'$regex': search_query, '$options': 'i'}  # Mencari produk dengan nama yang sesuai
-        }))
-    else:
-        # Ambil semua data produk jika tidak ada pencarian
-        products = list(db.product.find())
+        query["product_name"] = {'$regex': search_query, '$options': 'i'}
+
+    # Ambil produk berdasarkan query
+    products = list(db.product.find(query))    
 
     # Ubah ObjectId menjadi string untuk keperluan tampilan
     for product in products:
@@ -305,6 +324,8 @@ def product():
         'product.html',
         username=session.get("username"),
         profile_picture=profile_picture,
+        categories=categories,
+         selected_category=selected_category,
         products=products,
         no_results=no_results,  # Menyertakan variabel untuk menampilkan pesan jika tidak ada hasil
         search_query=search_query  # Kirimkan query pencarian untuk menampilkan kembali di input
@@ -323,17 +344,17 @@ def detail_produk():
     get_product = db.product.find_one({"_id": ObjectId(product_id)})
 
     # Ambil kategori produk
-    category = get_product.get("category")
+    category = get_product.get("product_category")
 
     # Mencari produk lain dengan kategori yang sama
-    related_products = db.product.find({"category": category, "_id": {"$ne": ObjectId(product_id)}})
+    related_products = db.product.find({"product_category": category, "_id": {"$ne": ObjectId(product_id)}})
 
     return render_template(
     'detail_produk.html',
     username=session.get("username"),
     profile_picture=profile_picture,
     get_product=get_product,
-     related_products=related_products)
+    related_products=related_products)
 
 # DASHBOARD ROUTE
 @app.route('/dashboard')
@@ -498,7 +519,6 @@ def add_produk():
 
             # Mengelola file gambar
             file = request.files.getlist('product_image')
-            print(request.files.getlist('product_image'))
             image_paths = []
             for index, file in enumerate(file):
                 if file:
@@ -594,16 +614,24 @@ def edit_produk():
         }
 
         # Cek apakah ada gambar baru yang diunggah
-        file = request.files.get("product_image")
-        if file and file.filename != "":
-            extension = file.filename.split('.')[-1]
-            timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-            filename = f'product-{timestamp}.{extension}'
-            file_path = os.path.join('static', 'product_images', filename)
-            file.save(file_path)
+        files = request.files.getlist("product_image")
+        if files and files[0].filename != "":  # Pastikan setidaknya ada satu file yang diunggah
+            image_paths = []
+            
+            for index, file in enumerate(files):
+                if file:
+                    # Ekstensi file
+                    extension = file.filename.split('.')[-1]
+                    # Nama file berdasarkan timestamp
+                    timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S-%f')
+                    filename = f'product-{timestamp}-{index}.{extension}'
+                    # Path penyimpanan file
+                    file_path = os.path.join('static', 'product_images', filename)
+                    file.save(file_path)  # Simpan file ke folder lokal
+                    image_paths.append(file_path)
 
-            # Tambahkan nama file gambar baru ke data update
-            update_data["product_image"] = filename
+            # Tambahkan array nama file gambar baru ke data update
+            update_data["product_image"] = image_paths
 
         # Update data produk di database
         db.product.update_one({"_id": ObjectId(product_id)}, {"$set": update_data})

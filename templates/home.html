@@ -176,17 +176,22 @@
         <!-- Card Slider -->
         <div class="card-kategori swiper">
           <div class="swiper-wrapper">
+            {% for category in categories %}
             <!-- Card 1 -->
             <div class="swiper-slide card" style="width: 18rem;">
               <div class="card-img-container shadow-sm">
-                <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
+                <img src="static/category_images/{{ category.category_image }}" class="card-img-top" alt="...">
                 <div class="overlay">
-                  <p class="overlay-text montserrat-alternates-bold">Spring Bed</p>
+                  <a href="{{ url_for('product', category=category.category_name) }}" 
+                  class="overlay-text text-decoration-none montserrat-alternates-bold">
+                  {{ category.category_name|capitalize }}
+                </a>
                 </div>
               </div>
             </div>
-            <!-- Card 2 -->
-            <div class="swiper-slide card" style="width: 18rem;">
+            {% endfor %}
+            
+            <!-- <div class="swiper-slide card" style="width: 18rem;">
               <div class="card-img-container shadow-sm">
                 <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
                 <div class="overlay">
@@ -194,7 +199,7 @@
                 </div>
               </div>
             </div>
-            <!-- Card 3 -->
+            
             <div class="swiper-slide card" style="width: 18rem;">
               <div class="card-img-container shadow-sm">
                 <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
@@ -203,7 +208,7 @@
                 </div>
               </div>
             </div>
-            <!-- Card 4 -->
+            
             <div class="swiper-slide card" style="width: 18rem;">
               <div class="card-img-container shadow-sm">
                 <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
@@ -212,7 +217,7 @@
                 </div>
               </div>
             </div>
-            <!-- Card 5 -->
+            
             <div class="swiper-slide card" style="width: 18rem;">
               <div class="card-img-container shadow-sm">
                 <img src="static/images/img-1.jpg" class="card-img-top" alt="...">
@@ -220,7 +225,7 @@
                   <p class="overlay-text montserrat-alternates-bold">Sofa</p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -263,8 +268,7 @@
                 {% for product in products %}
                 <!-- Card 1 -->
                 <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
+                  <div class="card border-light position-relative h-100 shadow lengkung-border">
                     <div class="card-produk-unggulan-img-container lengkung-border-atas">
                       <img src="{{ product.product_image[0] }}" class="card-produk-unggulan-img-top zoom-image"
                         alt="product-image">
@@ -280,7 +284,25 @@
                   </div>
                 </div>
                 {% endfor %}
-                <!-- Card 2 -->
+               
+                <!-- <div class="col-12 col-md-6 mb-4">
+                  <div class="card border-light position-relative h-100 shadow lengkung-border"
+                    onclick="to_detailpage()">
+                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
+                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
+                        alt="product-image">
+                      <a href="/detail_produk"
+                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
+                        <span class="text-white h5">Product Detail</span>
+                      </a>
+                    </div>
+                    <div class="card-footer border-top border-light p-4">
+                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
+                      <div class="mt-2 fw-bold">Rp799.000</div>
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
@@ -298,7 +320,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Card 3 -->
+                
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
@@ -316,7 +338,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Card 4 -->
+                
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
@@ -334,7 +356,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Card 5 -->
+                
                 <div class="col-12 col-md-6 mb-4">
                   <div class="card border-light position-relative h-100 shadow lengkung-border"
                     onclick="to_detailpage()">
@@ -351,25 +373,7 @@
                       <div class="mt-2 fw-bold">Rp799.000</div>
                     </div>
                   </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

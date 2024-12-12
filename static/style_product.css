@@ -446,6 +446,12 @@ body::before {
         position: relative; 
         transition: color 0.3s ease; 
     }
+    
+    .montserrat-alternates-bold {
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
 
     .hover-underline::after {
         content: '';

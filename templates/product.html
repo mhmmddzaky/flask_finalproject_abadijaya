@@ -159,12 +159,26 @@
         <div class="sticky-top" style="top: 95px;">
           <div class="card border-light h-100">
             <div class="card-body shadow">
-              <h5 class="card-title fs-4">Kategori Produk</h5>
+              <h5 class="card-title montserrat-alternates-bold fs-4">Kategori Produk</h5>
               <ul class="list-group text-muted">
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Semua</a>
+                  <a href="{{ url_for('product', category='Semua') }}" 
+                  class="text-muted text-decoration-none fs-5 hover-underline 
+                  {% if selected_category == 'Semua' %}fw-bold text-dark{% endif %}">
+                  Semua
+               </a>
                 </li>
+                {% for category in categories %}
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
+                  <a href="{{ url_for('product', category=category.category_name) }}" 
+                    class="text-muted text-decoration-none montserrat-alternates-bold fs-6 hover-underline 
+                    {% if selected_category == category._id %}fw-bold text-dark{% endif %}">
+                    {{ category.category_name|capitalize }}
+                  </a>
+                  <span class="badge bg-secondary rounded-pill fs-6">{{ category.product_count }}</span>
+                </li>
+                {% endfor %}
+                <!-- <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
                   <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Lemari</a>
                   <span class="badge bg-secondary rounded-pill fs-6">123</span>
                 </li>
@@ -183,7 +197,7 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
                   <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Kursi</a>
                   <span class="badge bg-secondary rounded-pill fs-6">134</span>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -233,54 +247,6 @@
             </div>
           </div>
           {% endfor %}
-          <!-- //Card 2 //
-          <div class="col-12 col-md-4">
-            <div class="card border-light position-relative h-100 shadow lengkung-border">
-              <div class="card-img-container lengkung-border-atas">
-                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                <a href="/detail_produk"
-                  class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                  <span class="text-white h5">Product Detail</span>
-                </a>
-              </div>
-              <div class="card-footer border-top border-light p-4">
-                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                <div class="mt-2 fw-bold">Rp799.000</div>
-              </div>
-            </div>
-          </div>
-          //Card 3 //
-          <div class="col-12 col-md-4">
-            <div class="card border-light position-relative h-100 shadow lengkung-border">
-              <div class="card-img-container lengkung-border-atas">
-                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                <a href="/detail_produk"
-                  class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                  <span class="text-white h5">Product Detail</span>
-                </a>
-              </div>
-              <div class="card-footer border-top border-light p-4">
-                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Meja Makan</a>
-                <div class="mt-2 fw-bold">Rp199.000</div>
-              </div>
-            </div>
-          </div>
-          //Card 4// 
-          <div class="col-12 col-md-4 ">
-            <div class="card border-light position-relative h-100 shadow lengkung-border">
-              <div class="card-img-container lengkung-border-atas">
-                <img src="/static/images/img-1.jpg" class="card-img-top zoom-image" alt="product-image">
-                <a href="/detail_produk"
-                  class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                  <span class="text-white h5">Product Detail</span>
-                </a>
-              </div>
-              <div class="card-footer border-top border-light p-4">
-                <a href="product-detail.html" class="h5 text-decoration-none text-dark">Sofa Tamu</a>
-                <div class="mt-2 fw-bold">Rp.199.000</div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
