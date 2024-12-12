@@ -103,7 +103,7 @@
                     </div>
                     <a href="/profile" class="sub-menu-link">
                         <img src="static/images/profile.png" alt="Profile Icon">
-                        <p>Profile</p>
+                        <p>Profil</p>
                         <span>&gt;</span>
                     </a>
                     <a href="{{ url_for('logout') }}" class="sub-menu-link">
@@ -164,14 +164,14 @@
             </div>
             <form method="POST" action="{{ url_for('update_profile') }}" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="profile_picture" class="form-label">Foto Profile:</label>
+                    <label for="profile_picture" class="form-label">Foto Profil:</label>
                     <input type="file" id="profile_picture" name="profile_picture" class="form-control"
                         accept="image/*">
                 </div>
                 <div class="mb-3">
                     <!-- <div class="col-md-6"> -->
-                    <label for="firstName" class="form-label">Username :</label>
-                    <input type="text" id="username" name="new_username" class="form-control" placeholder="Username">
+                    <label for="firstName" class="form-label">Nama Pengguna :</label>
+                    <input type="text" id="username" name="new_username" class="form-control" placeholder="Nama Pengguna">
                     <!-- </div> -->
                     <!-- <div class="col-md-6">
                         <label for="lastName" class="form-label">Last Name :</label>
@@ -196,10 +196,10 @@
                 </div> -->
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label for="currentPassword" class="form-label">Password Lama :</label>
+                        <label for="currentPassword" class="form-label">Kata Sandi Lama :</label>
                         <div class="input-group">
                             <input type="password" id="currentPassword" name="current_password" class="form-control"
-                                placeholder="Password Lama">
+                                placeholder="Kata Sandi Lama">
                             <span class="input-group-text">
                                 <img src="static/images/hidden.png" alt="Toggle Password"
                                     onclick="togglePassword('currentPassword', 'currentPasswordIcon')"
@@ -208,10 +208,10 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="newPassword" class="form-label">Password Baru :</label>
+                        <label for="newPassword" class="form-label">Kata Sandi Baru :</label>
                         <div class="input-group">
                             <input type="password" id="newPassword" name="new_password" class="form-control"
-                                placeholder="Password Baru">
+                                placeholder="Kata Sandi Baru">
                             <span class="input-group-text">
                                 <img src="static/images/hidden.png" alt="Toggle Password"
                                     onclick="togglePassword('newPassword', 'newPasswordIcon')" id="newPasswordIcon"
@@ -221,10 +221,10 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Konfirmasi Password Baru :</label>
+                    <label for="confirmPassword" class="form-label">Konfirmasi Kata Sandi Baru :</label>
                     <div class="input-group">
                         <input type="password" id="confirmPassword" name="confirm_password" class="form-control"
-                            placeholder="Konfirmasi Password Baru">
+                            placeholder="Konfirmasi Kata Sandi Baru">
                         <span class="input-group-text">
                             <img src="static/images/hidden.png" alt="Toggle Password"
                                 onclick="togglePassword('confirmPassword', 'confirmPasswordIcon')"

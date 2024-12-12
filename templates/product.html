@@ -159,10 +159,10 @@
         <div class="sticky-top" style="top: 95px;">
           <div class="card border-light h-100">
             <div class="card-body shadow">
-              <h5 class="card-title fs-4">Product Categories</h5>
+              <h5 class="card-title fs-4">Kategori Produk</h5>
               <ul class="list-group text-muted">
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">All</a>
+                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Semua</a>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
                   <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Lemari</a>
@@ -196,7 +196,7 @@
         <div class="mb-4 mt-2">
           <form action="{{ url_for('product') }}" method="get">
             <div class="input-group shadow">
-              <input type="text" name="search" class="form-control" placeholder="Search"
+              <input type="text" name="search" class="form-control" placeholder="Cari"
                 value="{{ request.args.get('search', '') }}">
               <button class="input-group-text btn btn-secondary" type="submit">
                 <i class="fas fa-search"></i>
@@ -223,7 +223,7 @@
                 <img src="{{ product.product_image[0] }}" class="card-img-top zoom-image" alt="product-image">
                 <a href="{{ url_for('detail_produk', id=product._id) }}"
                   class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                  <span class="text-white h5">Product Detail</span>
+                  <span class="text-white h5">Detail Produk</span>
                 </a>
               </div>
               <div class="card-footer text-center border-top border-light p-4">
