@@ -79,7 +79,7 @@
           </div>
           <a href="/profile" class="sub-menu-link">
             <img src="static/images/profile.png" alt="Profile Icon">
-            <p>Profile</p>
+            <p>Profil</p>
             <span>&gt;</span>
           </a>
           <a href="{{ url_for('logout') }}" class="sub-menu-link">
@@ -274,27 +274,70 @@
   </div>
   <!-- Related Products Section End -->
 
-  <!-- Call to Action Section -->
-  <section id="products" class="product-cta text-white text-center py-5">
-    <h2>Explore Our Products!</h2>
-    <a href="/product">
-      <button class="btn btn-lg">View Products</button>
-    </a>
+  <!-- Start Footer Section -->
+  <section id="main-footer" class="main-footer text-white text-center py-5" style="background-color: rgb(3, 3, 73);">
+    <footer id="footer" class="footer light-background">
+      <div class="footer-top" style="justify-content: center;">
+        <div class="container">
+          <div class="row gy-4" style="padding-top: 30px;">
+
+            <!-- First Section -->
+            <div class="col-lg-5 col-md-12 footer-about" style="text-align: left;">
+              <a href="/" style="text-decoration: none;">
+                <h4 style="font-size: 1.7rem; margin-bottom: 2rem;">
+                  <strong style="font-weight: bold; color: white;">Toko Perabot</strong>
+                  <strong style="font-weight: bold; color: rgb(220, 20, 60);">Abadi Jaya</strong>
+                  <span style="color: white; opacity: 0.4;">.</span>
+                </h4>
+              </a>
+              <p style="font-size: 1.3rem;">
+                Kami menyediakan berbagai perabot <br>
+                rumah tangga modern, berkualitas, dan terjangkau <br>
+                untuk kebutuhan Anda.
+              </p>
+
+            </div>
+
+            <!-- Second Section -->
+            <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
+              <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Jelajah</h4>
+              <a href="/" style="text-decoration: none; color: white; font-size: 1.3rem;">
+                <p>Beranda</p>
+              </a>
+              <a href="/product" style="text-decoration: none; color: white; font-size: 1.3rem;">
+                <p>Produk</p>
+              </a>
+            </div>
+
+            <!-- Tirth Section -->
+            <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
+              <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Tentang Kami</h4>
+              <a href="/about" style="text-decoration: none; color: white; font-size: 1.3rem;">
+                <p>Tentang</p>
+              </a>
+              <a href="/contact" style="text-decoration: none; color: white; font-size: 1.3rem;">
+                <p>Kontak</p>
+              </a>
+            </div>
+
+            <!-- Fourth Section -->
+            <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
+              <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Hubungi Kami</h4>
+              <p style="text-decoration: none; color: white; font-size: 1.3rem;">abadijaya@gmail.com</p>
+              <p style="text-decoration: none; color: white; font-size: 1.3rem;">081-XXX-XXX-XXX</p>
+            </div>
+          </div>
+
+          <!-- Bottom Section -->
+          <div class="copyrights-container" style="margin-top: 45px; justify-content: center;">
+            <h5>© 2024 Toko Perabot Abadi Jaya</h4>
+              <p>All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </section>
-
-
-  <!-- Footer Section -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Abadi Jaya Perabot. All rights reserved.</p>
-      <ul class="list-unstyled d-flex justify-content-center gap-3">
-        <li><a href="#" class="text-white">Privacy Policy</a></li>
-        <li><a href="#" class="text-white">Terms of Service</a></li>
-        <li><a href="#contact" class="text-white">Contact Us</a></li>
-      </ul>
-    </div>
-  </footer>
-
+  <!-- End Footer Section -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const notificationModal = document.getElementById('notificationModal');
