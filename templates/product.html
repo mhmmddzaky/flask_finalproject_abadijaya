@@ -62,7 +62,7 @@
           {% if session.get("role") == "admin" %} <!-- jika user adalah admin -->
           <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
           {% endif %}
-          {% if not session.user_id %} <!--jika user belum login-->
+          {% if not session.user_id %} <!-- jika user belum login -->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
           {% endif %}
@@ -220,8 +220,7 @@
           <div class="col-12 col-md-4">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
-                <img src="{{ product.product_image[0] }}" class="card-img-top zoom-image"
-                  alt="product-image">
+                <img src="{{ product.product_image[0] }}" class="card-img-top zoom-image" alt="product-image">
                 <a href="{{ url_for('detail_produk', id=product._id) }}"
                   class="overlay d-flex align-items-center justify-content-center text-decoration-none">
                   <span class="text-white h5">Product Detail</span>

@@ -62,7 +62,7 @@
                     {% if session.get("role") == "admin" %} <!-- jika user adalah admin -->
                     <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
                     {% endif %}
-                     {% if not session.user_id %} <!--jika user belum login -->
+                    {% if not session.user_id %} <!-- jika user belum login -->
                     <li><a class="nav-link" href="/register">Daftar</a></li>
                     <li><a class="nav-link" href="/login">Masuk</a></li>
                     {% endif %}
@@ -131,10 +131,11 @@
     <section class="banner d-flex align-items-center">
         <div class="container text-center text-white">
             <div class="intro-excerpt">
-            <h1 class="display-4">Tentang Kami</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.</p>
-        </div>
+                <h1 class="display-4">Tentang Kami</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut
+                    labore et dolore magna aliqua.</p>
+            </div>
     </section>
 
     <!-- About Us Content -->

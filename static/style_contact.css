@@ -338,7 +338,7 @@ body::before {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 4rem 0;
+    padding-top: 6rem;
     background: url("/static/images/furni_background.jpg") no-repeat center center;
     background-size: cover;
 }
@@ -478,6 +478,7 @@ body::before {
         background: rgb(3, 3, 73) !important;;
         margin-right: 20px;
         color: #ffffff; }
+        
 
 /* Untuk layar kecil seperti ponsel (maksimal lebar 576px) */
 @media (max-width: 576px) {

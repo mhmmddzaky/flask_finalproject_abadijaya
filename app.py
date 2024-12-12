@@ -355,7 +355,9 @@ def dashboard():
         flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
         return redirect(url_for("home"))  # Ganti 'home' dengan halaman lain untuk user biasa
 
-    return render_template('dashboard.html')
+    return render_template(
+        'dashboard.html',
+        username=session.get("username"))
 
 
 # CATEGORY ADD ROUTE
@@ -400,7 +402,8 @@ def add_kategori():
             flash(f'Error: {str(e)}', 'error')
             return redirect(url_for('add_kategori'))
 
-    return render_template('dsb_addkategori.html')
+    return render_template('dsb_addkategori.html',
+        username=session.get("username"))
 
 # CATEGORY TABLE ROUTE
 @app.route('/tabel_kategori')
@@ -412,7 +415,8 @@ def tabel_kategori():
     for category in categories:
         category["_id"] = str(category["_id"])
 
-    return render_template('dsb_tabelkategori.html', categories=categories)
+    return render_template('dsb_tabelkategori.html', categories=categories,
+        username=session.get("username"))
 
 # CATEGORY EDIT ROUTE
 @app.route('/edit_kategori', methods=["GET", "POST"])
@@ -452,7 +456,8 @@ def edit_kategori():
         flash("Kategori berhasil diperbarui.", "success")
         return redirect(url_for("tabel_kategori"))
 
-    return render_template('dsb_editkategori.html', category=category)
+    return render_template('dsb_editkategori.html', category=category,
+        username=session.get("username"))
 
 # CATEGORY DELETE ROUTE
 @app.route('/delete_kategori/<category_id>', methods=["POST"])
@@ -533,7 +538,8 @@ def add_produk():
     for category in categories:
         category["_id"] = str(category["_id"])
 
-    return render_template('dsb_addproduk.html', categories=categories)
+    return render_template('dsb_addproduk.html', categories=categories,
+        username=session.get("username"))
 
 
 # PRODUCT TABLE ROUTE
@@ -546,7 +552,8 @@ def tabel_produk():
     for product in products:
         product["_id"] = str(product["_id"])
 
-    return render_template('dsb_tabelproduk.html', products=products)
+    return render_template('dsb_tabelproduk.html', products=products,
+        username=session.get("username"))
 
 # PRODUCT EDIT ROUTE
 @app.route('/edit_produk', methods=["GET", "POST"])
@@ -608,7 +615,8 @@ def edit_produk():
     for category in categories:
         category["_id"] = str(category["_id"])
 
-    return render_template('dsb_editproduk.html', product=product, categories=categories)
+    return render_template('dsb_editproduk.html', product=product, categories=categories,
+        username=session.get("username"))
 
 
 # PRODUCT DELETE ROUTE
@@ -667,7 +675,8 @@ def add_admin():
 
         flash("User Berhasil Ditambahkan", "success")
         return redirect(url_for("add_admin"))
-    return render_template('dsb_adduser.html') 
+    return render_template('dsb_adduser.html',
+        username=session.get("username")) 
 
 # USER TABLE ROUTE
 @app.route('/tabel_user')
@@ -679,7 +688,8 @@ def tabel_user():
     for user in users:
         user["_id"] = str(user["_id"])
 
-    return render_template('dsb_tabeluser.html', users=users)
+    return render_template('dsb_tabeluser.html', users=users,
+        username=session.get("username"))
 
 # USER EDIT ROUTE
 @app.route('/edit_user', methods=["GET", "POST"])
@@ -723,7 +733,8 @@ def edit_user():
         flash("Data Kamu berhasil diperbarui.", "success")
         return redirect(url_for("tabel_user"))
 
-    return render_template('dsb_edituser.html', user=user)
+    return render_template('dsb_edituser.html', user=user,
+        username=session.get("username"))
 
 #USER DELETE ROUTE
 @app.route('/delete_user/<user_id>',  methods=["POST"])
@@ -750,7 +761,8 @@ def tabel_feedback():
     for feedback in feedbacks:
         feedback["_id"] = str(feedback["_id"])
 
-    return render_template('dsb_tabelfeedback.html', feedbacks=feedbacks)
+    return render_template('dsb_tabelfeedback.html', feedbacks=feedbacks,
+        username=session.get("username"))
 
 # FEEDBACK VIEW ROUTE
 @app.route('/view_feedback', methods=["GET"])
@@ -768,7 +780,8 @@ def view_feedback():
         flash("Feedback tidak ditemukan.", "error")
         return redirect(url_for("tabel_feedback"))
 
-    return render_template('dsb_viewfeedback.html', feedback=feedback)
+    return render_template('dsb_viewfeedback.html', feedback=feedback,
+        username=session.get("username"))
 
 # FEEDBACK DELETE ROUTE
 @app.route('/delete_feedback/<feedback_id>', methods=["POST"])

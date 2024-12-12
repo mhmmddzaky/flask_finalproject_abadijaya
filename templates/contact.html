@@ -61,7 +61,7 @@
           {% if session.get("role") == "admin" %} <!-- jika user adalah admin -->
           <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
           {% endif %}
-           {% if not session.user_id %} <!--jika user belum login -->
+          {% if not session.user_id %} <!-- jika user belum login -->
           <li><a class="nav-link" href="/register">Daftar</a></li>
           <li><a class="nav-link" href="/login">Masuk</a></li>
           {% endif %}
@@ -198,18 +198,18 @@
           </div>
           <form method="POST" action="{{ url_for('contact') }}">
             <div class="form-group mb-2">
-              <label class="text-black" style="font-size: 18px;" for="fullname">Full Name</label>
+              <label class="text-black" style="font-size: 18px;" for="fullname">Nama Pengirim</label>
               <input type="text" class="form-control" id="fullname" name="fullname" required>
             </div>
             <div class="form-group mb-2">
-              <label class="text-black" style="font-size: 18px;" for="email">Email address</label>
+              <label class="text-black" style="font-size: 18px;" for="email">Email</label>
               <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group mb-5">
-              <label class="text-black" style="font-size: 18px;" for="message">Message</label>
+              <label class="text-black" style="font-size: 18px;" for="message">Pesan</label>
               <textarea class="form-control" id="message" name="message" cols="30" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+            <button type="submit" class="btn btn-primary-hover-outline">Kirim Pesan</button>
           </form>
 
         </div>

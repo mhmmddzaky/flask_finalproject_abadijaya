@@ -88,21 +88,17 @@
                 <span class="icon">
                     <i class="bi bi-person-circle"></i>
                 </span>
-                <span class="description">Akun <i class="bi bi-caret-down"></i></span>
+                <span class="description">{{ username }} <i class="bi bi-caret-down"></i></span>
             </a>
             <!-- Sidebar Submenu -->
             <div class="sub-menu collapse" id="submenu">
-                <a href="/profile_admin" class="nav-link">
-                    <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
-                    <span class="description">Profil</span>
-                </a>
                 <a href="/" class="nav-link">
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="description">Beranda</span>
                 </a>
                 <a href="{{ url_for('logout') }}" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="description">Logout</span>
+                    <span class="description">Keluar</span>
                 </a>
             </div>
         </nav>
@@ -142,13 +138,11 @@
     <!-- End Modal Notifikasi -->
 
     <div class="main-content">
-        <h3>Halo, (...) Selamat Datang di Halaman Dashboard Admin</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.</p>
+        <h3>Halo, {{ username }}! Selamat Datang di Halaman Dashboard Admin</h3>
         <!-- Start Card Section -->
         <div class="card-container">
             <!-- Card 1 -->
-            <a href="#" class="card">
+            <a href="/tabel_kategori" class="card">
                 <div class="card-body">
                     <h2 class="card-title">Halaman Tabel Kategori Produk</h2>
                     <p class="card-text">Lihat dan edit data kategori produk di sini.</p>
@@ -181,7 +175,7 @@
         <!-- Additional Cards -->
         <div class="card-container">
             <!-- Card 1 -->
-            <a href="#" class="card">
+            <a href="/add_kategori" class="card">
                 <div class="card-body">
                     <h2 class="card-title">Halaman Tambah Kategori Produk</h2>
                     <p class="card-text">Tambah kategori produk baru di sini.</p>
@@ -203,6 +197,7 @@
             </a>
         </div>
     </div>
+
 
     <!-- Import Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

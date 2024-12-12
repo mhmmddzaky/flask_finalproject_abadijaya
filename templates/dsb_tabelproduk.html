@@ -94,21 +94,17 @@
                 <span class="icon">
                     <i class="bi bi-person-circle"></i>
                 </span>
-                <span class="description">Akun <i class="bi bi-caret-down"></i></span>
+                <span class="description">{{ username }} <i class="bi bi-caret-down"></i></span>
             </a>
             <!-- Sidebar Submenu -->
             <div class="sub-menu collapse" id="submenu">
-                <a href="/profile_admin" class="nav-link">
-                    <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
-                    <span class="description">Profil</span>
-                </a>
                 <a href="/" class="nav-link">
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="description">Beranda</span>
                 </a>
                 <a href="{{ url_for('logout') }}" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="description">Logout</span>
+                    <span class="description">Keluar</span>
                 </a>
             </div>
         </nav>
@@ -175,7 +171,7 @@
                         </a>
                         <form action="{{ url_for('delete_produk', product_id=product['_id']) }}" class="edit-link"
                             method="POST" onsubmit="return confirm('Yakin ingin menghapus produk ini?');">
-                            <button class="delete-btn">Delete</button>
+                            <button class="delete-btn">Hapus</button>
                         </form>
                     </td>
                 </tr>

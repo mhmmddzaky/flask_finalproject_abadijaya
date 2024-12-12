@@ -118,21 +118,17 @@
                 <span class="icon">
                     <i class="bi bi-person-circle"></i>
                 </span>
-                <span class="description">Akun <i class="bi bi-caret-down"></i></span>
+                <span class="description">{{ username }} <i class="bi bi-caret-down"></i></span>
             </a>
             <!-- Sidebar Submenu -->
             <div class="sub-menu collapse" id="submenu">
-                <a href="/profile_admin" class="nav-link">
-                    <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
-                    <span class="description">Profil</span>
-                </a>
                 <a href="/" class="nav-link">
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="description">Beranda</span>
                 </a>
                 <a href="{{ url_for('logout') }}" class="nav-link">
                     <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="description">Logout</span>
+                    <span class="description">Keluar</span>
                 </a>
             </div>
         </nav>
@@ -184,7 +180,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="new_password"
-                        placeholder="Masukkan Baru password Anda">
+                        placeholder="Masukkan password baru Anda">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
