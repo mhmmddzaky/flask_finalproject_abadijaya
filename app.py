@@ -153,6 +153,11 @@ def contact():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
 
     if request.method == "POST":
+        # Cek apakah user sudah login
+        if not session.get("user_id"):  # Jika tidak ada user_id di session, artinya user belum login
+            flash("Anda harus login terlebih dahulu untuk mengirim pesan.", "error")
+            return redirect(url_for("login"))  # Redirect ke halaman login
+
         try:
             # Ambil data dari form
             fullname = request.form.get("fullname")
@@ -186,7 +191,6 @@ def contact():
         username=session.get("username"),
         profile_picture=profile_picture
     )
-
 # PROFILE ROUTE
 @app.route('/profile')
 @login_required
