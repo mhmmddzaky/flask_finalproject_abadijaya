@@ -28,7 +28,6 @@ def format_rupiah(amount):
 # Mendaftarkan fungsi sebagai filter Jinja2
 app.jinja_env.filters['rupiah'] = format_rupiah
 
-
 # REGISTER ROUTE
 @app.route('/register',methods=["GET", "POST"])
 def register():
@@ -331,7 +330,6 @@ def product():
         search_query=search_query  # Kirimkan query pencarian untuk menampilkan kembali di input
     )
 
-
 # PRODUCT DETAIL ROUTE
 @app.route('/detail_produk')
 def detail_produk():
@@ -380,7 +378,6 @@ def dashboard():
     return render_template(
         'dashboard.html',
         username=session.get("username"))
-
 
 # CATEGORY ADD ROUTE
 @app.route('/add_kategori', methods=['GET', 'POST'])
@@ -498,7 +495,6 @@ def delete_kategori(category_id):
     
     return redirect(url_for("tabel_kategori"))
 
-
 # PRODUCT ADD ROUTE
 @app.route('/add_produk', methods=['GET', 'POST'])
 def add_produk():
@@ -561,7 +557,6 @@ def add_produk():
 
     return render_template('dsb_addproduk.html', categories=categories,
         username=session.get("username"))
-
 
 # PRODUCT TABLE ROUTE
 @app.route('/tabel_produk')
@@ -859,7 +854,6 @@ def profile_admin():
     }
 
     return render_template('profile_admin.html', profile_data=profile_data)
-
 
 # ADMIN PROFILE EDIT ROUTE
 @app.route('/updateprofile_admin')

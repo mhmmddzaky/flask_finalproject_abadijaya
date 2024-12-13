@@ -162,16 +162,14 @@
               <h5 class="card-title montserrat-alternates-bold fs-4">Kategori Produk</h5>
               <ul class="list-group text-muted">
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="{{ url_for('product', category='Semua') }}" 
-                  class="text-muted text-decoration-none fs-5 hover-underline 
+                  <a href="{{ url_for('product', category='Semua') }}" class="text-muted text-decoration-none fs-5 hover-underline 
                   {% if selected_category == 'Semua' %}fw-bold text-dark{% endif %}">
-                  Semua
-               </a>
+                    Semua
+                  </a>
                 </li>
                 {% for category in categories %}
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="{{ url_for('product', category=category.category_name) }}" 
-                    class="text-muted text-decoration-none montserrat-alternates-bold fs-6 hover-underline 
+                  <a href="{{ url_for('product', category=category.category_name) }}" class="text-muted text-decoration-none montserrat-alternates-bold fs-6 hover-underline 
                     {% if selected_category == category._id %}fw-bold text-dark{% endif %}">
                     {{ category.category_name|capitalize }}
                   </a>
@@ -269,7 +267,7 @@
                   <span style="color: white; opacity: 0.4;">.</span>
                 </h4>
               </a>
-              <p style="font-size: 1.3rem;">
+              <p style="font-size: 1.1rem;">
                 Kami menyediakan berbagai perabot <br>
                 rumah tangga modern, berkualitas, dan terjangkau <br>
                 untuk kebutuhan Anda.
@@ -280,10 +278,10 @@
             <!-- Second Section -->
             <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
               <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Jelajah</h4>
-              <a href="/" style="text-decoration: none; color: white; font-size: 1.3rem;">
+              <a href="/" style="text-decoration: none; color: white; font-size: 1.1rem;">
                 <p>Beranda</p>
               </a>
-              <a href="/product" style="text-decoration: none; color: white; font-size: 1.3rem;">
+              <a href="/product" style="text-decoration: none; color: white; font-size: 1.1rem;">
                 <p>Produk</p>
               </a>
             </div>
@@ -291,10 +289,10 @@
             <!-- Tirth Section -->
             <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
               <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Tentang Kami</h4>
-              <a href="/about" style="text-decoration: none; color: white; font-size: 1.3rem;">
+              <a href="/about" style="text-decoration: none; color: white; font-size: 1.1rem;">
                 <p>Tentang</p>
               </a>
-              <a href="/contact" style="text-decoration: none; color: white; font-size: 1.3rem;">
+              <a href="/contact" style="text-decoration: none; color: white; font-size: 1.1rem;">
                 <p>Kontak</p>
               </a>
             </div>
@@ -302,15 +300,15 @@
             <!-- Fourth Section -->
             <div class="col-lg-2 col-6 footer-links" style="text-align: left;">
               <h4 style="font-size: 1.7rem; font-weight: bold; margin-bottom: 2rem;">Hubungi Kami</h4>
-              <p style="text-decoration: none; color: white; font-size: 1.3rem;">abadijaya@gmail.com</p>
-              <p style="text-decoration: none; color: white; font-size: 1.3rem;">081-XXX-XXX-XXX</p>
+              <p style="text-decoration: none; color: white; font-size: 1.1rem;">abadijaya@gmail.com</p>
+              <p style="text-decoration: none; color: white; font-size: 1.1rem;">081-XXX-XXX-XXX</p>
             </div>
           </div>
 
           <!-- Bottom Section -->
           <div class="copyrights-container" style="margin-top: 45px; justify-content: center;">
-            <h5>© 2024 Toko Perabot Abadi Jaya</h4>
-              <p>All rights reserved.</p>
+            <h5>© 2024 Toko Perabot Abadi Jaya</h5>
+            <p style="font-size: 1.2rem;">All rights reserved.</p>
           </div>
         </div>
       </div>
