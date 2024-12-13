@@ -344,6 +344,7 @@ body::before {
     width: 90%;
     padding-left: 20px;
     padding-right: 20px;
+    border: 5px solid rgb(3, 3, 73) !important;
 }
 
 /* Tambahkan ini untuk mengubah warna tulisan di dalam edit-profile-container menjadi hitam */
@@ -370,6 +371,18 @@ body::before {
     object-fit: cover; 
     border: 3px; 
 }
+
+/* Default style untuk semua input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    border: 2px solid rgb(3, 3, 73); /* Warna garis awal */
+    border-radius: 5px; /* Membuat sudut membulat */
+    padding: 5px; /* Memberikan ruang */
+    transition: border-color 0.3s ease; /* Efek transisi saat border berubah */
+}
+
 
 .edit-icon {
     position: absolute; 

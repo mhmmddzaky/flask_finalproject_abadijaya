@@ -345,6 +345,7 @@ body::before {
     width: 90%;
     padding-left: 20px;
     padding-right: 20px;
+    border: 8px solid rgb(3, 3, 73) !important;
 }
 
 /* Tambahkan ini untuk mengubah warna tulisan di dalam profile-container menjadi hitam */
@@ -353,10 +354,8 @@ body::before {
 .profile-container p, 
 .profile-container .profile-label, 
 .profile-container .profile-value {
-    color: #000000 !important;  /* Hitam legam */
+    color: #000000 !important;  
 }
-
-
 
 .profile-photo img {
     width: 120px;
@@ -383,13 +382,10 @@ body::before {
   }
 
   .profile-section {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 0;
-  }
-
-  .profile-section:last-child {
-    border-bottom: none;
-  }
+    padding: 15px 0; 
+    border-bottom: 2px solid rgb(3, 3, 73) !important;
+    transition: border-color 0.3s ease; 
+}
 
   .edit-profile-btn {
     font-size: 18px;
