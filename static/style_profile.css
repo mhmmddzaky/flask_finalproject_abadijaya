@@ -348,7 +348,6 @@ body::before {
     border: 8px solid rgb(3, 3, 73) !important;
 }
 
-/* Tambahkan ini untuk mengubah warna tulisan di dalam profile-container menjadi hitam */
 .profile-container, 
 .profile-container h3, 
 .profile-container p, 

@@ -449,7 +449,7 @@ img {
 }
 
 .hover-zoom:hover {
-    transform: scale(1.05);  /* Mengubah skala zoom agar tidak terlalu besar */
+    transform: scale(1.05);  
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
 

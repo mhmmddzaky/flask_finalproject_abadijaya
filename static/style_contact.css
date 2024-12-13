@@ -479,8 +479,6 @@ body::before {
         margin-right: 20px;
         color: #ffffff; }
         
-
-/* Untuk layar kecil seperti ponsel (maksimal lebar 576px) */
 @media (max-width: 576px) {
     .untree_co-section {
       padding: 3rem 1rem;
@@ -519,7 +517,6 @@ body::before {
     }
   }
 
-/* Untuk layar tablet (maksimal lebar 768px) */
 @media (max-width: 768px) {
     .untree_co-section {
       padding: 5rem 1.5rem;
@@ -558,7 +555,6 @@ body::before {
     }
   }
   
-  /* Untuk layar desktop kecil (maksimal lebar 992px) */
   @media (max-width: 992px) {
     .untree_co-section {
       padding: 6rem 2rem;

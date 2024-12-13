@@ -140,50 +140,49 @@ body {
 }
 
 .product-table .edit-btn {
-    background-color: #28a745; /* Warna hijau untuk tombol Edit */
+    background-color: #28a745;
 }
 
 .product-table .delete-btn {
-    background-color: #dc3545; /* Warna merah untuk tombol Delete */
+    background-color: #dc3545;
 }
 
-/* Responsivitas untuk perangkat ponsel (orientasi vertikal) */
 @media (max-width: 767px) and (orientation: portrait) {
     .product-table th, .product-table td {
-        text-align: left; /* Teks header dan data ke kiri */
+        text-align: left; 
     }
 
     .product-table td:last-child {
-        padding: 0 5px; /* Kurangi padding kolom aksi */
+        padding: 0 5px; 
     }
 
     .product-table button {
-        width: 100%; /* Tombol akan mengambil 100% lebar kolom pada perangkat kecil */
-        margin: 5px 0; /* Menjaga jarak antar tombol */
+        width: 100%; 
+        margin: 5px 0; 
     }
 
-    /* Posisi tombol pertama di atas dan tombol kedua di bawah */
+ 
     .product-table td:last-child {
         flex-direction: column;
-        justify-content: flex-start; /* Tombol pertama di atas */
+        justify-content: flex-start; 
     }
 
     .product-table .edit-link {
-        width: 100%; /* Tombol akan mengambil 100% lebar kolom pada perangkat kecil */
-        margin: 5px 0; /* Menjaga jarak antar tombol */
+        width: 100%; 
+        margin: 5px 0; 
     }
 }
 
 .edit-link {
-    text-decoration: none; /* Hilangkan garis bawah */
-    display: inline-block; /* Agar mengikuti tata letak tombol */
-    width: 48%; /* Sesuai dengan lebar tombol */
+    text-decoration: none; 
+    display: inline-block; 
+    width: 48%; 
 }
 .edit-link > .edit-btn {
-    width: 100%; /* Tombol akan menyesuaikan lebar elemen induknya */
+    width: 100%; 
 }
 .edit-link > .delete-btn {
-    width: 100%; /* Tombol akan menyesuaikan lebar elemen induknya */
+    width: 100%; 
 }
 
 

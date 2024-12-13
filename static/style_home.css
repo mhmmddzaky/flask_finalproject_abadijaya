@@ -581,7 +581,6 @@ body::before {
         font-weight: bold;
     }
     
-    /* Efek hover pada gambar */
     .card-img-container:hover .overlay {
         opacity: 1; 
     }
@@ -590,7 +589,6 @@ body::before {
         opacity: 0.7; 
     }
 
-    /* Responsif - di bawah 620px, tampilkan 1 card per slide */
     @media (max-width: 620px) {
         .swiper-slide {
             width: 100%; 
@@ -826,7 +824,6 @@ body::before {
         line-height: 1.5; 
     }
 
-/* For responsiveness */
 @media screen and (max-width: 768px) {
     .container-why-choose {
         flex-direction: column; 
@@ -866,14 +863,13 @@ body::before {
 
 /* Start Kenali Toko Kami */
 
-    /* Efek hover zoom-in */
 .hover-zoom {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
   }
   
   .hover-zoom:hover {
-    transform: scale(1.1); /* Zoom-in */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan efek bayangan */
+    transform: scale(1.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
   }
 /* End Kenali Toko Kami */
 

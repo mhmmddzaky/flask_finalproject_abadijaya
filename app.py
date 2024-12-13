@@ -106,7 +106,7 @@ def login():
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if "user_id" not in session:  # Cek apakah pengguna sudah login
+        if "user_id" not in session: 
             flash("Anda harus login terlebih dahulu!", "error")
             return redirect(url_for("login", next=request.endpoint))  # Redirect ke login
         return f(*args, **kwargs)
