@@ -25,6 +25,9 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_about.css">
 
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>Topraja | Tentang Kami</title>
 
     <script>
@@ -138,7 +141,7 @@
     </section>
 
     <!-- About Us Content -->
-    <section id="about" class="container py-5">
+    <section id="about" class="container py-5" data-aos="fade-up" data-aos-duration="800">
         <h2 class="text-center mb-4 montserrat-alternates-bold">Toko Perabot Abadi Jaya</h2>
         <div class="row">
             <div class="col-lg-6">
@@ -167,7 +170,7 @@
         </div>
     </section>
 
-    <section id="owner" class="py-5 owner-section">
+    <section id="owner" class="py-5 owner-section" data-aos="fade-up" data-aos-duration="800">
         <div class="container">
             <h2 class="text-center mb-4 montserrat-alternates-bold">Pemilik Toko Abadi Jaya Perabot</h2>
             <div class="row align-items-center">
@@ -197,7 +200,7 @@
         <div class="container">
             <h2 class="text-center mb-4 montserrat-alternates-bold">Tim Pengembang Website</h2>
             <div class="row">
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="800">
                     <div class="card">
                         <img src="static/images/ilafoto.jpg" class="card-img-top" alt="Team Member 1">
                         <div class="card-body">
@@ -206,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="850">
                     <div class="card">
                         <img src="https://via.placeholder.com/300" class="card-img-top" alt="Team Member 2">
                         <div class="card-body">
@@ -215,7 +218,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="900">
                     <div class="card">
                         <img src="https://via.placeholder.com/300" class="card-img-top" alt="Team Member 3">
                         <div class="card-body">
@@ -309,6 +312,12 @@
                 }, 3000); // 5000 ms = 5 detik
             }
         });
+    </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
     </script>
 </body>
 

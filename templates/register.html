@@ -24,6 +24,9 @@
   <!-- Import CSS -->
   <link rel="stylesheet" href="static/style_register.css">
 
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <title>Topraja | Daftar Akun</title>
 
   <script>
@@ -121,7 +124,7 @@
 
   <!-- Kontainer Register -->
   <div class="container-banner">
-    <div class="inner-container">
+    <div class="inner-container"  data-aos="zoom-in-up" data-aos-duration="900">
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
       {% for category, message in messages %}
@@ -243,6 +246,12 @@
         }, 3000); 
       }
     });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  AOS.init();
   </script>
 </body>
 

@@ -24,6 +24,9 @@
   <!-- Import CSS -->
   <link rel="stylesheet" href="static/style_product.css">
 
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <title>Topraja | Produk</title>
 
   <script>
@@ -153,7 +156,7 @@
   <div class="container-fluid px-md-5">
     <div class="row mt-4 mb-4">
       <!-- Button Section (Sisi Kiri) -->
-      <div class="col-12 col-md-4 mt-2">
+      <div class="col-12 col-md-4 mt-2" data-aos="fade-up">
         <div class="sticky-top" style="top: 95px;">
           <div class="card border-light h-100">
             <div class="card-body shadow">
@@ -174,26 +177,6 @@
                   <span class="badge bg-secondary rounded-pill fs-6">{{ category.product_count }}</span>
                 </li>
                 {% endfor %}
-                <!-- <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Lemari</a>
-                  <span class="badge bg-secondary rounded-pill fs-6">123</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Spring Bed</a>
-                  <span class="badge bg-secondary rounded-pill fs-6">330</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Meja</a>
-                  <span class="badge bg-secondary rounded-pill fs-6">99</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Sofa</a>
-                  <span class="badge bg-secondary rounded-pill fs-6">210</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center border-0 py-1 px-0 small">
-                  <a href="#" class="text-muted text-decoration-none fs-6 hover-underline">Kursi</a>
-                  <span class="badge bg-secondary rounded-pill fs-6">134</span>
-                </li> -->
               </ul>
             </div>
           </div>
@@ -203,7 +186,7 @@
       <!-- Search and Card Section (Sisi Kanan) -->
       <div class="col-12 col-md-8">
         <!-- Search -->
-        <div class="mb-4 mt-2">
+        <div class="mb-4 mt-2" data-aos="fade-up">
           <form action="{{ url_for('product') }}" method="get">
             <div class="input-group shadow">
               <input type="text" name="search" class="form-control" placeholder="Cari"
@@ -227,7 +210,7 @@
         <div class="row g-4">
           {% for product in products %}
           <!-- Card 1 -->
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-md-4" data-aos="fade-up">
             <div class="card border-light position-relative h-100 shadow lengkung-border">
               <div class="card-img-container lengkung-border-atas">
                 <img src="{{ product.product_image[0] }}" class="card-img-top zoom-image" alt="product-image">
@@ -327,6 +310,12 @@
         }, 3000); 
       }
     });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 </body>
 

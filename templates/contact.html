@@ -24,6 +24,9 @@
   <!-- Import CSS -->
   <link rel="stylesheet" href="static/style_contact.css">
 
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <title>Topraja | Kontak</title>
 
   <script>
@@ -149,7 +152,7 @@
   <!-- End Banner Section -->
 
   <!-- Start Contact Form -->
-  <div class="untree_co-section">
+  <div class="untree_co-section"  data-aos="zoom-in-up" data-aos-duration="900">
     <div class="container position-relative z-index-2">
       <div class="block d-flex flex-wrap">
         <!-- Bagian Kiri: Formulir dan Ikon -->
@@ -304,6 +307,12 @@
         }, 3000); // 5000 ms = 5 detik
       }
     });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 </body>
 

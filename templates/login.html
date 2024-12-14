@@ -24,6 +24,9 @@
     <!-- Import CSS -->
     <link rel="stylesheet" href="static/style_login.css">
 
+      <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>Topraja | Masuk</title>
 
     <script>
@@ -119,17 +122,17 @@
     <!-- End Modal Notifikasi -->
 
     <!-- Kontainer Login -->
-    <div class="container-banner">
-        <div class="inner-container">
+    <div class="container-banner" >
+        <div class="inner-container" data-aos="zoom-in-up" data-aos-duration="900">
             {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            {% for category, message in messages %}
-            <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
-                role="alert">
-                {{ message }}
-            </div>
-            {% endfor %}
-            {% endif %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert {% if category == 'success' %}alert-success{% elif category == 'error' %}alert-danger{% else %}alert-info{% endif %}"
+                        role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
             {% endwith %}
             <h1>Masuk</h1>
             <form method="POST" action="{{ url_for('login') }}">
@@ -227,9 +230,15 @@
                 modal.show();
                 setTimeout(() => {
                     modal.hide();
-                }, 3000); =
+                }, 3000); 
             }
         });
+    </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
     </script>
 </body>
 
