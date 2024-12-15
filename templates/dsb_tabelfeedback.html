@@ -143,8 +143,10 @@
         <table class="product-table">
             <thead>
                 <tr>
+                    <th>Tanggal</th>
                     <th>Nama Pengirim</th>
                     <th>Email</th>
+                    <th>No Handphone</th>
                     <th>Pesan</th>
                     <th>Aksi</th>
                 </tr>
@@ -152,8 +154,10 @@
             <tbody>
                 {% for feedback in feedbacks %}
                 <tr>
+                    <td>{{ feedback.date.strftime('%Y-%m-%d %H:%M') }}</td>
                     <td>{{ feedback.fullname }}</td>
                     <td>{{ feedback.email }}</td>
+                    <td>{{ feedback.no_hp }}</td>
                     <td>{{ feedback.message[:50] }}...</td> <!-- Tampilkan 50 karakter pertama dari pesan -->
                     <td>
                         <a href="{{ url_for('view_feedback', id=feedback._id) }}" class="edit-link">

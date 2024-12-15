@@ -808,7 +808,8 @@ body::before {
     }
     
     .teks-why-choose-main {
-        display: flex; 
+        text-align: left;
+        /* display: flex;  */
         align-items: center; 
         gap: 10px; 
     }

@@ -50,7 +50,6 @@ def register():
             return redirect(url_for("register"))
 
         # Hash password dan simpan ke database
-         # Hash password dan simpan ke database
         hashed_password = generate_password_hash(password)  
 
         # Foto profil default
@@ -162,10 +161,11 @@ def contact():
             # Ambil data dari form
             fullname = request.form.get("fullname")
             email = request.form.get("email")
+            no_hp = request.form.get("no_hp")
             message = request.form.get("message")
 
             # Validasi sederhana
-            if not fullname or not email or not message:
+            if not fullname or not email or not no_hp or not message:
                 flash("Semua field wajib diisi!", "error")
                 return redirect(url_for("contact"))
 
@@ -173,6 +173,7 @@ def contact():
             feedback_data = {
                 "fullname": fullname,
                 "email": email,
+                "no_hp": no_hp,
                 "message": message,
                 "date": datetime.now()
             }
@@ -251,6 +252,7 @@ def update_profile():
             file_path = os.path.join(upload_folder, filename)
             profile_picture.save(file_path)
             file_path = f'static/foto_profile/{filename}' # Path untuk database
+
         else:
             # Jika tidak ada file yang diunggah, gunakan foto profil yang sudah ada atau default
             file_path = user.get("profile_picture", "static/foto_profile/profile.png")
@@ -330,8 +332,8 @@ def product():
         categories=categories,
          selected_category=selected_category,
         products=products,
-        no_results=no_results,  # Menyertakan variabel untuk menampilkan pesan jika tidak ada hasil
-        search_query=search_query  # Kirimkan query pencarian untuk menampilkan kembali di input
+        no_results=no_results,  
+        search_query=search_query  
     )
 
 # PRODUCT DETAIL ROUTE
@@ -378,7 +380,7 @@ def dashboard():
     # Periksa apakah pengguna memiliki peran admin
     if user.get("role") != "admin":
         flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
-        return redirect(url_for("home"))  # Ganti 'home' dengan halaman lain untuk user biasa
+        return redirect(url_for("home"))  
 
     return render_template(
         'dashboard.html',
@@ -449,7 +451,8 @@ def edit_kategori():
     
     # Mendapatkan data kategori berdasarkan ID
     category = db.category.find_one({"_id": ObjectId(category_id)}, {
-        "category_name": 1
+        "category_name": 1,
+        "category_image": 1
     })
 
     if not category:
@@ -471,6 +474,12 @@ def edit_kategori():
             file_path = os.path.join('static', 'category_images', filename)
             file.save(file_path)
 
+           # Hapus file gambar jika ada
+            if category.get("category_image"): 
+                old_image_path = os.path.join("static", "category_images", category["category_image"])
+                if os.path.exists(old_image_path):  
+                    os.remove(old_image_path) 
+
             # Tambahkan nama file gambar baru ke data update
             update_data["category_image"] = filename
 
@@ -487,6 +496,15 @@ def edit_kategori():
 @app.route('/delete_kategori/<category_id>', methods=["POST"])
 def delete_kategori(category_id):
     try:
+        # Cari kategori berdasarkan ID
+        category = db.category.find_one({"_id": ObjectId(category_id)})
+
+        # Hapus file gambar jika ada
+        if "category_image" in category and category["category_image"]: 
+            image_path = os.path.join("static", "category_images", category["category_image"])
+            if os.path.exists(image_path):  
+                os.remove(image_path)  
+
         # Hapus kategori berdasarkan ID
         result = db.category.delete_one({"_id": ObjectId(category_id)})
 
@@ -584,6 +602,7 @@ def edit_produk():
     # Mendapatkan data produk berdasarkan ID
     product = db.product.find_one({"_id": ObjectId(product_id)}, {
         "product_name": 1,
+        "product_image": 1,
         "product_category": 1,
         "product_brand": 1,
         "product_desc": 1,
@@ -615,7 +634,7 @@ def edit_produk():
 
         # Cek apakah ada gambar baru yang diunggah
         files = request.files.getlist("product_image")
-        if files and files[0].filename != "":  # Pastikan setidaknya ada satu file yang diunggah
+        if files and files[0].filename != "":  
             image_paths = []
             
             for index, file in enumerate(files):
@@ -629,6 +648,15 @@ def edit_produk():
                     file_path = os.path.join('static', 'product_images', filename)
                     file.save(file_path)  # Simpan file ke folder lokal
                     image_paths.append(file_path)
+
+            # Hapus gambar lama dari folder lokal
+            if "product_image" in product and product["product_image"]:
+                 if isinstance(product["product_image"], list): 
+                    for db_path in product["product_image"]:
+                        file_name = os.path.basename(db_path)
+                        local_path = os.path.join("static", "product_images", file_name)
+                        if os.path.exists(local_path):
+                            os.remove(local_path)
 
             # Tambahkan array nama file gambar baru ke data update
             update_data["product_image"] = image_paths
@@ -652,8 +680,21 @@ def edit_produk():
 @app.route('/delete_produk/<product_id>', methods=["POST"])
 def delete_produk(product_id):
     try:
+        # Cari kategori berdasarkan ID
+        product = db.product.find_one({"_id": ObjectId(product_id)})
+
+        # Hapus file image di folder local jika ada
+        if "product_image" in product and product["product_image"]: 
+            if isinstance(product["product_image"], list):  
+                for db_path in product["product_image"]:
+                    file_name = os.path.basename(db_path)
+                    local_path = os.path.join("static", "product_images", file_name)
+                    if os.path.exists(local_path):
+                        print(f"Menghapus file: {local_path}")
+                        os.remove(local_path)
+
         # Hapus produk berdasarkan ID
-        result = db.product.delete_one({"_id": ObjectId(product_id)})
+        result = db.product.delete_one({"_id": ObjectId(product_id)})        
 
         # Cek apakah ada data yang dihapus
         if result.deleted_count > 0:
@@ -802,7 +843,9 @@ def view_feedback():
     feedback = db.feedback.find_one({"_id": ObjectId(feedback_id)}, {
         "fullname": 1,
         "email": 1,
-        "message": 1
+        "no_hp": 1,
+        "message": 1,
+        "date": 1
     })
 
     if not feedback:

@@ -109,6 +109,11 @@
             <h2>Feedback</h2>
             <form>
                 <div class="mb-3">
+                    <label for="tanggal" class="form-label">Tanggal</label>
+                    <input type="text" class="form-control" id="tanggal" name="tanggal"
+                        value="{{ feedback.date.strftime('%Y-%m-%d %H:%M') }}" readonly>
+                </div>
+                <div class="mb-3">
                     <label for="namaPengirim" class="form-label">Nama Pengirim</label>
                     <input type="text" class="form-control" id="namaPengirim" name="sender_name"
                         value="{{ feedback.fullname }}" readonly>
@@ -116,6 +121,11 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="email" value="{{ feedback.email }}"
+                        readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="no_hp" class="form-label">No Handphone</label>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ feedback.no_hp }}"
                         readonly>
                 </div>
                 <div class="mb-3">
