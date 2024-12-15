@@ -524,6 +524,14 @@ body::before {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
     }
+
+    .card-footer {
+        flex-grow: 1; 
+        min-height: 100px; 
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-start; 
+      }
     /* Akhir Card Image Container */
 
 /* Akhir Content Produk */

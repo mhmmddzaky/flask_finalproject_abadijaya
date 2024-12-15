@@ -74,7 +74,7 @@
 
         </ul>
       </div>
-      {% if session.user_id %} <!--jika user sudah login login-->
+      {% if session.user_id %} <!--jika user sudah login-->
       <img src="{{ profile_picture }}" class="user-pic" onclick="toggleMenu()" alt="Profile Icon">
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
@@ -280,103 +280,15 @@
                         <span class="text-white h5">Product Detail</span>
                       </a>
                     </div>
-                    <div class="card-footer border-top border-light p-4">
+                    <div class="card-footer border-top border-light p-4 w-100">
                       <a href="/detail_produk" class="h5 text-decoration-none text-dark">{{ product.product_name }}</a>
+                      {% if session.user_id %}
                       <div class="mt-2 fw-bold">{{ product.product_price|rupiah }}</div>
+                      {% endif %}
                     </div>
                   </div>
                 </div>
                 {% endfor %}
-
-                <!-- <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-12 col-md-6 mb-4">
-                  <div class="card border-light position-relative h-100 shadow lengkung-border"
-                    onclick="to_detailpage()">
-                    <div class="card-produk-unggulan-img-container lengkung-border-atas">
-                      <img src="/static/images/img-1.jpg" class="card-produk-unggulan-img-top zoom-image"
-                        alt="product-image">
-                      <a href="/detail_produk"
-                        class="overlay d-flex align-items-center justify-content-center text-decoration-none">
-                        <span class="text-white h5">Product Detail</span>
-                      </a>
-                    </div>
-                    <div class="card-footer border-top border-light p-4">
-                      <a href="/detail_produk" class="h5 text-decoration-none text-dark">Spring Bed Bigland</a>
-                      <div class="mt-2 fw-bold">Rp799.000</div>
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>

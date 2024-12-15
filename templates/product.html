@@ -221,7 +221,9 @@
               </div>
               <div class="card-footer text-center border-top border-light p-4">
                 <a href="#" class="h5 text-decoration-none text-dark">{{ product.product_name }}</a>
+                {% if session.user_id %}
                 <div class="mt-2 fw-bold">{{ product.product_price|rupiah }}</div>
+                {% endif %}
               </div>
             </div>
           </div>

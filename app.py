@@ -336,6 +336,7 @@ def product():
 
 # PRODUCT DETAIL ROUTE
 @app.route('/detail_produk')
+@login_required
 def detail_produk():
     profile_picture = session.get("profile_picture", "static/foto_profile/profile.png")
 
