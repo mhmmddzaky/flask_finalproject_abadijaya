@@ -389,6 +389,15 @@ def dashboard():
 # CATEGORY ADD ROUTE
 @app.route('/add_kategori', methods=['GET', 'POST'])
 def add_kategori():
+
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+     
     if request.method == 'POST':
         try:
             # Menerima data dari form
@@ -434,6 +443,16 @@ def add_kategori():
 # CATEGORY TABLE ROUTE
 @app.route('/tabel_kategori')
 def tabel_kategori():
+        
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+     
+
     # Ambil semua data kategori dari koleksi category
     categories = list(db.category.find())
     
@@ -447,6 +466,15 @@ def tabel_kategori():
 # CATEGORY EDIT ROUTE
 @app.route('/edit_kategori', methods=["GET", "POST"])
 def edit_kategori():
+      
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+     
     category_id = request.args.get("id")
     
     # Mendapatkan data kategori berdasarkan ID
@@ -521,6 +549,15 @@ def delete_kategori(category_id):
 # PRODUCT ADD ROUTE
 @app.route('/add_produk', methods=['GET', 'POST'])
 def add_produk():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+
     if request.method == 'POST':
         try:
             # Menerima data dari form
@@ -584,6 +621,15 @@ def add_produk():
 # PRODUCT TABLE ROUTE
 @app.route('/tabel_produk')
 def tabel_produk():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+
     # Ambil semua data produk dari koleksi product
     products = list(db.product.find())
     
@@ -597,6 +643,15 @@ def tabel_produk():
 # PRODUCT EDIT ROUTE
 @app.route('/edit_produk', methods=["GET", "POST"])
 def edit_produk():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+
     product_id = request.args.get("id")
 
     # Mendapatkan data produk berdasarkan ID
@@ -709,6 +764,15 @@ def delete_produk(product_id):
 # USER ADD ROUTE
 @app.route('/add_admin', methods=["GET", "POST"])
 def add_admin():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+
     if request.method == "POST":
         # Ambil data dari form
         username = request.form.get("username")
@@ -751,6 +815,15 @@ def add_admin():
 # USER TABLE ROUTE
 @app.route('/tabel_user')
 def tabel_user():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+
     # Ambil semua data pengguna dari koleksi users
     users = list(db.users.find())
     
@@ -824,6 +897,15 @@ def delete_user(user_id):
 # FEEDBACK TABLE ROUTE
 @app.route('/tabel_feedback', methods=['GET'])
 def tabel_feedback():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+ 
     # Ambil semua data feedback dari koleksi feedback
     feedbacks = list(db.feedback.find())
 
@@ -837,6 +919,15 @@ def tabel_feedback():
 # FEEDBACK VIEW ROUTE
 @app.route('/view_feedback', methods=["GET"])
 def view_feedback():
+         
+    # Ambil data pengguna berdasarkan sesi user_id
+    user_id = session["user_id"]
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+
+    if user.get("role") != "admin":
+        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
+        return redirect(url_for("home")) 
+ 
     feedback_id = request.args.get("id")
     
     # Mendapatkan data feedback berdasarkan ID
@@ -872,41 +963,6 @@ def delete_feedback(feedback_id):
     
     return redirect(url_for("tabel_feedback"))
 
-# ADMIN PROFILE ROUTE
-@app.route('/profile_admin')
-def profile_admin():
-    # Periksa apakah pengguna sudah login
-    if "user_id" not in session:
-        flash("Anda harus login terlebih dahulu!", "error")
-        return redirect(url_for("login"))
-
-    # Ambil data pengguna berdasarkan sesi user_id
-    user_id = session["user_id"]
-    user = db.users.find_one({"_id": ObjectId(user_id)})
-
-    if not user:
-        flash("Pengguna tidak ditemukan.", "error")
-        return redirect(url_for("login"))
-
-    # Periksa apakah pengguna memiliki peran admin
-    if user.get("role") != "admin":
-        flash("Anda tidak memiliki izin untuk mengakses halaman ini.", "error")
-        return redirect(url_for("home"))  
-
-    # Kirim data ke template
-    profile_data = {
-        "username": user.get("username", "Tidak Diketahui"),
-        "full_name": user.get("fullname", "Tidak Diketahui"),
-        "email": user.get("email", "Tidak Diketahui"),
-        "profile_picture": user.get("profile_picture", "/static/images/default_profile.png")
-    }
-
-    return render_template('profile_admin.html', profile_data=profile_data)
-
-# ADMIN PROFILE EDIT ROUTE
-@app.route('/updateprofile_admin')
-def updateprofile_admin():
-    return render_template('update_profileadmin.html') 
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5009, debug=True)

@@ -672,7 +672,8 @@ body::before {
         min-height: 100px; 
         display: flex;
         flex-direction: column; 
-        justify-content: flex-start; 
+        justify-content: flex-start;
+        text-align: center; 
       }
     
 /* End product unggulan */
