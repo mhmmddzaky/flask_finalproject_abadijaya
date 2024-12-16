@@ -965,4 +965,5 @@ def delete_feedback(feedback_id):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5009, debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Gunakan $PORT, default ke 5000 jika tidak diatur
+    app.run('0.0.0.0', port=port, debug=True)
