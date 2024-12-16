@@ -49,8 +49,7 @@ def register():
             flash("Email sudah terdaftar. Gunakan email lain.", "error")
             return redirect(url_for("register"))
 
-        # Hash password dan simpan ke database
-        hashed_password = generate_password_hash(password)  
+        hashed_password = generate_password_hash(password, method="pbkdf2:sha256", salt_length=16)
 
         # Foto profil default
         default_profile_picture = "static/foto_profile/profile.png"
@@ -269,7 +268,8 @@ def update_profile():
 
         # Jika ada password baru, hash dan simpan
         if new_password:
-            hashed_password = generate_password_hash(new_password)
+            hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256', salt_length=16)
+
             db.users.update_one({"_id": ObjectId(user_id)}, {
                 "$set": {
                     "password": hashed_password
@@ -793,7 +793,7 @@ def add_admin():
             return redirect(url_for("add_admin"))
 
         # Hash password dan simpan ke database
-        hashed_password = generate_password_hash(password)  
+        hashed_password = generate_password_hash(password, method="pbkdf2:sha256", salt_length=16)
 
         # Foto profil default
         default_profile_picture = "static/foto_profile/profile.png"
@@ -866,7 +866,8 @@ def edit_user():
 
          # password baru, hash dan simpan
         if new_password:
-            hashed_password = generate_password_hash(new_password)
+            hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256', salt_length=16)
+
             db.users.update_one({"_id": ObjectId(user_id)}, {
                 "$set": {
                     "password": hashed_password
@@ -965,5 +966,4 @@ def delete_feedback(feedback_id):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Gunakan $PORT, default ke 5000 jika tidak diatur
-    app.run('0.0.0.0', port=port, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
